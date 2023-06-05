@@ -10,9 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_082726) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_05_094253) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "item_styles", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "style_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_styles_on_item_id"
+    t.index ["style_id"], name: "index_item_styles_on_style_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "title"
+    t.string "brand"
+    t.string "color"
+    t.string "type"
+    t.integer "original_price"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "outfit_items", force: :cascade do |t|
+    t.bigint "outfit_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_outfit_items_on_item_id"
+    t.index ["outfit_id"], name: "index_outfit_items_on_outfit_id"
+  end
+
+  create_table "outfits", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_outfits_on_user_id"
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +70,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_082726) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "item_styles", "items"
+  add_foreign_key "item_styles", "styles"
+  add_foreign_key "items", "users"
+  add_foreign_key "outfit_items", "items"
+  add_foreign_key "outfit_items", "outfits"
+  add_foreign_key "outfits", "users"
 end
