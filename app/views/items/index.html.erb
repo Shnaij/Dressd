@@ -1,0 +1,180 @@
+<div class="card-container">
+  <div class="banner">
+    <h1>My Closet</h1>
+  </div>
+</div>
+
+<div class="container">
+  <%= form_with(url: items_path, method: :get, class: "search-form") do |f| %>
+    <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
+    <%= f.submit "Search", class: "filter-button" %>
+  <% end %>
+</div>
+
+
+<div class="container">
+  <div class="filter-sort">
+    <%= form_tag(items_path, method: :get) do %>
+      <%= submit_tag 'Filter', class: 'filter-button' %>
+    <% end %>
+  </div>
+
+  <div class="card-container">
+    <h3>My Tops</h3>
+    <div class="card">
+      <div class="tops-selections">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <% if @tops.count == 1 %>
+              <div class="carousel-item active">
+                <img src=" <%= cl_image_path @tops.first.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+              </div>
+            <% else %>
+              <div class="carousel-item active">
+                <img src=" <%= cl_image_path @tops.first.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+              </div>
+              <% @tops[1..-1].each do |top| %>
+                <div class="carousel-item">
+                  <img src=" <%= cl_image_path top.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <h3>My Bottomss</h3>
+    <div class="card">
+      <div class="bottoms-selections">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <% if @bottoms.count == 1 %>
+              <div class="carousel-item active">
+                <img src=" <%= cl_image_path @bottoms.first.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+              </div>
+            <% else %>
+              <div class="carousel-item active">
+                <img src=" <%= cl_image_path @bottoms.first.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+              </div>
+              <% @bottoms[1..-1].each do |bottom| %>
+                <div class="carousel-item">
+                  <img src=" <%= cl_image_path bottom.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="card-container">
+    <h3>My Shoes</h3>
+    <div class="card">
+      <div class="shoes-selections">
+
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <% if @shoes.count == 1 %>
+              <div class="carousel-item active">
+                <img src=" <%= cl_image_path @shoes.first.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+              </div>
+            <% else %>
+              <div class="carousel-item active">
+                <img src=" <%= cl_image_path @shoes.first.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+              </div>
+              <% @shoes[1..-1].each do |shoe| %>
+                <div class="carousel-item">
+                  <img src=" <%= cl_image_path shoe.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <h3>My Dresses</h3>
+    <div class="card">
+      <div class="dresses-selections">
+
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <% if @dresses.count == 1 %>
+              <div class="carousel-item active">
+                <img src=" <%= cl_image_path @dresses.first.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+              </div>
+            <% else %>
+              <div class="carousel-item active">
+                <img src=" <%= cl_image_path @dresses.first.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+              </div>
+              <% @dresses[1..-1].each do |dress| %>
+                <div class="carousel-item">
+                  <img src=" <%= cl_image_path dress.photo.key, height: 200, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

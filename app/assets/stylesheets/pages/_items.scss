@@ -1,0 +1,29 @@
+.h150 {
+  height: 150px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: #fff7f0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.tops-selections,
+.bottoms-selections,
+.Dresses-selections,
+.shoes-selections {
+  padding: 10px;
+}
+
+h3 {
+  margin: 0;
+}
