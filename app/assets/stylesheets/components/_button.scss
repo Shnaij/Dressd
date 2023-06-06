@@ -2,7 +2,7 @@
   padding: 12px 16px;
   font-size: 18px;
   background-color: transparent;
-  color: black;
+  color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -14,14 +14,40 @@
 }
 
 .weather-button {
+  padding: 12px 0;
+  width: 100%;
+  font-size: 18px;
+  background-color: $secondary-color;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: $body-font;
+  text-decoration: none;
+  transition: background-color 1s; /* Transition duration of 1 second */
+}
+
+.weather-button:hover {
+  background-color: $beige-color;
+  color: black;
+}
+
+.beige-button {
+  padding: 12px 0;
+  width: 100%;
+  font-size: 18px;
+  background-color: $beige-color;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: $body-font;
+  text-decoration: none;
+  transition: background-color 1s; /* Transition duration of 1 second */
 
 }
 
-.dress-me-button {
-
+.beige-button:hover {
+  background-color: $primary-color;
+  color: black;
 }
-
-.friends-button {
-
-}
-
