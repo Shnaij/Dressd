@@ -1,9 +1,31 @@
 // Specific CSS for your home-page
 
+
+
 .items-details {
   margin-top: 10px;
   background-color: #FFF7F0;
   padding: 100px;
   margin-bottom: 60px;
   border-radius: 10px 10px 10px 10px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.logo-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.weather-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
 }
