@@ -34,7 +34,7 @@
   margin-right: 10px;
 }
 
-.weather-button:hover {
+.pink-button:hover {
   background-color: $beige-color;
   color: black;
 }
@@ -56,5 +56,25 @@
 
 .beige-button:hover {
   background-color: $primary-color;
+  color: black;
+}
+
+.beige-pink-button {
+  padding: 12px 0;
+  width: 100%;
+  font-size: 18px;
+  background-color: $beige-color;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: $body-font;
+  text-decoration: none;
+  transition: background-color 1s; /* Transition duration of 1 second */
+
+}
+
+.beige-pink-button:hover {
+  background-color: $secondary-color;
   color: black;
 }
