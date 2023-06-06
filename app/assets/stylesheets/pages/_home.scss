@@ -1,31 +1,43 @@
-// Specific CSS for your home-page
-
-
-
-.items-details {
-  margin-top: 10px;
-  background-color: #FFF7F0;
-  padding: 100px;
-  margin-bottom: 60px;
-  border-radius: 10px 10px 10px 10px;
+.weather-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  padding-left: 20px;
+.weather-button {
+  padding: 20px 20px;
+  font-size: 16px;
+  background-color: $secondary-color;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: $body-font;
+  text-decoration: none;
+  transition: background-color 1s;
 }
 
 .logo-image {
   width: 80px;
   height: 80px;
-  margin-right: 10px;
 }
 
-.weather-button {
+.button-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 20px;
+  margin-bottom: 20px;
+}
+
+.beige-button {
+  padding: 20px 20px;
+  font-size: 16px;
+  background-color: $beige-color;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: $body-font;
+  text-decoration: none;
+  transition: background-color 1s;
 }

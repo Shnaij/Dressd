@@ -14,9 +14,9 @@
 }
 
 .weather-button {
-  padding: 12px 0;
-  width: 100%;
-  font-size: 18px;
+  padding: 20px 20px;
+  width: 75%;
+  font-size: 16px;
   background-color: $secondary-color;
   color: rgb(0, 0, 0);
   border: none;
@@ -24,7 +24,10 @@
   cursor: pointer;
   font-family: $body-font;
   text-decoration: none;
-  transition: background-color 1s; /* Transition duration of 1 second */
+  transition: background-color 1s;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 10px;
 }
 
 .weather-button:hover {
@@ -33,7 +36,7 @@
 }
 
 .beige-button {
-  padding: 12px 0;
+  padding: 20px 20px;
   width: 100%;
   font-size: 18px;
   background-color: $beige-color;
