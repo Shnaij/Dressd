@@ -1,25 +1,36 @@
 <div class="banner">
-  <h1>My profile</h1>
+  <h1>Shnai Profile</h1>
 </div>
 
-
-<div class="pink-button">
-  <%= link_to "Cloudy with a chance of rain", root_path, class: "back-button" %>
+<div class="container">
+  <div class="logo">
+    <%= image_tag("weather.png", alt: "Logo", class: "logo-image") %>
+  </div>
+  <div class="pink-button">
+    <%= link_to "Cloudy with a chance of rain", root_path, class: "back-button" %>
+  </div>
 </div>
 
 <div class="button-container">
-  <div class="beige-button">
-    <%= link_to "Dress Me", root_path, class: "back-button" %>
+  <div class="left-button">
+    <button class="beige-button">Dress Me</button>
+  </div>
+  <div class="right-button">
+    <button class="beige-button">Friends</button>
+  </div>
 </div>
 
-  <div class="beige-button">
-    <%= link_to "Friends", root_path, class: "back-button" %>
+<div class="section-container">
+  <h2>My Items</h2>
+    <div class="items-details">
+      <!-- Add your content for My Items here -->
+    </div>
   </div>
 
-<div class="items-details">
-  <h2>My Items</h2>
-</div>
-
-<div class="outfit-details">
+<div class="section-container">
   <h2>My Outfits</h2>
+    <div class="outfit-details">
+      <!-- Add your content for My Outfits here -->
+    </div>
+  </div>
 </div>
