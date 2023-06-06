@@ -43,7 +43,11 @@ type = ['dresses', 'tops', 'bottoms', 'shoes']
 brand = ['Zara', 'Mango', 'Gucci', 'H&M', 'Lois', 'Levi Strauss & Co', '& Other Stories', 'Nike']
 color = ['white/light', 'black/dark', 'blue', 'pink', 'multicolor', 'green']
 
-style = ['sporty', 'casual', 'comfy', 'party', 'evening out']
+styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
+styles_array.each do |style|
+  Style.create(title: style)
+end
+styles = Style.all
 
 user = [bettina, adinda, shnai, elizabeth]
 
@@ -62,8 +66,8 @@ type.each do |type|
     file = File.open(Rails.root.join("app/assets/images/rainbow_dress.png"))
     item.photos.attach(io: file, filename: 'image.png', content_type: 'image/png')
 
-    # Assign categories manually
-    item.category = category
     item.save
+
+    ItemStyle.create(item: item, style: styles.sample)
   end
 end
