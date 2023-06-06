@@ -1,0 +1,46 @@
+<div class="card-container">
+  <div class="banner">
+    <h1>My Closet</h1>
+  </div>
+</div>
+
+<div class="container">
+  <%= form_with(url: items_path, method: :get, class: "search-form") do |f| %>
+    <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
+    <%= f.submit "Search", class: "filter-button" %>
+  <% end %>
+</div>
+
+
+<div class="container">
+  <div class="filter-sort">
+    <%= form_tag(items_path, method: :get) do %>
+      <%= submit_tag 'Filter', class: 'filter-button' %>
+    <% end %>
+  </div>
+
+<div class="card-container">
+  <div class="card">
+    <div class="tops-selections">
+      <h3>My Tops</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="bottoms-selections">
+      <h3>My Bottoms</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="Dresses-selections">
+      <h3>My Dresses</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="shoes-selections">
+      <h3>My Shoes</h3>
+    </div>
+  </div>
+</div>
