@@ -8,6 +8,7 @@
 require 'faker'
 
 puts "Cleaning database.."
+ItemStyle.destroy_all
 Item.destroy_all
 User.destroy_all
 
@@ -38,10 +39,14 @@ bettina = User.new(
 )
 bettina.save!
 
-title = ['Favorite summer dress', 'Best basic top', 'Skinny jeans', 'Comfy sneakers', 'Party dress', 'Party heels', 'Jeans shorts']
-type = ['dresses', 'tops', 'bottoms', 'shoes']
-brand = ['Zara', 'Mango', 'Gucci', 'H&M', 'Lois', 'Levi Strauss & Co', '& Other Stories', 'Nike']
-color = ['white/light', 'black/dark', 'blue', 'pink', 'multicolor', 'green']
+dress_titles = ['Favorite dress', 'Party dress', 'Date night dress', 'Flattering dress', 'Summer dress', 'Casual dress']
+tops_titles = ['Best basic top', 'Favorite top', 'Summer top', 'Sexy top', 'I look good top', 'Casual top']
+bottoms_titles = ['Favorite pants', 'Comfy pants', 'Summer pants', 'Cool pants', 'My sexy pants', 'Casual pants']
+shoes_titles = ['Comfy shoes', 'Party shoes', 'Favorite shoes', 'Casual shoes', 'Summer shoes', 'Cool walk shoes']
+
+types = ['dresses', 'tops', 'bottoms', 'shoes']
+brands = ['Zara', 'Mango', 'Gucci', 'H&M', 'American Vintage', '& Other Stories', 'Urban Outfitters', 'TiMo', 'Brandz', 'Sister']
+colors = ['white/light', 'black/dark', 'blue', 'pink', 'multicolor', 'green']
 
 styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
 styles_array.each do |style|
@@ -51,23 +56,78 @@ styles = Style.all
 
 user = [bettina, adinda, shnai, elizabeth]
 
-type.each do |type|
-  8.times do |num|
-    item = Item.new(
-      title: title.sample,
-      type: type.sample,
-      brand: brand.sample,
-      color: color.sample,
-      original_price: Faker::Commerce.price(range: 100.0..500.0),
-      user: bettina
-    )
+6.times do
+  item = Item.new(
+    title: dress_titles.sample,
+    category: "dresses",
+    brand: brands.sample,
+    color: colors.sample,
+    original_price: Faker::Commerce.price(range: 100.0..500.0),
+    user: bettina
+  )
 
-    # file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.png"))
-    file = File.open(Rails.root.join("app/assets/images/rainbow_dress.png"))
-    item.photos.attach(io: file, filename: 'image.png', content_type: 'image/png')
+  # file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
+  file = File.open(Rails.root.join("app/assets/images/hm_dress.jpeg"))
+  item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
 
-    item.save
+  item.save
 
-    ItemStyle.create(item: item, style: styles.sample)
-  end
+  ItemStyle.create(item: item, style: styles.sample)
+end
+
+6.times do
+  item = Item.new(
+    title: tops_titles.sample,
+    category: "tops",
+    brand: brands.sample,
+    color: colors.sample,
+    original_price: Faker::Commerce.price(range: 100.0..500.0),
+    user: bettina
+  )
+
+  # file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
+  file = File.open(Rails.root.join("app/assets/images/hm_top.jpeg"))
+  item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
+
+  item.save
+
+  ItemStyle.create(item: item, style: styles.sample)
+end
+
+6.times do
+  item = Item.new(
+    title: bottoms_titles.sample,
+    category: "bottoms",
+    brand: brands.sample,
+    color: colors.sample,
+    original_price: Faker::Commerce.price(range: 100.0..500.0),
+    user: bettina
+  )
+
+  # file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
+  file = File.open(Rails.root.join("app/assets/images/hm_pants.jpeg"))
+  item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
+
+  item.save
+
+  ItemStyle.create(item: item, style: styles.sample)
+end
+
+6.times do
+  item = Item.new(
+    title: shoes_titles.sample,
+    category: "shoes",
+    brand: brands.sample,
+    color: colors.sample,
+    original_price: Faker::Commerce.price(range: 100.0..500.0),
+    user: bettina
+  )
+
+  # file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
+  file = File.open(Rails.root.join("app/assets/images/hm_shoes.jpeg"))
+  item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
+
+  item.save
+
+  ItemStyle.create(item: item, style: styles.sample)
 end
