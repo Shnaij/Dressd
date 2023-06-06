@@ -1,12 +1,12 @@
 .navbar {
   justify-content: space-between;
-  background:#F6A785;
+  background: $primary-color;
   // border-bottom-left-radius: 10px;
   // border-bottom-right-radius: 10px;
-  border-top: 1px solid rgba(0,0,0,0.2);
+  //border-top: 1px solid rgba(0,0,0,0.2);
   // height: 80px;
   padding: 10px;
-  border-radius: 10px 10px 0 0;
+  border-radius: 0 0 0 0;
   position: fixed;
   width: 100%;
   bottom: 0;
