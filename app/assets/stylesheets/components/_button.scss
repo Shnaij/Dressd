@@ -104,3 +104,20 @@
   background-color: $beige-color;
   color: black;
 }
+
+.search-button {
+  padding: 4px 0;
+  font-size: 16px;
+  background-color: $secondary-color;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 1s;
+  display: inline-block;
+  width: 100px;
+  transition: background-color 1s; /* Transition duration of 1 second */
+}
+.search-button:hover {
+    background-color: $beige-color;
+  }
