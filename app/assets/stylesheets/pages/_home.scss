@@ -4,9 +4,8 @@
   align-items: center;
 }
 
-.weather-button {
-  padding: 20px 20px;
-  font-size: 16px;
+.pink-button {
+  padding: 8px 0;
   background-color: $secondary-color;
   color: rgb(0, 0, 0);
   border: none;
@@ -15,6 +14,10 @@
   font-family: $body-font;
   text-decoration: none;
   transition: background-color 1s;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .logo-image {
@@ -23,15 +26,14 @@
 }
 
 .button-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .beige-button {
-  padding: 20px 20px;
-  font-size: 16px;
+  padding: 8px 0;
   background-color: $beige-color;
   color: rgb(0, 0, 0);
   border: none;
@@ -40,5 +42,10 @@
   font-family: $body-font;
   text-decoration: none;
   transition: background-color 1s;
+  margin-top: 10px;
+  margin-left: auto;
+  //margin-right: 20px; might push this back..still
+  margin-right: auto;
 }
+
 // Specific CSS for your home-page
