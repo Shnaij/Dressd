@@ -30,7 +30,7 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <% if @tops.count == 1 %>
+          <% if @tops.present? && @tops.count == 1 %>
             <div class="carousel-item active">
               <img src=" <%= cl_image_path @tops.first.photo.key, height: 150, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
             </div>
