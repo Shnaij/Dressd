@@ -2,6 +2,10 @@
   <h1 class="text-center">New item</h1>
 </div>
 
+<div class="container my-3">
+  <%= link_to "Go Back", items_path, class: "back-button" %>
+</div>
+
 <div class="container my-5">
   <h3 class="text-center my-5">Add the details of your clothing item to upload it to your digital wardrobe</h3>
   <%= simple_form_for(@item) do |f| %>

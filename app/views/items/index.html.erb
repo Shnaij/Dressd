@@ -2,6 +2,10 @@
   <h1 class="text-center">My Closet</h1>
 </div>
 
+<div class="container my-3">
+  <%= link_to "Go Back", items_path, class: "back-button" %>
+</div>
+
 <div class="container">
   <%= form_with(url: items_path, method: :get, class: "button") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
