@@ -30,10 +30,10 @@ class ItemsController < ApplicationController
     @bottoms_header = 'Bottoms'
 
     # Categorize items for the view
-    @shoes = Item.where(category: "shoes")
-    @dresses = Item.where(category: "dresses")
-    @tops = Item.where(category: "tops")
-    @bottoms = Item.where(category: "bottoms")
+    @shoes = Item.where(category: "Shoes")
+    @dresses = Item.where(category: "Dresses")
+    @tops = Item.where(category: "Tops")
+    @bottoms = Item.where(category: "Bottoms")
   end
 
   def new

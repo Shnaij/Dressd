@@ -27,3 +27,9 @@
 h3 {
   margin: 0;
 }
+
+.card-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
