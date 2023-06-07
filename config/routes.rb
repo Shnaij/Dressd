@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get "/landing", to: "pages#landing"
   resources :items, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

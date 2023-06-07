@@ -15,3 +15,33 @@ a {
   text-decoration: none;
   color: black;
 }
+
+body {
+  max-width: 393px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h3 {
+  padding: 12px 16px;
+  font-size: 18px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+h3:hover {
+  color: $secondary-color;
+  transition: color .5s;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
