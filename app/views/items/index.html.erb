@@ -1,7 +1,5 @@
-<div class="card-container">
-  <div class="banner">
-    <h1>My Closet</h1>
-  </div>
+<div class="banner">
+  <h1 class="text-center">My Closet</h1>
 </div>
 
 <div class="container">
@@ -9,8 +7,7 @@
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search closet", class: "button" %>
   <% end %>
-</div>
-<div class="container">
+
   <div class="filter-sort">
     <%= form_tag(items_path, method: :get) do %>
       <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
@@ -18,7 +15,6 @@
       <%= submit_tag 'Filter', class: 'button' %>
     <% end %>
   </div>
-</div>
 
   <% if @items.any? %>
     <% if @dresses.any? %>
@@ -26,16 +22,15 @@
         <h1>Dresses</h1>
         <div class="card-grid-container">
           <% @dresses.each_with_index do |dress, i| %>
-            <%= link_to item_path(dress), class: "text-decoration-none" do %>
+            <%= link_to new_item_path, class: "text-decoration-none" do %>
               <div class="card">
-                <% if dress.photos.attached? %>
-                  <%= cl_image_tag dress.photos.first.key, height: 200, class: "card-image" %>
+                <% if dress.photo.attached? %>
+                  <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
                 <% end %>
                 <div class="card-details">
                   <h2 class="card-title"><%= dress.title %></h2>
                   <p class="card-p"><%= dress.brand %></p>
                   <p class="card-p"><%= dress.color %></p>
-                  <p class="card-p"><%= dress.type %></p>
                 </div>
               </div>
             <% end %>
@@ -49,14 +44,15 @@
         <h1>Tops</h1>
         <div class="card-grid-container">
           <% @tops.each_with_index do |top, i| %>
-            <%= link_to item_path(top), class: "text-decoration-none" do %>
+            <%= link_to new_item_path, class: "text-decoration-none" do %>
               <div class="card">
-                <%= image_tag("tops#{(i)%8 + 1}.png", alt: "Tops", height: 200, class: "card-image") %>
+                <% if top.photo.attached? %>
+                  <%= cl_image_tag top.photo.key, height: 200, class: "card-image" %>
+                <% end %>
                 <div class="card-details">
                   <h2 class="card-title"><%= top.title %></h2>
                   <p class="card-p"><%= top.brand %></p>
                   <p class="card-p"><%= top.color %></p>
-                  <p class="card-p"><%= top.type %></p>
                 </div>
               </div>
             <% end %>
@@ -70,14 +66,15 @@
         <h1>Bottoms</h1>
         <div class="card-grid-container">
           <% @bottoms.each_with_index do |bottom, i| %>
-            <%= link_to item_path(bottom), class: "text-decoration-none" do %>
+            <%= link_to new_item_path, class: "text-decoration-none" do %>
               <div class="card">
-                <%= image_tag("bottoms#{(i)%8 + 1}.png", alt: "Bottoms", height: 200, class: "card-image") %>
+                <% if bottom.photo.attached? %>
+                  <%= cl_image_tag bottom.photo.key, height: 200, class: "card-image" %>
+                <% end %>
                 <div class="card-details">
                   <h2 class="card-title"><%= bottom.title %></h2>
                   <p class="card-p"><%= bottom.brand %></p>
                   <p class="card-p"><%= bottom.color %></p>
-                  <p class="card-p"><%= bottom.type %></p>
                 </div>
               </div>
             <% end %>
@@ -90,15 +87,16 @@
       <div class="items-container">
         <h1>Shoes</h1>
         <div class="card-grid-container">
-          <% @shoes.each_with_index do |shoes, i| %>
-            <%= link_to item_path(bottom), class: "text-decoration-none" do %>
+          <% @shoes.each_with_index do |pair, i| %>
+            <%= link_to new_item_path, class: "text-decoration-none" do %>
               <div class="card">
-                <%= image_tag("shoes#{(i)%8 + 1}.png", alt: "Shoes", height: 200, class: "card-image") %>
+                <% if pair.photo.attached? %>
+                  <%= cl_image_tag pair.photo.key, height: 200, class: "card-image" %>
+                <% end %>
                 <div class="card-details">
-                  <h2 class="card-title"><%= shoes.title %></h2>
-                  <p class="card-p"><%= shoes.brand %></p>
-                  <p class="card-p"><%= shoes.color %></p>
-                  <p class="card-p"><%= shoes.type %></p>
+                  <h2 class="card-title"><%= pair.title %></h2>
+                  <p class="card-p"><%= pair.brand %></p>
+                  <p class="card-p"><%= pair.color %></p>
                 </div>
               </div>
             <% end %>

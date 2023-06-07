@@ -10,5 +10,5 @@ class Item < ApplicationRecord
   validates :category, inclusion: { in: CATEGORIES }
 
   include PgSearch::Model
-  multisearchable against: [:title, :synopsis]
+  multisearchable against: [:title, :brand, :color, :category]
 end

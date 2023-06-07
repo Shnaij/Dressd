@@ -3,5 +3,5 @@ class Style < ApplicationRecord
   has_many :items, through: :item_styles
 
   include PgSearch::Model
-  multisearchable against: [:title, :style]
+  multisearchable against: [:title]
 end
