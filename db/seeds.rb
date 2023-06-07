@@ -46,7 +46,7 @@ shoes_titles = ['Comfy shoes', 'Party shoes', 'Favorite shoes', 'Casual shoes', 
 
 types = ['dresses', 'tops', 'bottoms', 'shoes']
 brands = ['Zara', 'Mango', 'Gucci', 'H&M', 'American Vintage', '& Other Stories', 'Urban Outfitters', 'TiMo', 'Brandz', 'Sister']
-colors = ['white/light', 'black/dark', 'blue', 'pink', 'multicolor', 'green']
+colors = ['bright', 'flowery', 'multicolor']
 
 styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
 styles_array.each do |style|
@@ -66,8 +66,7 @@ user = [bettina, adinda, shnai, elizabeth]
     user: bettina
   )
 
-  # file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
-  file = File.open(Rails.root.join("app/assets/images/hm_dress.jpeg"))
+  file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
   item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
 
   item.save
