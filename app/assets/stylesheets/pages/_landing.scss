@@ -1,0 +1,25 @@
+.bg-landing {
+  background-image: asset-url("pastel-backround.jpeg");
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+
+  img {
+    height: 180px;
+    object-fit: cover;
+  }
+}
+
+.container-landing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
