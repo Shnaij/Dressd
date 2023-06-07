@@ -1,0 +1,16 @@
+<div class="banner">
+  <h1 class="text-center">New item</h1>
+</div>
+
+<div class="container my-5">
+  <h3 class="text-center my-5">Add the details of your clothing item to upload it to your digital wardrobe</h3>
+  <%= simple_form_for(@item) do |f| %>
+    <%= f.input :photo, as: :file, label: 'Upload one image of the item lying flat on a white background' %>
+    <%= f.input :title, label: 'What will you name this item?' %>
+    <%= f.input :brand, label: 'What is the brand name?' %>
+    <%= f.input :color, label: 'What is the color?' %>
+    <%= f.input :category, collection: Item::CATEGORIES %>
+    <%= f.input :original_price, label: 'Original price in $' %>
+    <%= f.button :submit, label: 'Save', class: 'beige-button my-3' %>
+  <% end %>
+</div>
