@@ -1,20 +1,31 @@
 <div class="banner">
-  <h1 class="text-center">My Closet</h1>
+  <h1 class="text-center">My Wardrobe</h1>
 </div>
 
-<div class="container">
-  <%= form_with(url: items_path, method: :get, class: "button") do |f| %>
+  <div class="search-container">
+  <%= form_with(url: items_path, method: :get, class: "search-form") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
-    <%= f.submit "Search closet", class: "beige-button" %>
+    <%= f.submit "Search", class: "search-button" %>
   <% end %>
+</div>
 
   <div class="filter-sort">
     <%= form_tag(items_path, method: :get) do %>
-      <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
-      <%= select_tag(:color, options_for_select(Item.distinct.pluck(:color)), include_blank: 'Colors', class: 'beige-button') %>
-      <%= submit_tag 'Filter', class: 'beige-button' %>
+      <div class="filter-row">
+        <div class="filter-category">
+          <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
+        </div>
+        <div class="filter-colour">
+          <%= select_tag(:color, options_for_select(Item.distinct.pluck(:color)), include_blank: 'Colours', class: 'beige-button') %>
+        </div>
+        <div class="filter-select">
+          <%= submit_tag 'Filter', class: 'search-button' %>
+        </div>
+      </div>
     <% end %>
   </div>
+</div>
+
 
   <% if @items.any? %>
     <% if @dresses.any? %>
