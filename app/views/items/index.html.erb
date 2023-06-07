@@ -2,8 +2,17 @@
   <h1 class="text-center">My Wardrobe</h1>
 </div>
 
+<<<<<<< HEAD
   <div class="search-container">
   <%= form_with(url: items_path, method: :get, class: "search-form") do |f| %>
+=======
+<div class="container my-3">
+  <%= link_to "Go Back", items_path, class: "back-button" %>
+</div>
+
+<div class="container">
+  <%= form_with(url: items_path, method: :get, class: "button") do |f| %>
+>>>>>>> 163ce8823b542d4f71e98ed23f3e478000992cee
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search", class: "search-button" %>
   <% end %>

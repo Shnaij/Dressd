@@ -1,6 +1,10 @@
- <div class="banner">
+<div class="banner">
     <h1>Dress Me!</h1>
-  </div>
+</div>
+
+<div class="container my-3">
+  <%= link_to "Go Back", items_path, class: "back-button" %>
+</div>
 
 <div class="container">
   <%= form_with(url: items_path, method: :get, class: "search-form") do |f| %>
