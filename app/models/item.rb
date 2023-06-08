@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   has_one_attached :photo
 
   CATEGORIES = ['Dresses', 'Tops', 'Bottoms', 'Shoes']
+  STYLES = ['sporty', 'casual', 'comfy', 'party', 'evening out']
 
   validates :title, uniqueness: true
   validates :category, inclusion: { in: CATEGORIES }
