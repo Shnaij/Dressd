@@ -1,10 +1,9 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
-
     # Search results
     if params[:query].present?
-      @items = Item.search_by_five_columns(params[:query])
+      @items = @items.search_two_models(params[:query])
     else
       @items = Item.all
     end
@@ -14,26 +13,25 @@ class ItemsController < ApplicationController
       @items = @items.where(category: params[:category])
     end
 
-    # Additional logic for sorting
-    if params[:sort] == 'price_asc'
-      @items = @items.order(price: :asc)
-    elsif params[:sort] == 'price_desc'
-      @items = @items.order(price: :desc)
+    if params[:color].present?
+      @items = @items.where(color: params[:color])
     end
 
     # Determine the filtered category
     @filtered_category = params[:category]
+    @filtered_color = params[:color]
 
     # Filtered category headers
     @dresses_header = 'Dresses'
     @tops_header = 'Tops'
     @bottoms_header = 'Bottoms'
+    @shoes_header = 'Shoes'
 
     # Categorize items for the view
-    @shoes = Item.where(category: "Shoes")
-    @dresses = Item.where(category: "Dresses")
-    @tops = Item.where(category: "Tops")
-    @bottoms = Item.where(category: "Bottoms")
+    @shoes = @items.where(category: "Shoes")
+    @dresses = @items.where(category: "Dresses")
+    @tops = @items.where(category: "Tops")
+    @bottoms = @items.where(category: "Bottoms")
   end
 
   def new
