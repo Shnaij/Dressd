@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @dresses = Item.where(category: 'dresses') # Replace with the appropriate code to retrieve dresses from the database
+    @items = Item.joins(:photo_attachment)
   end
 
   def landing

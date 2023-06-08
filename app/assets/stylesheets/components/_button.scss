@@ -114,11 +114,11 @@
   color: black;
   border: none;
   cursor: pointer;
-  text-decoration: none;
+  text-align: right;
 }
 
 .back-button:hover {
-  color: $secondary-color;
+  color: $secondary-color-hover;
   transition: color .5s;
 }
 

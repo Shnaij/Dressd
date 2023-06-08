@@ -5,12 +5,21 @@ class Item < ApplicationRecord
   has_one_attached :photo
 
   CATEGORIES = ['Dresses', 'Tops', 'Bottoms', 'Shoes']
+  STYLES = ['sporty', 'casual', 'comfy', 'party', 'evening out']
 
   validates :title, uniqueness: true
   validates :category, inclusion: { in: CATEGORIES }
 
   include PgSearch::Model
   # pg_search_scope :search_two_models,
-  multisearchable against: [:title, :brand, :color, :category]
+    # multisearchable against: [:title, :brand, :color, :category]
 
+  pg_search_scope :global_search,
+    against: [:title, :brand, :color, :category],
+    associated_against: {
+      styles: :title
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
