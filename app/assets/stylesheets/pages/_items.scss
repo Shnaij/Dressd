@@ -47,10 +47,10 @@ h3 {
   justify-content: space-between;
 }
 
-.filter-category,
-.filter-colour,
-.filter-select {
-  padding: 5px 10px;
+.filter-item {
+  flex-grow: 1;
+  margin-right: 5px;
+  // padding: 5px 10px;
   font-size: 12px;
 }
 
@@ -126,7 +126,7 @@ h3 {
 }
 
 .card-details-small {
-  font-family: $body-font, "Work Sans", "Helvetica", sans-serif;
+  font-family: $body-font;
   margin-bottom: 10px;
   margin-top: 10px;
   padding-top: 10px;

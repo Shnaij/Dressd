@@ -21,16 +21,18 @@
       <button class="beige-button">Friends</button>
     </div>
   </div>
+        
 
-  <div class="card-details">
-      <div class="outfit-card">
+  <div class="card-details h230 mb40">
+    <div class="new-card h230">
+      <div class="d-flex justify-content-between align-items-center">
         <h2>My Items</h2>
         <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-          <%= link_to "See All", items_path, class: "back-button" %>
-          <div class="d-flex">
+          <%= link_to "See All", items_path, class: "back-button mt-0" %>
+          <div class="d-flex h230">
             <% @items.each do |item| %>
               <% if item.photo.attached? %>
-                <%= cl_image_tag item.photo.key, height: 200, class: "card-image" %>
+                <%= cl_image_tag item.photo.key, height: 100, class: "card-image" %>
               <% end %>
             <% end %>
           </div>
@@ -40,16 +42,16 @@
 
 
 
-  <div class="card-details">
-     <div class="outfit-card">
+  <div class="card-details h230">
+    <div class="new-card h230">
+      <div class="d-flex justify-content-between align-items-center"
         <h2>My Outfits</h2>
-        <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-          <%= link_to "See All", outfits_path, class: "back-button" %>
-          <div class="d-flex">
-            <%= cl_image_tag @items.first.photo.key, height: 200, class: "card-image" %>
-            <%= cl_image_tag @items.second.photo.key, height: 200, class: "card-image" %>
-          </div>
-        </div>
+        <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
       </div>
+      <div class="d-flex h230">
+        <%= cl_image_tag @items.first.photo.key, height: 100, class: "card-image" %>
+        <%= cl_image_tag @items.second.photo.key, height: 100, class: "card-image" %>
+      </div>
+    </div>
   </div>
 </div>
