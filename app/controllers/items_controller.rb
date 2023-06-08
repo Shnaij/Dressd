@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
     # Search results
     if params[:query].present?
-      @items = @items.search_two_models(params[:query])
+      @items = Item.global_search(params[:query])
     else
       @items = Item.all
     end
@@ -29,10 +29,10 @@ class ItemsController < ApplicationController
     @shoes_header = 'Shoes'
 
     # Categorize items for the view
-    @shoes = Item.where(category: "Shoes")
-    @dresses = Item.where(category: "Dresses")
-    @tops = Item.where(category: "Tops")
-    @bottoms = Item.where(category: "Bottoms")
+    @shoes = @items.where(category: "Shoes")
+    @dresses = @items.where(category: "Dresses")
+    @tops = @items.where(category: "Tops")
+    @bottoms = @items.where(category: "Bottoms")
   end
 
   def new

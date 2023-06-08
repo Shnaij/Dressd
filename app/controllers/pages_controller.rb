@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     @buttoms = Item.where(category: 'Buttoms')
     @tops = Item.where(category: 'Tops')
     @shoes = Item.where(category: 'Shoes')
+    @items = Item.joins(:photo_attachment)
   end
 
   def landing
