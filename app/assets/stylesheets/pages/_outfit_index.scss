@@ -5,3 +5,36 @@
 .sub-header {
   margin-top: 8px;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.outfits-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  width: 405px;
+}
+
+.outfits {
+  flex: 1;
+  background-color: $card-color;
+  height: 510px;
+  width: 100px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.outfits-content {
+  padding: 20px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.outfits-content p {
+  font-size: 12px;
+}

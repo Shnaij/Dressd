@@ -1,5 +1,7 @@
 <div class="banner">
-  <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+  <%= link_to items_path do %>
+    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+  <% end %>
   <h1>Shnai's Profile</h1>
 </div>
 
@@ -21,11 +23,20 @@
   </div>
 
   <div class="card-details">
-    <h2>My Items</h2>
-    <div class="items-list">
-      <!-- Add content for My Items here -->
-    </div>
+  <h2>My Items</h2>
+  <div class="items-list">
+    <% @dresses.each_with_index do |dress, i| %>
+      <%= link_to new_outfit_path, class: "text-decoration-none" do %>
+        <div class="card">
+          <% if dress.photo.attached? %>
+            <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
+</div>
+
 
   <div class="card-details">
     <h2>My Outfits</h2>
