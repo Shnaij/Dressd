@@ -1,13 +1,15 @@
-.new-card {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin: 0;
-  padding: 0;
-  object-position: center;
-  height: 100%;
-  margin-bottom: 50px;
-  padding: 0px;
-  overflow: hidden;
-  border-radius: 10px; /* Add this line for rounded corners */
+.cropped-top {
+  height: 180px;
+  object-fit: scale-down;
+  border-radius: 5px 5px 0 0;
+}
+
+.cropped-bottoms {
+  height: 140px;
+  object-fit: scale-down;
+}
+
+.cropped-shoes {
+  height: 100px;
+  object-fit: scale-down;
 }

@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def home
-    @dresses = Item.where(category: 'Dresses') # Replace with the appropriate code to retrieve dresses from the database
+    @dresses = Item.where(category: 'Dresses')
+    @buttoms = Item.where(category: 'Buttoms')
+    @tops = Item.where(category: 'Tops')
+    @shoes = Item.where(category: 'Shoes')
   end
 
   def landing

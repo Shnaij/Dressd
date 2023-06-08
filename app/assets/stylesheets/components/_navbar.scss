@@ -12,3 +12,13 @@
   color: white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
+
+.icon {
+  display: inline-block;
+  font-size: 20px; /* Adjust the font size as per your requirement */
+  transition: transform 0.3s ease; /* Smooth transition for scaling effect */
+}
+
+.icon:hover {
+  transform: scale(1.4); /* Increase the scale value to make the icon larger */
+}
