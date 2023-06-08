@@ -108,6 +108,7 @@ h3 {
 .card-title {
   font-size: 15px;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .card-details .card-title:hover {
@@ -117,8 +118,30 @@ h3 {
 
 .card-p {
   font-size: 12px;
+  margin-bottom: 3px;
 }
 
 .card-image-no-border {
   border: none;
+}
+
+.card-details-small {
+  font-family: $body-font, "Work Sans", "Helvetica", sans-serif;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: none; /* Add this line to remove the shadow box */
+
+}
+
+
+.card-details-small .card-title:hover {
+  color: $secondary-color-hover;
+  transition: color 0.5s;
 }

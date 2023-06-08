@@ -43,8 +43,8 @@
               <% if dress.photo.attached? %>
                 <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
               <% end %>
-              <div class="card-details">
-                <h2 class="card-title py-1"><%= dress.title %></h2>
+              <div class="card-details-small">
+                <h2 class="card-title"><%= dress.title %></h2>
                 <p class="card-p">Brand: <%= dress.brand %></p>
                 <p class="card-p">Color: <%= dress.color %></p>
                 <% dress.styles.each do |style| %>
@@ -68,7 +68,7 @@
               <% if top.photo.attached? %>
                 <%= cl_image_tag top.photo.key, height: 200, class: "card-image" %>
               <% end %>
-              <div class="card-details">
+              <div class="card-details-small">
                 <h2 class="card-title py-1"><%= top.title %></h2>
                 <p class="card-p">Brand: <%= top.brand %></p>
                 <p class="card-p">Color: <%= top.color %></p>
@@ -93,7 +93,7 @@
               <% if bottom.photo.attached? %>
                 <%= cl_image_tag bottom.photo.key, height: 200, class: "card-image" %>
               <% end %>
-              <div class="card-details">
+              <div class="card-details-small">
                 <h2 class="card-title py-1"><%= bottom.title %></h2>
                 <p class="card-p">Brand: <%= bottom.brand %></p>
                 <p class="card-p">Color: <%= bottom.color %></p>
@@ -118,7 +118,7 @@
               <% if pair.photo.attached? %>
                 <%= cl_image_tag pair.photo.key, height: 200, class: "card-image" %>
               <% end %>
-              <div class="card-details">
+              <div class="card-details-small">
                 <h2 class="card-title py-1"><%= pair.title %></h2>
                 <p class="card-p">Brand: <%= pair.brand %></p>
                 <p class="card-p">Color: <%= pair.color %></p>
