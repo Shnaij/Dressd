@@ -5,134 +5,134 @@
   <h1 class="text-center">Your Wardrobe</h1>
 </div>
 
-<div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-  <%= link_to "Go Back", root_path, class: "back-button" %>
-</div>
+<div class="container">
+  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+    <%= link_to "Go Back", root_path, class: "back-button" %>
+  </div>
 
-<div class="search-container">
-  <%= form_with(url: items_path, method: :get, class: "button") do |f| %>
+  <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search", class: "search-button" %>
   <% end %>
-</div>
 
-<div class="filter-sort">
-  <%= form_tag(items_path, method: :get) do %>
-    <div class="filter-row">
-      <div class="filter-category">
-        <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
+  <div class="filter-sort my-2">
+    <%= form_tag(items_path, method: :get) do %>
+      <div class="filter-row">
+        <div class="filter-item">
+          <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
+        </div>
+        <div class="filter-item">
+          <%= select_tag(:color, options_for_select(Item.distinct.pluck(:color)), include_blank: 'Colours', class: 'beige-button') %>
+        </div>
+        <div class="">
+          <%= submit_tag 'Filter', class: 'search-button' %>
+        </div>
       </div>
-      <div class="filter-colour">
-        <%= select_tag(:color, options_for_select(Item.distinct.pluck(:color)), include_blank: 'Colours', class: 'beige-button') %>
-      </div>
-      <div class="filter-select">
-        <%= submit_tag 'Filter', class: 'search-button' %>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<% if @items.any? %>
-  <% if @dresses.any? %>
-    <div class="items-container">
-      <h1 class="black-heading">Dresses</h1>
-      <div class="card-grid-container">
-        <% @dresses.each_with_index do |dress, i| %>
-          <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-            <div class="new-card">
-              <% if dress.photo.attached? %>
-                <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
-              <% end %>
-              <div class="card-details-small">
-                <h2 class="card-title"><%= dress.title %></h2>
-                <p class="card-p">Brand: <%= dress.brand %></p>
-                <p class="card-p">Color: <%= dress.color %></p>
-                <% dress.styles.each do |style| %>
-                  <p class="card-p">Style: <%= style.title %></p>
+  <% if @items.any? %>
+    <% if @dresses.any? %>
+      <div class="items-container">
+        <h1 class="black-heading">Dresses</h1>
+        <div class="card-grid-container">
+          <% @dresses.each_with_index do |dress, i| %>
+            <%= link_to new_outfit_path, class: "text-decoration-none" do %>
+              <div class="new-card">
+                <% if dress.photo.attached? %>
+                  <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
                 <% end %>
+                <div class="card-details-small">
+                  <h2 class="card-title"><%= dress.title %></h2>
+                  <p class="card-p">Brand: <%= dress.brand %></p>
+                  <p class="card-p">Color: <%= dress.color %></p>
+                  <% dress.styles.each do |style| %>
+                    <p class="card-p">Style: <%= style.title %></p>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <% if @tops.any? %>
-    <div class="items-container">
-      <h1 class="black-heading">Tops</h1>
-      <div class="card-grid-container">
-        <% @tops.each_with_index do |top, i| %>
-          <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-            <div class="new-card">
-              <% if top.photo.attached? %>
-                <%= cl_image_tag top.photo.key, height: 200, class: "card-image" %>
-              <% end %>
-              <div class="card-details-small">
-                <h2 class="card-title py-1"><%= top.title %></h2>
-                <p class="card-p">Brand: <%= top.brand %></p>
-                <p class="card-p">Color: <%= top.color %></p>
-                <% top.styles.each do |style| %>
-                  <p class="card-p">Style: <%= style.title %></p>
+    <% if @tops.any? %>
+      <div class="items-container">
+        <h1 class="black-heading">Tops</h1>
+        <div class="card-grid-container">
+          <% @tops.each_with_index do |top, i| %>
+            <%= link_to new_outfit_path, class: "text-decoration-none" do %>
+              <div class="new-card">
+                <% if top.photo.attached? %>
+                  <%= cl_image_tag top.photo.key, height: 200, class: "card-image" %>
                 <% end %>
+                <div class="card-details-small">
+                  <h2 class="card-title py-1"><%= top.title %></h2>
+                  <p class="card-p">Brand: <%= top.brand %></p>
+                  <p class="card-p">Color: <%= top.color %></p>
+                  <% top.styles.each do |style| %>
+                    <p class="card-p">Style: <%= style.title %></p>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <% if @bottoms.any? %>
-    <div class="items-container">
-      <h1 class="black-heading">Bottoms</h1>
-      <div class="card-grid-container">
-        <% @bottoms.each_with_index do |bottom, i| %>
-          <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-            <div class="new-card">
-              <% if bottom.photo.attached? %>
-                <%= cl_image_tag bottom.photo.key, height: 200, class: "card-image" %>
-              <% end %>
-              <div class="card-details-small">
-                <h2 class="card-title py-1"><%= bottom.title %></h2>
-                <p class="card-p">Brand: <%= bottom.brand %></p>
-                <p class="card-p">Color: <%= bottom.color %></p>
-                <% bottom.styles.each do |style| %>
-                  <p class="card-p">Style: <%= style.title %></p>
+    <% if @bottoms.any? %>
+      <div class="items-container">
+        <h1 class="black-heading">Bottoms</h1>
+        <div class="card-grid-container">
+          <% @bottoms.each_with_index do |bottom, i| %>
+            <%= link_to new_outfit_path, class: "text-decoration-none" do %>
+              <div class="new-card">
+                <% if bottom.photo.attached? %>
+                  <%= cl_image_tag bottom.photo.key, height: 200, class: "card-image" %>
                 <% end %>
+                <div class="card-details-small">
+                  <h2 class="card-title py-1"><%= bottom.title %></h2>
+                  <p class="card-p">Brand: <%= bottom.brand %></p>
+                  <p class="card-p">Color: <%= bottom.color %></p>
+                  <% bottom.styles.each do |style| %>
+                    <p class="card-p">Style: <%= style.title %></p>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <% if @shoes.any? %>
-    <div class="items-container padding-bottom-more">
-      <h1 class="black-heading">Shoes</h1>
-      <div class="card-grid-container">
-        <% @shoes.each_with_index do |pair, i| %>
-          <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-            <div class="new-card">
-              <% if pair.photo.attached? %>
-                <%= cl_image_tag pair.photo.key, height: 200, class: "card-image" %>
-              <% end %>
-              <div class="card-details-small">
-                <h2 class="card-title py-1"><%= pair.title %></h2>
-                <p class="card-p">Brand: <%= pair.brand %></p>
-                <p class="card-p">Color: <%= pair.color %></p>
-                <% pair.styles.each do |style| %>
-                  <p class="card-p">Style: <%= style.title %></p>
+    <% if @shoes.any? %>
+      <div class="items-container padding-bottom-more">
+        <h1 class="black-heading">Shoes</h1>
+        <div class="card-grid-container">
+          <% @shoes.each_with_index do |pair, i| %>
+            <%= link_to new_outfit_path, class: "text-decoration-none" do %>
+              <div class="new-card">
+                <% if pair.photo.attached? %>
+                  <%= cl_image_tag pair.photo.key, height: 200, class: "card-image" %>
                 <% end %>
+                <div class="card-details-small">
+                  <h2 class="card-title py-1"><%= pair.title %></h2>
+                  <p class="card-p">Brand: <%= pair.brand %></p>
+                  <p class="card-p">Color: <%= pair.color %></p>
+                  <% pair.styles.each do |style| %>
+                    <p class="card-p">Style: <%= style.title %></p>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
   <% else %>
     <em>Sorry, nothing matches your search.</em>
   <% end %>
+</div>
