@@ -118,12 +118,15 @@
 }
 
 .back-button:hover {
-  color: $primary-color;
+  color: $secondary-color-hover;
   transition: color .5s;
 }
 
 .search-container {
-  margin-left: 3px; /* Adjust this value to position the search bar more to the left */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   border-radius: 10px;
 }
 
@@ -146,5 +149,5 @@
 }
 
 .search-button:hover {
-    background-color: $beige-color;
+    background-color: $secondary-color-hover;
   }

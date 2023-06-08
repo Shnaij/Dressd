@@ -9,7 +9,7 @@
   <%= link_to "Go Back", outfits_path, class: "back-button" %>
 </div>
 
-<div class="container my-5">
+<div class="container padding-bottom">
   <h3 class="text-center my-5">Add the details of your clothing item to upload it to your digital wardrobe</h3>
   <%= simple_form_for(@item) do |f| %>
     <%= f.input :photo, as: :file, label: 'Upload one image of the item lying flat on a white background', input_html: { class: 'input-color' }%>
