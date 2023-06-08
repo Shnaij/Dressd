@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+
     # Search results
     if params[:query].present?
-      @items = @items.search_two_models(params[:query])
+      @items = Item.global_search(params[:query])
     else
       @items = Item.all
     end
