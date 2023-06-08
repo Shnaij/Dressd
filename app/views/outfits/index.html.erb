@@ -1,33 +1,30 @@
 <div class="banner">
-  <h1>My Outfits</h1>
+  <%= link_to root_path do %>
+    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+  <% end %>
+  <h1>Your Outfits</h1>
 </div>
 
-<div class="container">
+<div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+  <%= link_to "Go Back", new_outfit_path, class: "back-button" %>
+</div>
+
+<div class="search-container">
   <%= form_with(url: items_path, method: :get, class: "search-form") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search", class: "search-button" %>
   <% end %>
 </div>
 
-  <h2>Evening Out</h2>
-  <div class="card-details">
-    <div class="outfits-list">
-      <!-- Add content for My Items here -->
+<div class="outfits-container">
+  <div class="outfits">
+    <div class="outfits-content">
+      <p>Outfit title placeholder</p>
     </div>
   </div>
-
-  <h2>Casual</h2>
-  <div class="card-details">
-    <div class="outfits-list">
-      <!-- Add content for My Outfits here -->
-    </div>
-  </div>
-</div>
-
-  <h2>Sporty</h2>
-  <div class="card-details">
-    <div class="outfits-list">
-      <!-- Add content for My Outfits here -->
+  <div class="outfits">
+    <div class="outfits-content">
+      <p>Outfit title placeholder</p>
     </div>
   </div>
 </div>

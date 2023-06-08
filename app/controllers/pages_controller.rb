@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   def home
+    @dresses = Item.where(category: 'dresses') # Replace with the appropriate code to retrieve dresses from the database
   end
 
   def landing
   end
-end
 
 def index
   @items = Item.all
@@ -42,6 +42,7 @@ def index
   @bottoms_header = 'Bottoms'
 end
 
-def show
-  @item = Item.find(params[:id])
+  def show
+    @item = Item.find(params[:id])
+  end
 end
