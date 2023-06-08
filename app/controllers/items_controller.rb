@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
-
     # Search results
     if params[:query].present?
       @items = @items.search_two_models(params[:query])
@@ -29,10 +28,10 @@ class ItemsController < ApplicationController
     @shoes_header = 'Shoes'
 
     # Categorize items for the view
-    @shoes = Item.where(category: "Shoes")
-    @dresses = Item.where(category: "Dresses")
-    @tops = Item.where(category: "Tops")
-    @bottoms = Item.where(category: "Bottoms")
+    @shoes = @items.where(category: "Shoes")
+    @dresses = @items.where(category: "Dresses")
+    @tops = @items.where(category: "Tops")
+    @bottoms = @items.where(category: "Bottoms")
   end
 
   def new

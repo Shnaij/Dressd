@@ -44,7 +44,7 @@
                 <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
               <% end %>
               <div class="card-details">
-                <h2 class="card-title">Title: <%= dress.title %></h2>
+                <h2 class="card-title"><%= dress.title %></h2>
                 <p class="card-p">Brand: <%= dress.brand %></p>
                 <p class="card-p">Color: <%= dress.color %></p>
               </div>
@@ -68,8 +68,8 @@
                 <% end %>
                 <div class="card-details">
                   <h2 class="card-title"><%= top.title %></h2>
-                  <p class="card-p"><%= top.brand %></p>
-                  <p class="card-p"><%= top.color %></p>
+                  <p class="card-p">Brand: <%= top.brand %></p>
+                  <p class="card-p">Color: <%= top.color %></p>
                 </div>
               </div>
             <% end %>
@@ -90,8 +90,8 @@
                 <% end %>
                 <div class="card-details">
                   <h2 class="card-title"><%= bottom.title %></h2>
-                  <p class="card-p"><%= bottom.brand %></p>
-                  <p class="card-p"><%= bottom.color %></p>
+                  <p class="card-p">Brand: <%= bottom.brand %></p>
+                  <p class="card-p">Color: <%= bottom.color %></p>
                 </div>
               </div>
             <% end %>
@@ -112,8 +112,8 @@
                 <% end %>
                 <div class="card-details">
                   <h2 class="card-title"><%= pair.title %></h2>
-                  <p class="card-p"><%= pair.brand %></p>
-                  <p class="card-p"><%= pair.color %></p>
+                  <p class="card-p">Brand: <%= pair.brand %></p>
+                  <p class="card-p">Color: <%= pair.color %></p>
                 </div>
               </div>
             <% end %>
