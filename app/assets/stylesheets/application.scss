@@ -22,7 +22,7 @@ body {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   color: white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -47,4 +47,8 @@ h3 {
 h3:hover {
   color: $secondary-color;
   transition: color .5s;
+}
+
+.padding-bottom {
+  padding-bottom: 54px;
 }

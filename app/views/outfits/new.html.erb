@@ -1,61 +1,53 @@
- <div class="banner">
-    <h1>Dress Me!</h1>
-  </div>
+<div class="banner">
+  <%= link_to root_path do %>
+    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+  <% end %>
+  <h1>Outfit Planner</h1>
+</div>
 
-<div class="container">
-  <%= form_with(url: items_path, method: :get, class: "search-form") do |f| %>
-    <%= f.search_field :query, class: "search-bar", placeholder: "Search items..." %>
-    <%= f.submit "Search", class: "pink-button" %>
+<div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+  <%= link_to "Go Back", items_path, class: "back-button" %>
+</div>
+
+<div class="search-container">
+  <%= form_tag(items_path, method: :get, class: "button") do %>
+    <%= text_field_tag :query, nil, class: "search-field", placeholder: "Search items..." %>
+    <%= submit_tag "Search", class: "search-button" %>
   <% end %>
 </div>
 
-
-<div class="container">
-  <div class="filter-sort">
-    <%= form_tag(items_path, method: :get) do %>
-      <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
-      <%= select_tag(:color, options_for_select(Item.distinct.pluck(:color)), include_blank: 'Colors', class: 'beige-button') %>
-      <%= submit_tag 'Filter', class: 'pink-button' %>
-    <% end %>
-  </div>
-</div>
-
 <div class="card-container">
-  <div class="card">
+  <div class="card" style="margin-top: 10px; margin-bottom: 10px;">
     <div class="tops-selections">
-      <div id="carouselExampleIndicators" class="carousel slide">
+      <div id="carouselTops" class="carousel slide">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselTops" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselTops" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselTops" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
-          <% if @tops.count == 1 %>
-            <div class="carousel-item active">
-              <img src=" <%= cl_image_path @tops.first.photo.key, height: 150, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
+        <div class="carousel-inner" style="margin-top: 5px;">
+          <% @tops.each_with_index do |top, index| %>
+            <div class="carousel-item <%= 'active' if index.zero? %>">
+              <%= link_to outfits_path do %>
+                <img src="<%= cl_image_path top.photo.key %>" class="d-block w-100" alt="tops">
+              <% end %>
             </div>
-          <% else %>
-            <div class="carousel-item active">
-              <img src=" <%= cl_image_path @tops.first.photo.key, height: 150, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
-            </div>
-            <% @tops[1..-1].each do |top| %>
-              <div class="carousel-item">
-                <img src=" <%= cl_image_path top.photo.key, height: 150, width: 400, crop: :fill %> " class="d-block w-100" alt="...">
-              </div>
-            <% end %>
           <% end %>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTops" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselTops" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
     </div>
   </div>
+</div>
+
+<!-- Repeat the same pattern for other carousel sections -->
 
 <div class="card-container">
     <div class="card">

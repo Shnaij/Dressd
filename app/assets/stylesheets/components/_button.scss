@@ -122,6 +122,18 @@
   transition: color .5s;
 }
 
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.search-field {
+  border-radius: 10px;
+}
+
 .search-button {
   padding: 4px 0;
   font-size: 16px;
@@ -137,5 +149,5 @@
 }
 
 .search-button:hover {
-    background-color: $beige-color;
+    background-color: $secondary-color-hover;
   }
