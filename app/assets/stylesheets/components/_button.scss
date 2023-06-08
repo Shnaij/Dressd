@@ -122,6 +122,15 @@
   transition: color .5s;
 }
 
+.search-container {
+  margin-left: 3px; /* Adjust this value to position the search bar more to the left */
+  border-radius: 10px;
+}
+
+.search-field {
+  border-radius: 10px;
+}
+
 .search-button {
   padding: 4px 0;
   font-size: 16px;

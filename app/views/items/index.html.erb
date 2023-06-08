@@ -1,51 +1,64 @@
 <div class="banner">
-  <h1 class="text-center">My Closet</h1>
+  <%= link_to root_path do %>
+    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+  <% end %>
+  <h1 class="text-center">Your Wardrobe</h1>
 </div>
 
-<div class="container my-3">
-  <%= link_to "Go Back", items_path, class: "back-button" %>
+<div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+  <%= link_to "Go Back", root_path, class: "back-button" %>
 </div>
 
-<div class="container">
+<div class="search-container" style="margin-left: -20px;">
   <%= form_with(url: items_path, method: :get, class: "button") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
-    <%= f.submit "Search closet", class: "beige-button" %>
+    <%= f.submit "Search", class: "search-button" %>
+  <% end %>
+</div>
+
+<div class="filter-sort">
+  <%= form_tag(items_path, method: :get) do %>
+    <div class="filter-row">
+      <div class="filter-category">
+        <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
+      </div>
+      <div class="filter-colour">
+        <%= select_tag(:color, options_for_select(Item.distinct.pluck(:color)), include_blank: 'Colours', class: 'beige-button') %>
+      </div>
+      <div class="filter-select">
+        <%= submit_tag 'Filter', class: 'search-button' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if @items.any? %>
+  <% if @dresses.any? %>
+    <div class="items-container">
+      <h1 class="black-heading">Dresses</h1>
+      <div class="card-grid-container">
+        <% @dresses.each_with_index do |dress, i| %>
+          <%= link_to new_outfit_path, class: "text-decoration-none" do %>
+            <div class="card">
+              <% if dress.photo.attached? %>
+                <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
+              <% end %>
+              <div class="card-details">
+                <h2 class="card-title">Title: <%= dress.title %></h2>
+                <p class="card-p">Brand: <%= dress.brand %></p>
+                <p class="card-p">Color: <%= dress.color %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
-  <div class="filter-sort">
-    <%= form_tag(items_path, method: :get) do %>
-      <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
-      <%= select_tag(:color, options_for_select(Item.distinct.pluck(:color)), include_blank: 'Colors', class: 'beige-button') %>
-      <%= submit_tag 'Filter', class: 'beige-button' %>
-    <% end %>
-  </div>
-
-  <% if @items.any? %>
-    <% if @dresses.any? %>
-      <div class="items-container">
-        <h1>Dresses</h1>
-        <div class="card-grid-container">
-          <% @dresses.each_with_index do |dress, i| %>
-            <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-              <div class="card">
-                <% if dress.photo.attached? %>
-                  <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
-                <% end %>
-                <div class="card-details">
-                  <h2 class="card-title">Title: <%= dress.title %></h2>
-                  <p class="card-p">Brand: <%= dress.brand %></p>
-                  <p class="card-p">Color: <%= dress.color %></p>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
 
     <% if @tops.any? %>
       <div class="items-container">
-        <h1>Tops</h1>
+        <h1 class="black-heading">Tops</h1>
         <div class="card-grid-container">
           <% @tops.each_with_index do |top, i| %>
             <%= link_to new_outfit_path, class: "text-decoration-none" do %>
@@ -67,7 +80,7 @@
 
     <% if @bottoms.any? %>
       <div class="items-container">
-        <h1>Bottoms</h1>
+        <h1 class="black-heading">Bottoms</h1>
         <div class="card-grid-container">
           <% @bottoms.each_with_index do |bottom, i| %>
             <%= link_to new_outfit_path, class: "text-decoration-none" do %>
@@ -89,7 +102,7 @@
 
     <% if @shoes.any? %>
       <div class="items-container">
-        <h1>Shoes</h1>
+        <h1 class="black-heading">Shoes</h1>
         <div class="card-grid-container">
           <% @shoes.each_with_index do |pair, i| %>
             <%= link_to new_outfit_path, class: "text-decoration-none" do %>
