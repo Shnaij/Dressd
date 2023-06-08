@@ -28,8 +28,11 @@
         <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
           <%= link_to "See All", items_path, class: "back-button" %>
           <div class="d-flex">
-            <%= cl_image_tag @items.first.photo.key, height: 200, class: "card-image" %>
-            <%= cl_image_tag @items.second.photo.key, height: 200, class: "card-image" %>
+            <% @items.each do |item| %>
+              <% if item.photo.attached? %>
+                <%= cl_image_tag item.photo.key, height: 200, class: "card-image" %>
+              <% end %>
+            <% end %>
           </div>
         </div>
      </div>

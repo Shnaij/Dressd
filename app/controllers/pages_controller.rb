@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   def home
-    @dresses = Item.where(category: 'Dresses')
-    @buttoms = Item.where(category: 'Buttoms')
-    @tops = Item.where(category: 'Tops')
-    @shoes = Item.where(category: 'Shoes')
-    @items = Item.joins(:photo_attachment)
+    # @dresses = Item.where(category: 'Dresses')
+    # @buttoms = Item.where(category: 'Buttoms')
+    # @tops = Item.where(category: 'Tops')
+    # @shoes = Item.where(category: 'Shoes')
+    @items = Item.where(category: "Dresses").limit(2)
   end
 
   def landing
