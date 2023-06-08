@@ -9,7 +9,8 @@
   <%= link_to "Go Back", items_path, class: "back-button" %>
 </div>
 
-<div class="search-container" style="margin-left: -20px;">
+
+<div class="search-container">
   <%= form_tag(items_path, method: :get, class: "button") do %>
     <%= text_field_tag :query, nil, class: "search-field", placeholder: "Search items..." %>
     <%= submit_tag "Search", class: "search-button" %>

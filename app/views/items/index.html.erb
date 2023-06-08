@@ -9,7 +9,7 @@
   <%= link_to "Go Back", root_path, class: "back-button" %>
 </div>
 
-<div class="search-container" style="margin-left: -20px;">
+<div class="search-container">
   <%= form_with(url: items_path, method: :get, class: "button") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search", class: "search-button" %>
@@ -39,7 +39,7 @@
       <div class="card-grid-container">
         <% @dresses.each_with_index do |dress, i| %>
           <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-            <div class="card">
+            <div class="new-card">
               <% if dress.photo.attached? %>
                 <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
               <% end %>
