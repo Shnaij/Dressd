@@ -88,7 +88,7 @@ end
   )
 
   # file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
-  file = File.open(Rails.root.join("app/assets/images/tops/hm_top.jpeg"))
+  file = File.open(Rails.root.join("app/assets/images/tops  /hm_top.jpeg"))
   item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
 
   item.save
