@@ -51,7 +51,7 @@ categories = Item::CATEGORIES
 brands = ['Zara', 'Mango', 'Gucci', 'H&M', 'American Vintage', '& Other Stories', 'Urban Outfitters', 'TiMo', 'Brandz', 'Sister']
 colors = ['bright', 'flowery', 'multicolor']
 
-styles_array = ['Sporty', 'Casual', 'Comfy', 'Party', 'Evening out']
+styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
 styles_array.each do |style|
   Style.create(title: style)
 end
