@@ -23,3 +23,15 @@
   align-items: center;
   margin: 10px;
 }
+
+.start-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensure the container takes up the full viewport height */
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 180px;
+  padding-bottom: 20px; /* Adjust this value to set the distance from the bottom */
+  margin-top: auto; /* Pushes the container to the bottom of the parent */
+  text-align: center;
+}
