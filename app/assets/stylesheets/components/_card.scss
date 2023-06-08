@@ -1,5 +1,5 @@
 .card-details {
-  background-color: $card-color;
+  background-color: #F4F4F4;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 10px;
@@ -36,11 +36,11 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
-
-  .items-list {
-   height: 170px;
-  }
 }
+
+ .items-list {
+   height: 170px;
+ }
 
 .h230 {
   height: 230px;
@@ -48,4 +48,12 @@
 
 .mb40 {
   margin-bottom: 40px !important;
+}
+
+.outfit-card {
+  background-color: #F4F4F4;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
