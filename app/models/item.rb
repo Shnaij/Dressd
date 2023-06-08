@@ -11,6 +11,14 @@ class Item < ApplicationRecord
 
   include PgSearch::Model
   # pg_search_scope :search_two_models,
-  multisearchable against: [:title, :brand, :color, :category]
+    # multisearchable against: [:title, :brand, :color, :category]
 
+  pg_search_scope :global_search,
+    against: [:title, :brand, :color, :category],
+    associated_against: {
+      styles: :title
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
