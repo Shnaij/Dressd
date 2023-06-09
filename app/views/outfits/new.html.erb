@@ -7,87 +7,99 @@
 
 <div class="container">
   <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-    <%= link_to "Go Back", items_path, class: "back-button" %>
+    <%= link_to "Go Back", root_path, class: "back-button" %>
   </div>
+
+  <div class="search-container-outfits">
+    <%= form_tag(items_path, method: :get, class: "button") do %>
+      <%= text_field_tag :query, nil, class: "search-field", placeholder: "Search items..." %>
+      <%= submit_tag "Search", class: "search-button" %>
+    <% end %>
+   </div>
 </div>
 
-<div class="container">
-  <%= form_tag(items_path, method: :get, class: "search-container my-2") do %>
-    <%= text_field_tag :query, nil, class: "search-field", placeholder: "Search items..." %>
-    <%= submit_tag "Search", class: "search-button" %>
-  <% end %>
-</div>
+<%= form_with model: @outfit, data: {controller: "outfit", outfit_target: "form", action: "submit->outfit#insertForm"} do |f| %>
+  <div class="outfit-card-container">
+    <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
+      <div class="tops-selections">
+        <div id="carouselTops" class="carousel slide">
+          <div class="carousel-inner" style="margin-top: 5px;">
+            <% @tops.each_with_index do |top, index| %>
+              <div class="carousel-item <%= 'active' if index.zero? %> top-value" data-top-id="<%= top.id %>">
+                <img src="<%= cl_image_path top.photo.key %>" class="d-block w-100 cropped-top" alt="tops">
+              </div>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselTops" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselTops" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
-<div class="outfit-card-container">
-  <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
-    <div class="tops-selections">
-      <div id="carouselTops" class="carousel slide">
-        <div class="carousel-inner" style="margin-top: 5px;">
-          <% @tops.each_with_index do |top, index| %>
-            <div class="carousel-item <%= 'active' if index.zero? %>">
-              <img src="<%= cl_image_path top.photo.key %>" class="d-block w-100 cropped-top" alt="tops">
+    <!-- Repeat the same pattern for other carousel sections -->
+
+    <div class="outfit-card-container">
+      <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
+        <div class="bottoms-selections">
+          <div id="carouselBottoms" class="carousel slide">
+            <div class="carousel-inner" style="margin-top: 5px;">
+              <% @bottoms.each_with_index do |bottom, index| %>
+                <div class="carousel-item <%= 'active' if index.zero? %> bottom-value" data-bottom-id="<%= bottom.id %>">
+                  <img src="<%= cl_image_path bottom.photo.key %>" class="d-block w-100 cropped-bottoms" alt="bottoms">
+                </div>
+              <% end %>
             </div>
-          <% end %>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTops" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselTops" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Repeat the same pattern for other carousel sections -->
-
-  <div class="outfit-card-container">
-    <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
-      <div class="bottoms-selections">
-        <div id="carouselBottoms" class="carousel slide">
-          <div class="carousel-inner" style="margin-top: 5px;">
-            <% @bottoms.each_with_index do |bottom, index| %>
-              <div class="carousel-item <%= 'active' if index.zero? %>">
-                <img src="<%= cl_image_path bottom.photo.key %>" class="d-block w-100 cropped-bottoms" alt="bottoms">
-              </div>
-            <% end %>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBottoms" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselBottoms" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselBottoms" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselBottoms" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="outfit-card-container">
-    <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
-      <div class="shoes-selections">
-        <div id="carouselShoes" class="carousel slide">
-          <div class="carousel-inner" style="margin-top: 5px;">
-            <% @shoes.each_with_index do |shoe, index| %>
-              <div class="carousel-item <%= 'active' if index.zero? %>">
-                <img src="<%= cl_image_path shoe.photo.key %>" class="d-block w-100 cropped-shoes" alt="shoes">
-              </div>
-            <% end %>
+    <div class="outfit-card-container">
+      <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
+        <div class="shoes-selections">
+          <div id="carouselShoes" class="carousel slide">
+            <div class="carousel-inner" style="margin-top: 5px;">
+              <% @shoes.each_with_index do |shoe, index| %>
+                <div class="carousel-item <%= 'active' if index.zero? %> shoe-value" data-shoe-id="<%= shoe.id %>">
+                  <img src="<%= cl_image_path shoe.photo.key %>" class="d-block w-100 cropped-shoes" alt="shoes">
+                </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselShoes" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselShoes" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselShoes" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselShoes" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <%= f.text_field :title %>
+  <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
+  <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
+  <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
+
+  <div class="button-container">
+    <div class="left-button">
+      <%= f.submit "Dress Me", class: "beige-button" %>
+    </div>
+  </div>
+<% end %>

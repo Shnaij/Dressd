@@ -13,9 +13,15 @@ class OutfitsController < ApplicationController
     # @dresses = Item.where(category: "Dresses")
     # @tops = Item.where(category: "Tops")
     # @bottoms = Item.where(category: "Bottoms")
+    
+  end
+
+  def show
+    @outfit = Outfit.find(params[:id])
   end
 
   def new
+    @outfit = Outfit.new
     @shoes = Item.where(category: "Shoes")
     @dresses = Item.where(category: "Dresses")
     @tops = Item.where(category: "Tops")
@@ -24,10 +30,12 @@ class OutfitsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.user_id = current_user.id
-    if @item.save
-      redirect_to items_path(@item), notice: "Outfit was successfully uploaded, you can find it in your closet."
+    @outfit = Outfit.new(outfit_params)
+    @outfit.user_id = current_user.id
+    items = find_all_items
+    if @outfit.save
+      create_outfit_items(items, @outfit)
+      redirect_to outfits_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,11 +43,20 @@ class OutfitsController < ApplicationController
 
   private
 
-  def item_params
-    params.require(:item).permit(:title, :brand, :category, :color, :original_price, :photo)
-  end
-
   def outfit_params
     params.require(:outfit).permit(:title)
+  end
+
+  def find_all_items
+    top = Item.find(params[:outfit][:top].to_i)
+    bottom = Item.find(params[:outfit][:bottom].to_i)
+    shoe = Item.find(params[:outfit][:shoe].to_i)
+    [top, bottom, shoe]
+  end
+
+  def create_outfit_items(items, outfit)
+    items.each do |item|
+      OutfitItem.create(item_id: item.id, outfit_id: outfit.id)
+    end
   end
 end
