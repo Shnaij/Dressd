@@ -1,6 +1,5 @@
 class OutfitsController < ApplicationController
   def index
-
     @outfits = Outfit.all
 
     # Search results
@@ -10,10 +9,10 @@ class OutfitsController < ApplicationController
       @outfits = Outfit.all
     end
 
-    @shoes = Item.where(category: "Shoes")
-    @dresses = Item.where(category: "Dresses")
-    @tops = Item.where(category: "Tops")
-    @bottoms = Item.where(category: "Bottoms")
+    # @shoes = Item.where(category: "Shoes")
+    # @dresses = Item.where(category: "Dresses")
+    # @tops = Item.where(category: "Tops")
+    # @bottoms = Item.where(category: "Bottoms")
   end
 
   def new

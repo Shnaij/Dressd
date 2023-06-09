@@ -17,23 +17,20 @@
 
   <% if @outfits.any? %>
     <div class="outfits-container mt-4">
-
-      <div class="outfits">
-
-        <div class="card-details-small">
-          <h2 class="card-title">Outfit title placeholder</h2>
-          <p class="card-p">Outfit style placeholder</p>
-        </div>
-      </div>
+    <% @outfits.each do |outfit| %>
       <div class="outfits">
         <div class="card-details-small">
-          <h2 class="card-title">Outfit title placeholder</h2>
-          <p class="card-p">Outfit style placeholder</p>
+          <h2 class="card-title"><%= outfit.title %></h2>
+          <p class="card-p">Outfit style: placeholder</p>
+          <%= cl_image_tag outfit.items.first.photo.key, class: "outfit-image" %>
+          <%= cl_image_tag outfit.items.second.photo.key, class: "outfit-image" %>
+          <%= cl_image_tag outfit.items.third.photo.key, class: "outfit-image" %>
         </div>
       </div>
+    <% end %>
     </div>
   </div>
 
   <% else %>
-    <em>You have no saved outfits yet, create one from the </em>
+    <em>You have no saved outfits yet, create one from the Dress me on your profile!</em>
   <% end %>
