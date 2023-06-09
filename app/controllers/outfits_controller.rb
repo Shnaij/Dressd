@@ -1,5 +1,15 @@
 class OutfitsController < ApplicationController
   def index
+
+    @outfits = Outfit.all
+
+    # Search results
+    if params[:query].present?
+      @outfits = Outfit.outfit_search(params[:query])
+    else
+      @outfits = Outfit.all
+    end
+
     @shoes = Item.where(category: "Shoes")
     @dresses = Item.where(category: "Dresses")
     @tops = Item.where(category: "Tops")

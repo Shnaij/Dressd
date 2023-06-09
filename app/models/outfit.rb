@@ -2,4 +2,16 @@ class Outfit < ApplicationRecord
   belongs_to :user
   has_many :outfit_items
   has_many :items, through: :outfit_items
+
+  validates :title, uniqueness: true
+
+  include PgSearch::Model
+  pg_search_scope :outfit_search,
+    against: [:title],
+    associated_against: {
+      styles: :title
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
