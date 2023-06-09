@@ -5,25 +5,21 @@
   <h1>Your Outfits</h1>
 </div>
 
-<div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-  <%= link_to "Go Back", new_outfit_path, class: "back-button" %>
-</div>
+<div class="container">
+  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+    <%= link_to "Go Back", new_outfit_path, class: "back-button" %>
+  </div>
 
-<div class="search-container">
-  <%= form_with(url: items_path, method: :get, class: "search-form") do |f| %>
+  <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search", class: "search-button" %>
   <% end %>
-</div>
 
-<div class="outfits-container">
-  <div class="outfits">
-    <div class="outfits-content">
+  <div class="outfits-container mt-4">
+    <div class="outfits">
       <p>Outfit title placeholder</p>
     </div>
-  </div>
-  <div class="outfits">
-    <div class="outfits-content">
+    <div class="outfits">
       <p>Outfit title placeholder</p>
     </div>
   </div>
