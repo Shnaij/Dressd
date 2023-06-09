@@ -9,7 +9,7 @@
   <%= link_to "Go Back", outfits_path, class: "back-button" %>
 </div>
 
-<div class="container my-3">
+<div class="container padding-bottom">
   <%= simple_form_for(@item) do |f| %>
     <%= f.input :photo, as: :file, label: 'Upload one image of the item lying flat on a white background', input_html: { class: 'input-color' }%>
     <%= f.input :title, label: 'What will you name this item?', input_html: { class: 'input-color' } %>
