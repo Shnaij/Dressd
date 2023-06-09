@@ -15,10 +15,12 @@ html, body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .outfits {
-  background-color: $card-color;
+  background-color: $light-gray;
   height: 510px;
   border-radius: 10px;
   padding: 6px;
@@ -30,4 +32,9 @@ html, body {
 
 .outfits-content p {
   font-size: 12px;
+}
+
+.outfit-image {
+  object-fit: scale-down;
+  height: 180px;
 }
