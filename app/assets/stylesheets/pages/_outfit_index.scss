@@ -16,12 +16,12 @@ html, body {
   grid-template-columns: 1fr 1fr;
   gap: 6px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .outfits {
   background-color: $light-gray;
   height: 510px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 6px;
 }
@@ -36,5 +36,5 @@ html, body {
 
 .outfit-image {
   object-fit: scale-down;
-  height: 180px;
+  height: 150px;
 }

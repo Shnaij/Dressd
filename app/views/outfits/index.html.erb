@@ -5,7 +5,7 @@
   <h1 class="text-center">Your Outfits</h1>
 </div>
 
-<div class="container">
+<div class="container padding-bottom-more">
   <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
     <%= link_to "Go Back", new_outfit_path, class: "back-button" %>
   </div>
@@ -21,7 +21,6 @@
         <div class="outfits">
           <div class="card-details-small">
             <h2 class="card-title"><%= outfit.title %></h2>
-            <p class="card-p">Outfit style: placeholder</p>
             <%= cl_image_tag outfit.items.first.photo.key, class: "outfit-image" %>
             <%= cl_image_tag outfit.items.second.photo.key, class: "outfit-image" %>
             <%= cl_image_tag outfit.items.third.photo.key, class: "outfit-image" %>

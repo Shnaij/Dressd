@@ -13,7 +13,7 @@ class OutfitsController < ApplicationController
     # @dresses = Item.where(category: "Dresses")
     # @tops = Item.where(category: "Tops")
     # @bottoms = Item.where(category: "Bottoms")
-    
+
   end
 
   def show
