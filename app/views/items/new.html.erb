@@ -5,13 +5,7 @@
   <h1 class="text-center">New Items</h1>
 </div>
 
-<div class="container">
-  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-    <%= link_to "Go Back", new_outfit_path, class: "back-button" %>
-  </div>
-</div>
-
-<div class="container padding-bottom">
+<div class="container mt-2">
   <%= simple_form_for(@item) do |f| %>
     <%= f.input :photo, as: :file, label: 'Upload one image of the item lying flat on a white background', input_html: { class: 'input-color' }%>
     <%= f.input :title, label: 'What will you name this item?', input_html: { class: 'input-color' } %>
