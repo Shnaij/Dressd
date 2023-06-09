@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :items, only: [:index, :show, :new, :create]
   resources :outfits, only: [:index, :show, :new, :create]
+  resources :weather, only: [:show]
 end

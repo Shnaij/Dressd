@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather App</title>
+  <script src="https://unpkg.com/@hotwired/stimulus@3.0.0/dist/stimulus.umd.js"></script>
+  <script src="weather_controller.js" defer></script>
+  <style>
+    .weather-card {
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+    }
+    .weather-icon {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div data-controller="weather" data-action="submit->weather#fetchWeather">
+    <form>
+      <input type="text" data-target="weather.input" placeholder="Enter city name">
+      <button type="submit">Get Weather</button>
+    </form>
+    <div class="weather-card">
+      <h2 data-target="weather.city"></h2>
+      <p data-target="weather.date"></p>
+      <img class="weather-icon" data-target="weather.icon">
+      <p data-target="weather.temperature"></p>
+      <p data-target="weather.description"></p>
+    </div>
+  </div>
+</body>
+</html>
