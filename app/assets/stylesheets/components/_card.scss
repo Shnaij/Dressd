@@ -5,30 +5,30 @@
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  //transition: transform 0.3s;
 
   .items-list {
     height: 170px;
   }
 }
 
-.card-details:hover {
-  transform: scale(1.05);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+//.card-details:hover {
+ // transform: scale(1.05);
+  //padding: 10px;
+  //border-radius: 10px;
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//}
 
-.new-card {
-  transition: transform 0.3s;
-}
+//.new-card {
+  //transition: transform 0.3s;
+//}
 
-.new-card:hover {
-  transform: scale(1.05);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+//.new-card:hover {
+  //transform: scale(1.05);
+  //padding: 10px;
+  //border-radius: 10px;
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//}
 
 .card-details-small {
   background-color: $light-gray;
@@ -36,10 +36,18 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
+}
 
-  .items-list {
+ .items-list {
    height: 170px;
-  }
+ }
+
+.h230 {
+  height: 230px;
+}
+
+.mb40 {
+  margin-bottom: 40px !important;
 }
 
 .outfit-card {
@@ -48,5 +56,4 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
-
 }

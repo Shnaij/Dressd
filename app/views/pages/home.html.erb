@@ -5,12 +5,12 @@
   <h1>Shnai's Profile</h1>
 </div>
 
-<div class="container padding-bottom-more">
+<div class="container padding-bottom">
   <div class="header-weather">
     <div class="logo">
       <%= image_tag("weather.png", alt: "Logo", class: "logo-image") %>
     </div>
-    <p class="pink-button">Cloudy with a chance of rain</p>
+    <p class="weather-button">Cloudy with a chance of rain</p>
   </div>
 
   <div class="button-container">
@@ -22,31 +22,32 @@
     </div>
   </div>
 
-  <div class="card-details">
-      <div class="outfit-card">
+
+  <div class="card-details h230 mb40">
+    <div class="outfit-card h230">
+      <div class="d-flex justify-content-between align-items-center">
         <h2>My Items</h2>
-        <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-          <%= link_to "See All", items_path, class: "back-button" %>
-          <div class="d-flex">
-            <%= cl_image_tag @items.first.photo.key, height: 200, class: "card-image" %>
-            <%= cl_image_tag @items.second.photo.key, height: 200, class: "card-image" %>
-          </div>
-        </div>
-     </div>
+        <%= link_to "See All", items_path, class: "back-button mt-0" %>
+      </div>
+      <div class="d-flex h230">
+        <%= cl_image_tag @items.first.photo.key, height: 100, class: "card-image" %>
+        <%= cl_image_tag @items.second.photo.key, height: 100, class: "card-image" %>
+      </div>
+    </div>
   </div>
 
 
 
-  <div class="card-details">
-     <div class="outfit-card">
+  <div class="card-details h230">
+    <div class="outfit-card padding-bottom">
+      <div class="d-flex justify-content-between align-items-center">
         <h2>My Outfits</h2>
-        <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-          <%= link_to "See All", outfits_path, class: "back-button" %>
-          <div class="d-flex">
-            <%= cl_image_tag @items.first.photo.key, height: 200, class: "card-image" %>
-            <%= cl_image_tag @items.second.photo.key, height: 200, class: "card-image" %>
-          </div>
-        </div>
+        <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
       </div>
+      <div class="d-flex h230">
+        <%= cl_image_tag @items.first.photo.key, height: 100, class: "card-image" %>
+        <%= cl_image_tag @items.second.photo.key, height: 100, class: "card-image" %>
+      </div>
+    </div>
   </div>
 </div>
