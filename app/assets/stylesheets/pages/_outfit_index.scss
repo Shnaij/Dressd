@@ -12,23 +12,16 @@ html, body {
 }
 
 .outfits-container {
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
-  width: 405px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
 }
 
 .outfits {
-  flex: 1;
   background-color: $card-color;
   height: 510px;
-  width: 100px;
   border-radius: 10px;
-  margin-right: 10px;
-}
-
-.outfits-content {
-  padding: 20px;
+  padding: 6px;
 }
 
 .card-content {
