@@ -5,14 +5,13 @@
   <h1>Shnai's Profile</h1>
 </div>
 
-<div class="container padding-bottom-more">
+<div class="container padding-bottom">
   <div class="header-weather">
     <div class="logo">
       <%= image_tag("weather.png", alt: "Logo", class: "logo-image") %>
     </div>
-    <p class="pink-button">Cloudy with a chance of rain</p>
+    <p class="weather-button">Cloudy with a chance of rain</p>
   </div>
-
   <div class="button-container">
     <div class="left-button">
       <%= link_to "Dress Me", new_outfit_path, class: "beige-button" %>
@@ -21,10 +20,8 @@
       <button class="beige-button">Friends</button>
     </div>
   </div>
-
-
-  <div class="card-details h230 mb40">
-    <div class="new-card h230">
+  <div class="card-home-details h230 mb40">
+    <div class="outfit-card h230">
       <div class="d-flex justify-content-between align-items-center">
         <h2>My Items</h2>
         <%= link_to "See All", items_path, class: "back-button mt-0" %>
@@ -36,13 +33,11 @@
           <% end %>
         <% end %>
       </div>
-     </div>
+    </div>
   </div>
 
-
-
-  <div class="card-details h230">
-    <div class="new-card h230">
+  <div class="card-home-details h230">
+    <div class="outfit-card h230">
       <div class="d-flex justify-content-between align-items-center">
         <h2>My Outfits</h2>
         <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
