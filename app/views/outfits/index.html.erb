@@ -17,14 +17,14 @@
 </div>
 
 <div class="outfits-container">
-  <div class="outfits">
-    <div class="outfits-content">
-      <p>Outfit title placeholder</p>
+  <% @outfits.each do |outfit| %>
+    <div class="outfits">
+      <div class="outfits-content">
+        <p><%= outfit.title %></p>
+        <% outfit.outfit_items.each do |oi| %>
+          <p><%= oi.item.title %></p>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="outfits">
-    <div class="outfits-content">
-      <p>Outfit title placeholder</p>
-    </div>
-  </div>
+  <% end %>
 </div>
