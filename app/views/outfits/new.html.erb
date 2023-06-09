@@ -5,13 +5,14 @@
   <h1>Outfit Planner</h1>
 </div>
 
-<div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-  <%= link_to "Go Back", items_path, class: "back-button" %>
+<div class="container">
+  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+    <%= link_to "Go Back", items_path, class: "back-button" %>
+  </div>
 </div>
 
-
-<div class="search-container">
-  <%= form_tag(items_path, method: :get, class: "button") do %>
+<div class="container">
+  <%= form_tag(items_path, method: :get, class: "search-container my-2") do %>
     <%= text_field_tag :query, nil, class: "search-field", placeholder: "Search items..." %>
     <%= submit_tag "Search", class: "search-button" %>
   <% end %>
