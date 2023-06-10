@@ -1,19 +1,21 @@
-<div class="navbar">
-  <div class="container">
-    <%= link_to root_path do %>
-    <div id="profile-picdiv"><%= image_tag "Shnai_Profile_Pic_1.jpg", class: "icon profile-pic" %></div>
-    <% end %>
-     <%= link_to items_path do %>
-      <i class="icon fa-solid fa-person-booth"></i>
-    <% end %>
-    <%= link_to new_item_path do %>
-      <i class="icon fa-solid fa-plus"></i>
+<div class="page-container">
+  <div class="navbar">
+    <div class="container">
+      <%= link_to root_path do %>
+      <div id="profile-picdiv"><%= image_tag "Shnai_Profile_Pic_1.jpg", class: "icon profile-pic" %></div>
       <% end %>
-    <%= link_to outfits_path do %>
-     <i class="icon fa-solid fa-shirt"></i>
+      <%= link_to items_path do %>
+        <i class="icon fa-solid fa-person-booth"></i>
       <% end %>
-    <%= link_to root_path do %>
-      <i class="icon fa-solid fa-cart-shopping"></i>
-    <% end %>
+      <%= link_to new_item_path do %>
+        <i class="icon fa-solid fa-plus"></i>
+        <% end %>
+      <%= link_to outfits_path do %>
+      <i class="icon fa-solid fa-shirt"></i>
+        <% end %>
+      <%= link_to root_path do %>
+        <i class="icon fa-solid fa-cart-shopping"></i>
+      <% end %>
+    </div>
   </div>
 </div>
