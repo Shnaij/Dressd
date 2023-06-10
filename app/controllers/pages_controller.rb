@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   def home
-    # @dresses = Item.where(category: 'Dresses')
-    # @buttoms = Item.where(category: 'Buttoms')
-    # @tops = Item.where(category: 'Tops')
-    # @shoes = Item.where(category: 'Shoes')
-    @items = Item.where(category: "Dresses").limit(2)
+    if user_signed_in?
+      @items = Item.where(category: "Dresses").limit(2)
+    else
+      redirect_to landing_path
+    end
   end
 
   def landing
