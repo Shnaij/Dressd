@@ -16,10 +16,11 @@ class OutfitsController < ApplicationController
 
   def new
     @outfit = Outfit.new
-    @shoes = Item.where(category: "Shoes")
-    @dresses = Item.where(category: "Dresses")
-    @tops = Item.where(category: "Tops")
-    @bottoms = Item.where(category: "Bottoms")
+    @items = Item.all
+    @shoes = @items.where(category: "Shoes")
+    @dresses = @items.where(category: "Dresses")
+    @tops = @items.where(category: "Tops")
+    @bottoms = @items.where(category: "Bottoms")
     @item = Item.new
   end
 
