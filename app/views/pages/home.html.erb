@@ -48,10 +48,14 @@
         <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
       </div>
       <div class="d-flex h230">
-        <% @outfits.each do |outfit| %>
-          <% if outfit.photo.attached? %>
-            <%= cl_image_tag outfit.photo.key, height: 100, class: "card-image" %>
+        <% if @outfits.any? %>
+          <% @outfits.each do |outfit| %>
+            <% if outfit.photo.attached? %>
+              <%= cl_image_tag outfit.photo.key, height: 100, class: "card-image" %>
+            <% end %>
           <% end %>
+        <% else %>
+        <em class="no-outfits-message">You have no saved outfits yet, create one from the Dress me on your profile!</em>
         <% end %>
       </div>
     </div>

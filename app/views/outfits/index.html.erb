@@ -1,36 +1,31 @@
-<div class="page-container">
-  <div class="banner">
-    <%= link_to root_path do %>
-      <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
-    <% end %>
-    <h1 class="text-center">Your Outfits</h1>
+<div class="banner">
+  <%= link_to root_path do %>
+    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+  <% end %>
+  <h1 class="text-center">Your Outfits</h1>
+</div>
+<div class="container padding-bottom-more">
+  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+    <%= link_to "Go Back", new_outfit_path, class: "back-button" %>
   </div>
-
-  <%= form_with(url: outfits_path, method: :get, class: "search-container my-2") do |f| %>
-    <%= f.search_field :query, class: "search-field", placeholder: "Search outfits..." %>
+  <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
+    <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search", class: "search-button" %>
   <% end %>
-
-    <% if @outfits.any? %>
-      <div class="outfits-container mt-4">
-        <% @outfits.each do |outfit| %>
-          <div class="outfits">
-            <div class="card-details-small">
-              <h2 class="card-title"><%= outfit.title %></h2>
-              <%= cl_image_tag outfit.items.first.photo.key, class: "outfit-image" %>
-              <%= cl_image_tag outfit.items.second.photo.key, class: "outfit-image" %>
-              <%= cl_image_tag outfit.items.third.photo.key, class: "outfit-image" %>
-            </div>
+  <% if @outfits.any? %>
+    <div class="outfits-container mt-4">
+      <% @outfits.each do |outfit| %>
+        <div class="outfits">
+          <div class="card-details-small">
+            <h2 class="card-title"><%= outfit.title %></h2>
+            <%= cl_image_tag outfit.items.first.photo.key, class: "outfit-image" %>
+            <%= cl_image_tag outfit.items.second.photo.key, class: "outfit-image" %>
+            <%= cl_image_tag outfit.items.third.photo.key, class: "outfit-image" %>
           </div>
-        <%= link_to "destroy outfit", outfit_path(outfit), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
       <% end %>
     </div>
-        <% end %>
-      </div>
-
-    <% else %>
-      <em>You have no saved outfits yet, create one from the Dress me on your profile!</em>
-    <% end %>
-  </div>
+  <% else %>
+    <em>You have no saved outfits yet, create one from the Dress me on your profile!</em>
+  <% end %>
 </div>
