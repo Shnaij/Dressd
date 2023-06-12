@@ -13,7 +13,7 @@
       <%= text_field_tag :query, nil, class: "search-field", placeholder: "Search items..." %>
       <%= submit_tag "Search", class: "search-button" %>
     <% end %>
-    
+
   </div>
   <%= form_with model: @outfit, data: {controller: "outfit", outfit_target: "form", action: "submit->outfit#insertForm"} do |f| %>
     <div class="outfit-card-container">
@@ -98,3 +98,4 @@
     </div>
   <% end %>
 </div>
+<%= console %>

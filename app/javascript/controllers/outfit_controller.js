@@ -4,6 +4,11 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["form", "topField", "bottomField", "shoeField"]
 
+  connect() {
+    console.log("hey");
+    console.log(this.topFieldTarget);
+  }
+
   insertForm(event) {
     event.preventDefault()
     const topId = document.querySelector(".top-value.active").dataset.topId
