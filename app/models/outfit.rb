@@ -5,8 +5,6 @@ class Outfit < ApplicationRecord
 
   validates :title, uniqueness: true
 
-  def 
-
   include PgSearch::Model
   pg_search_scope :outfit_search,
     against: [:title],
