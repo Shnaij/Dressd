@@ -17,9 +17,7 @@
         <div class="filter-item">
           <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
         </div>
-        <div class="filter-item">
-          <%= select_tag(:color, options_for_select(Item.distinct.pluck(:color)), include_blank: 'Colours', class: 'beige-button') %>
-        </div>
+
         <div class="">
           <%= submit_tag 'Filter', class: 'search-button' %>
         </div>

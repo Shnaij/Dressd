@@ -11,13 +11,6 @@
       <%= link_to "Go Back", root_path, class: "back-button" %>
     </div>
 
-  <div class="search-container">
-    <%= form_tag(url: new_outfit_path, method: :get, class: "search-container my-2") do %>
-      <%= text_field_tag :query, nil, class: "search-field", placeholder: "Search items..." %>
-      <%= submit_tag "Search", class: "search-button" %>
-    <% end %>
-  </div>
-
   <%= form_with model: @outfit, data: {controller: "outfit", outfit_target: "form", action: "submit->outfit#insertForm"} do |f| %>
     <div class="outfit-card-container">
       <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
