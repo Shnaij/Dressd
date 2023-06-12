@@ -9,7 +9,7 @@ class Outfit < ApplicationRecord
   pg_search_scope :outfit_search,
     against: [:title],
     associated_against: {
-      styles: :title
+      item: [:title, :brand, :color, :category]
     },
     using: {
       tsearch: { prefix: true }

@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
+
   def index
-    @items = Item.all
+    @items = current_user.items # Item.all
 
     # Search results
     if params[:query].present?
-      @items = Item.global_search(params[:query])
-    else
-      @items = Item.all
+      @items = Item.items_search(params[:query])
     end
 
     # Additional logic for filtering
