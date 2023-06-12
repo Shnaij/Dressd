@@ -41,6 +41,12 @@ class OutfitsController < ApplicationController
     end
   end
 
+  def destroy
+    outfit = Outfit.find(params[:id])
+    outfit.destroy
+    redirect_to outfits_path, status: :see_other
+  end
+
   private
 
   def outfit_params
