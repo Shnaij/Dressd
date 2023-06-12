@@ -7,6 +7,10 @@ class OutfitsController < ApplicationController
       @outfits = Outfit.outfit_search(params[:query]) # filtering on current user needed?
     end
   end
+    # @shoes = Item.where(category: "Shoes")
+    # @dresses = Item.where(category: "Dresses")
+    # @tops = Item.where(category: "Tops")
+    # @bottoms = Item.where(category: "Bottoms")
 
   def show
     @outfit = Outfit.find(params[:id])
