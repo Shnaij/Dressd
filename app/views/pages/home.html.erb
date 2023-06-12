@@ -2,7 +2,7 @@
   <%= link_to items_path do %>
     <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
   <% end %>
-  <h1>Shnai's Profile</h1>
+  <h1><%= current_user.nickname %></h1>
   <div class="logout-container">
     <% if user_signed_in? %>
       <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "logout-link" %>
@@ -11,12 +11,12 @@
 </div>
 
 
-<div class="container padding-bottom-more">
+<div class="container padding-bottom-more" data-controller="weather">
   <div class="header-weather">
     <div class="logo">
-      <%= image_tag("weather.png", alt: "Logo", class: "logo-image") %>
+      <%= image_tag("weather.png", alt: "Logo", class: "logo-image", data: { weather_target: "icon"}) %>
     </div>
-    <p class="weather-button">Cloudy with a chance of rain</p>
+    <p class="pink-button" data-weather-target="description">Cloudy with a chance of rain</p>
   </div>
   <div class="button-container">
     <div class="left-button">
@@ -49,10 +49,8 @@
         <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
       </div>
       <div class="d-flex h230">
-        <% @items.each do |item| %>
-          <% if item.photo.attached? %>
-            <%= cl_image_tag item.photo.key, height: 100, class: "card-image" %>
-          <% end %>
+        <% @outfits.each do |outfit| %>
+          <%= render 'shared/outfit', outfit: outfit %>
         <% end %>
       </div>
     </div>

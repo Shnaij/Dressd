@@ -6,10 +6,6 @@
 </div>
 
 <div class="container">
-  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-    <%= link_to "Go Back", root_path, class: "back-button" %>
-  </div>
-
   <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search", class: "search-button" %>
@@ -48,7 +44,7 @@
         <h1 class="black-heading">Tops</h1>
         <div class="card-grid-container">
           <% @tops.each_with_index do |top, i| %>
-            <%= render "item", item: top %>
+            <%= render 'item', item: top %>
           <% end %>
         </div>
       </div>
@@ -59,7 +55,7 @@
         <h1 class="black-heading">Bottoms</h1>
         <div class="card-grid-container">
           <% @bottoms.each_with_index do |bottom, i| %>
-            <%= render "item", item: bottom %>
+            <%= render 'item', item: bottom %>
           <% end %>
         </div>
       </div>
@@ -70,7 +66,7 @@
         <h1 class="black-heading">Shoes</h1>
         <div class="card-grid-container">
           <% @shoes.each_with_index do |pair, i| %>
-            <%= render "item", item: pair %>
+            <%= render 'item', item: pair %>
           <% end %>
         </div>
       </div>

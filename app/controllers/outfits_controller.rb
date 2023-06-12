@@ -1,20 +1,16 @@
 class OutfitsController < ApplicationController
   def index
-    @outfits = Outfit.all
+    @outfits = current_user.outfits    # Outfit.all
 
     # Search results
     if params[:query].present?
-      @outfits = Outfit.outfit_search(params[:query])
-    else
-      @outfits = Outfit.all
+      @outfits = Outfit.outfit_search(params[:query]) # filtering on current user needed?
     end
-
+  end
     # @shoes = Item.where(category: "Shoes")
     # @dresses = Item.where(category: "Dresses")
     # @tops = Item.where(category: "Tops")
     # @bottoms = Item.where(category: "Bottoms")
-
-  end
 
   def show
     @outfit = Outfit.find(params[:id])
@@ -22,11 +18,22 @@ class OutfitsController < ApplicationController
 
   def new
     @outfit = Outfit.new
-    @shoes = Item.where(category: "Shoes")
-    @dresses = Item.where(category: "Dresses")
-    @tops = Item.where(category: "Tops")
-    @bottoms = Item.where(category: "Bottoms")
-    @item = Item.new
+
+    @items = current_user.items
+    @tops = @items.where(category: "Tops")
+    @bottoms = @items.where(category: "Bottoms")
+    @shoes = @items.where(category: "Shoes")
+    @dresses = @items.where(category: "Dresses")
+
+    if params[:item_id]
+      item = Item.find(params[:item_id])
+      case item.category
+      when "Tops" then @tops = reindex_list(@tops, item)
+      when "Bottoms" then @bottoms = reindex_list(@bottoms, item)
+      when "Shoes" then @shoes = reindex_list(@shoes, item)
+      when "Dresses" then @dresses = reindex_list(@dresses, item)
+      end
+    end
   end
 
   def create
@@ -64,5 +71,11 @@ class OutfitsController < ApplicationController
     items.each do |item|
       OutfitItem.create(item_id: item.id, outfit_id: outfit.id)
     end
+  end
+
+  def reindex_list(items, item)
+    items = items.to_a
+    items.delete(item)
+    items.unshift(item)
   end
 end
