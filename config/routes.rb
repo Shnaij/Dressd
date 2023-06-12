@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "/landing", to: "pages#landing", as: :landing
+  get "/home", to: "pages#home", as: :home
   # resources :items, only: [:index]
   # resources :outfits, only: [:new]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
