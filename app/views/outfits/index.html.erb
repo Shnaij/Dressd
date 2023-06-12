@@ -6,10 +6,10 @@
     <h1 class="text-center">Your Outfits</h1>
   </div>
 
-    <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
-      <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
-      <%= f.submit "Search", class: "search-button" %>
-    <% end %>
+  <%= form_with(url: outfits_path, method: :get, class: "search-container my-2") do |f| %>
+    <%= f.search_field :query, class: "search-field", placeholder: "Search outfits..." %>
+    <%= f.submit "Search", class: "search-button" %>
+  <% end %>
 
     <% if @outfits.any? %>
       <div class="outfits-container mt-4">

@@ -42,17 +42,16 @@
       </div>
     </div>
 
-    <div class="card-home-details h230">
-      <div class="outfit-card h230">
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>My Outfits</h2>
-          <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
-        </div>
-        <div class="d-flex h230">
-          <% @items.each do |item| %>
-            <% if item.photo.attached? %>
-              <%= cl_image_tag item.photo.key, height: 100, class: "card-image" %>
-            <% end %>
+  <div class="card-home-details h230">
+    <div class="outfit-card h230">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>My Outfits</h2>
+        <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
+      </div>
+      <div class="d-flex h230">
+        <% @outfits.each do |outfit| %>
+          <% if outfit.photo.attached? %>
+            <%= cl_image_tag outfit.photo.key, height: 100, class: "card-image" %>
           <% end %>
         </div>
       </div>
