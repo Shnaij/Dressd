@@ -2,15 +2,13 @@
   <%= link_to items_path do %>
     <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
   <% end %>
-  <h1><%= current_user.nickname %></h1>
+  <h1><%= current_user.nickname.capitalize %></h1>
   <div class="logout-container">
     <% if user_signed_in? %>
       <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "logout-link" %>
     <% end %>
   </div>
 </div>
-
-
 <div class="container padding-bottom-more" data-controller="weather">
   <div class="header-weather">
     <div class="logo">
@@ -41,18 +39,19 @@
       </div>
     </div>
   </div>
-
   <div class="card-home-details h230">
-    <div class="outfit-card h230">
-      <div class="d-flex justify-content-between align-items-center">
-        <h2>My Outfits</h2>
-        <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
-      </div>
-      <div class="d-flex h230">
-        <% @outfits.each do |outfit| %>
-          <%= render 'shared/outfit', outfit: outfit %>
-        <% end %>
-      </div>
+  <div class="outfit-card h230">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>My Outfits</h2>
+      <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
+    </div>
+    <div class="d-flex h230 align-items-center">
+      <% @outfits.each do |outfit| %>
+        <%= render 'shared/outfit', outfit: outfit %>
+      <% end %>
+    <% if @outfits.empty? %>
+        <em class="no-outfits-message">You have no saved outfits yet, create one from the Dress me on your profile!</em>
+    <% end %>
     </div>
   </div>
 </div>
