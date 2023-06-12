@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
     # Search results
     if params[:query].present?
-      @items = Item.global_search(params[:query])
+      @items = Item.items_search(params[:query])
     else
       @items = Item.all
     end

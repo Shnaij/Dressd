@@ -10,8 +10,8 @@
     <%= link_to "Go Back", new_outfit_path, class: "back-button" %>
   </div>
 
-  <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
-    <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
+  <%= form_with(url: outfits_path, method: :get, class: "search-container my-2") do |f| %>
+    <%= f.search_field :query, class: "search-field", placeholder: "Search outfits..." %>
     <%= f.submit "Search", class: "search-button" %>
   <% end %>
 

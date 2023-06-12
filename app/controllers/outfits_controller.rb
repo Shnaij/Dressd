@@ -5,14 +5,7 @@ class OutfitsController < ApplicationController
     # Search results
     if params[:query].present?
       @outfits = Outfit.outfit_search(params[:query])
-    else
-      @outfits = Outfit.all
     end
-
-    # @shoes = Item.where(category: "Shoes")
-    # @dresses = Item.where(category: "Dresses")
-    # @tops = Item.where(category: "Tops")
-    # @bottoms = Item.where(category: "Bottoms")
 
   end
 
