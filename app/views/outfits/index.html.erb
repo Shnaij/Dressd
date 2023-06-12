@@ -15,21 +15,6 @@
   <% if @outfits.any? %>
     <div class="outfits-container mt-4">
       <% @outfits.each do |outfit| %>
-        <div class="outfits">
-          <div class="card-details-small position-relative">
-            <h2 class="card-title"><%= outfit.title %></h2>
-            <%= cl_image_tag outfit.items.first.photo.key, class: "outfit-image" %>
-            <%= cl_image_tag outfit.items.second.photo.key, class: "outfit-image" %>
-            <%= cl_image_tag outfit.items.third.photo.key, class: "outfit-image" %>
-            <div class="remove-outfit-link">
-              <%= link_to outfit_path(outfit), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-                <i class="fa-solid fa-x" style="color: #D4B2A6;"></i>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
         <%= render 'shared/outfit', outfit: outfit %>
       <% end %>
     </div>

@@ -10,3 +10,5 @@ application.register("hello", HelloController)
 import WeatherController from "./weather_controller"
 application.register("weather", WeatherController)
 
+import OutfitController from "./outfit_controller"
+application.register("outfit", OutfitController)
