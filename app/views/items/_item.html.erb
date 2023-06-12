@@ -1,6 +1,6 @@
-<div class="new-card">
+<div class="new-card position-relative">
   <%= link_to item_path(item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "remove-item" do %>
-    <i class="fa-solid fa-circle-x" style="color: #b2b6bd;"></i>
+    <i class="fa-solid fa-x" style="color: #D4B2A6;"></i>
   <% end %>
   <%= link_to new_outfit_path, class: "text-decoration-none" do %>
     <% if item.photo.attached? %>
