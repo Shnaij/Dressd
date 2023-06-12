@@ -3,7 +3,7 @@ class Outfit < ApplicationRecord
   has_many :outfit_items
   has_many :items, through: :outfit_items
 
-  validates :title, uniqueness: true
+  validates :title, presence: true
 
   include PgSearch::Model
   pg_search_scope :outfit_search,

@@ -23,7 +23,7 @@
         <div class="tops-selections">
           <div id="carouselTops" class="carousel slide">
             <div class="carousel-inner" style="margin-top: 5px;">
-              <% @tops.each_with_index do |top, index| %>
+            <% @tops.each_with_index do |top, index| %>
                 <div class="carousel-item <%= 'active' if index.zero? %> top-value" data-top-id="<%= top.id %>">
                   <img src="<%= cl_image_path top.photo.key %>" class="d-block w-100 cropped-top" alt="tops">
                 </div>
@@ -48,7 +48,7 @@
           <div class="bottoms-selections">
             <div id="carouselBottoms" class="carousel slide">
               <div class="carousel-inner" style="margin-top: 5px;">
-                <% @bottoms.each_with_index do |bottom, index| %>
+               <% @bottoms.each_with_index do |bottom, index| %>
                   <div class="carousel-item <%= 'active' if index.zero? %> bottom-value" data-bottom-id="<%= bottom.id %>">
                     <img src="<%= cl_image_path bottom.photo.key %>" class="d-block w-100 cropped-bottoms" alt="bottoms">
                   </div>
@@ -72,8 +72,8 @@
           <div class="shoes-selections">
             <div id="carouselShoes" class="carousel slide">
               <div class="carousel-inner" style="margin-top: 5px;">
-                <% @shoes.each_with_index do |shoe, index| %>
-                  <div class="carousel-item <%= 'active' if index.zero? %> shoe-value" data-shoe-id="<%= shoe.id %>">
+              <% @shoes.each_with_index do |shoe, index| %>
+                   <div class="carousel-item <%= 'active' if index.zero? %> shoe-value" data-shoe-id="<%= shoe.id %>">
                     <img src="<%= cl_image_path shoe.photo.key %>" class="d-block w-100 cropped-shoes" alt="shoes">
                   </div>
                 <% end %>
@@ -91,12 +91,10 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <%= f.text_field :title %>
-  <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
-  <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
-  <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
+    <%= f.text_field :title, class: "search-field w-100 my-3" %>
+    <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
+    <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
+    <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
 
     <div class="button-container padding-bottom-more">
       <div class="left-button">
