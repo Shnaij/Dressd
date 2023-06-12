@@ -1,23 +1,21 @@
 class OutfitsController < ApplicationController
-
   def index
     @outfits = Outfit.where(user_id: current_user.id)
-    
+
     # Search results
     if params[:query].present?
       @outfits = Outfit.outfit_search(params[:query])
-
     else
       @outfits = Outfit.where(user_id: current_user.id)
     end
+  end
 
   def show
     @outfit = Outfit.find(params[:id])
   end
 
   def new
-    @items = current_user.items 
-    @items = Item.where(user_id: current_user.id)
+    @items = current_user.items
     @outfit = Outfit.new
     @shoes = @items.where(category: "Shoes")
     @dresses = @items.where(category: "Dresses")
