@@ -19,8 +19,8 @@ class OutfitsController < ApplicationController
   end
 
   def new
+    @items = current_user.items
     @outfit = Outfit.new
-    @items = Item.where(user_id: current_user.id)
     @shoes = @items.where(category: "Shoes")
     @dresses = @items.where(category: "Dresses")
     @tops = @items.where(category: "Tops")
@@ -38,6 +38,12 @@ class OutfitsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    outfit = Outfit.find(params[:id])
+    outfit.destroy
+    redirect_to outfits_path, status: :see_other
   end
 
   private

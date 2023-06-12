@@ -1,6 +1,6 @@
 class Outfit < ApplicationRecord
   belongs_to :user
-  has_many :outfit_items
+  has_many :outfit_items, dependent: :destroy
   has_many :items, through: :outfit_items
 
   validates :title, presence: true
@@ -9,7 +9,7 @@ class Outfit < ApplicationRecord
   pg_search_scope :outfit_search,
     against: [:title],
     associated_against: {
-      styles: :title
+      item: [:title, :brand, :color, :category]
     },
     using: {
       tsearch: { prefix: true }

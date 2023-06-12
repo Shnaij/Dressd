@@ -6,10 +6,6 @@
 </div>
 
 <div class="container">
-  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-    <%= link_to "Go Back", root_path, class: "back-button" %>
-  </div>
-
   <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search", class: "search-button" %>
@@ -37,21 +33,7 @@
         <h1 class="black-heading">Dresses</h1>
         <div class="card-grid-container">
           <% @dresses.each_with_index do |dress, i| %>
-            <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-              <div class="new-card">
-                <% if dress.photo.attached? %>
-                  <%= cl_image_tag dress.photo.key, height: 200, class: "card-image" %>
-                <% end %>
-                <div class="card-details-small">
-                  <h2 class="card-title"><%= dress.title %></h2>
-                  <p class="card-p">Brand: <%= dress.brand %></p>
-                  <p class="card-p">Color: <%= dress.color %></p>
-                  <% dress.styles.each do |style| %>
-                    <p class="card-p">Style: <%= style.title %></p>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+            <%= render "item", item: dress %>
           <% end %>
         </div>
       </div>
@@ -62,21 +44,7 @@
         <h1 class="black-heading">Tops</h1>
         <div class="card-grid-container">
           <% @tops.each_with_index do |top, i| %>
-            <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-              <div class="new-card">
-                <% if top.photo.attached? %>
-                  <%= cl_image_tag top.photo.key, height: 200, class: "card-image" %>
-                <% end %>
-                <div class="card-details-small">
-                  <h2 class="card-title py-1"><%= top.title %></h2>
-                  <p class="card-p">Brand: <%= top.brand %></p>
-                  <p class="card-p">Color: <%= top.color %></p>
-                  <% top.styles.each do |style| %>
-                    <p class="card-p">Style: <%= style.title %></p>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+            <%= render "item", item: top %>
           <% end %>
         </div>
       </div>
@@ -87,21 +55,7 @@
         <h1 class="black-heading">Bottoms</h1>
         <div class="card-grid-container">
           <% @bottoms.each_with_index do |bottom, i| %>
-            <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-              <div class="new-card">
-                <% if bottom.photo.attached? %>
-                  <%= cl_image_tag bottom.photo.key, height: 200, class: "card-image" %>
-                <% end %>
-                <div class="card-details-small">
-                  <h2 class="card-title py-1"><%= bottom.title %></h2>
-                  <p class="card-p">Brand: <%= bottom.brand %></p>
-                  <p class="card-p">Color: <%= bottom.color %></p>
-                  <% bottom.styles.each do |style| %>
-                    <p class="card-p">Style: <%= style.title %></p>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+            <%= render "item", item: bottom %>
           <% end %>
         </div>
       </div>
@@ -112,21 +66,7 @@
         <h1 class="black-heading">Shoes</h1>
         <div class="card-grid-container">
           <% @shoes.each_with_index do |pair, i| %>
-            <%= link_to new_outfit_path, class: "text-decoration-none" do %>
-              <div class="new-card">
-                <% if pair.photo.attached? %>
-                  <%= cl_image_tag pair.photo.key, height: 200, class: "card-image" %>
-                <% end %>
-                <div class="card-details-small">
-                  <h2 class="card-title py-1"><%= pair.title %></h2>
-                  <p class="card-p">Brand: <%= pair.brand %></p>
-                  <p class="card-p">Color: <%= pair.color %></p>
-                  <% pair.styles.each do |style| %>
-                    <p class="card-p">Style: <%= style.title %></p>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+            <%= render "item", item: pair %>
           <% end %>
         </div>
       </div>
