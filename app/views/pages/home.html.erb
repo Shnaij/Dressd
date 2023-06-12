@@ -50,10 +50,8 @@
       </div>
       <div class="d-flex h230">
         <% @outfits.each do |outfit| %>
-          <% if outfit.photo.attached? %>
-            <%= cl_image_tag outfit.photo.key, height: 100, class: "card-image" %>
-          <% end %>
-        </div>
+          <%= render 'shared/outfit', outfit: outfit %>
+        <% end %>
       </div>
     </div>
   </div>

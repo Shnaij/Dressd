@@ -1,8 +1,5 @@
-<div class="new-card">
-  <%= link_to item_path(item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "remove-item" do %>
-    <i class="fa-solid fa-circle-x" style="color: #b2b6bd;"></i>
-  <% end %>
-  <%= link_to new_outfit_path, class: "text-decoration-none" do %>
+<%= link_to new_outfit_path(item_id: item), class: "text-decoration-none" do %>
+  <div class="new-card">
     <% if item.photo.attached? %>
       <%= cl_image_tag item.photo.key, height: 200, class: "card-image" %>
     <% end %>
@@ -14,5 +11,5 @@
         <p class="card-p">Style: <%= style.title %></p>
       <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

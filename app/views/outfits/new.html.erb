@@ -16,7 +16,7 @@
       <%= text_field_tag :query, nil, class: "search-field", placeholder: "Search items..." %>
       <%= submit_tag "Search", class: "search-button" %>
     <% end %>
-   </div>
+  </div>
 
   <%= form_with model: @outfit, data: {controller: "outfit", outfit_target: "form", action: "submit->outfit#insertForm"} do |f| %>
     <div class="outfit-card-container">
@@ -30,6 +30,14 @@
                 </div>
               <% end %>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTops" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselTops" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>
@@ -83,16 +91,15 @@
           </div>
         </div>
       </div>
+    </div>
+    <%= f.text_field :title, class: "search-field w-100 my-3", placeholder: "Give this outfit a name" %>
+    <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
+    <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
+    <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
 
-      <%= f.text_field :title, class: "search-field w-100 my-3" %>
-      <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
-      <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
-      <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
-
-      <div class="button-container padding-bottom-more">
-        <div class="left-button">
-          <%= f.submit "Dress Me", class: "beige-button" %>
-        </div>
+    <div class="button-container padding-bottom-more">
+      <div class="left-button">
+        <%= f.submit "Save this outfit", class: "beige-button" %>
       </div>
     <% end %>
   </div>
