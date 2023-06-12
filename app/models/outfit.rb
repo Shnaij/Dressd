@@ -3,13 +3,13 @@ class Outfit < ApplicationRecord
   has_many :outfit_items, dependent: :destroy
   has_many :items, through: :outfit_items
 
-  validates :title, uniqueness: true
+  validates :title, presence: true
 
   include PgSearch::Model
   pg_search_scope :outfit_search,
     against: [:title],
     associated_against: {
-      styles: :title
+      item: [:title, :brand, :color, :category]
     },
     using: {
       tsearch: { prefix: true }

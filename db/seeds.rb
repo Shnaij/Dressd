@@ -8,6 +8,8 @@
 require 'faker'
 
 puts "Cleaning database.."
+OutfitItem.destroy_all
+Outfit.destroy_all
 ItemStyle.destroy_all
 Style.destroy_all
 Item.destroy_all
@@ -61,82 +63,185 @@ styles = Style.all
 user = [bettina, adinda, shnai, elizabeth]
 
 # for each categories
-categories.each do |category|
-  puts "Creating #{category}"
-  6.times do |num|
-    item = Item.new(
-      title: titles[category.to_sym][num], # |category|
-      category: category, # |category|
+# categories.each do |category|
+#   puts "Creating #{category}"
+#   6.times do |num|
+#     item = Item.new(
+#       title: titles[category.to_sym][num], # |category|
+#       category: category, # |category|
+#       brand: brands.sample,
+#       color: colors.sample,
+#       original_price: Faker::Commerce.price(range: 100.0..500.0),
+#       user: shnai
+#     )
+
+#     # add category folder path /bottoms
+#     file = File.open(Rails.root.join("app/assets/images/#{category.downcase}/#{category.downcase}#{num + 1}.jpeg"))
+#     # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
+#     item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
+
+#     item.save!
+
+#     ItemStyle.create(item: item, style: styles.sample)
+#   end
+# end
+
+
+# ADDING SEEDS
+# styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
+
+seeds = {
+  Dresses: [
+    {
+      title: "Crochet lace dress", # the same as the image name (image -> lowercased and underscore)
+      color: "cream",
+      styles: ["casual", "evening out"]
+    },
+    {
+      title: "Embellished dress",
+      color: "purple",
+      styles: ["party", "evening out"]
+    },
+    {
+      title: "Floral dress",
+      color: "multi",
+      styles: ["casual", "comfy"]
+    },
+    {
+      title: "Stripe dress",
+      color: "black & white",
+      styles: ["casual", "comfy"]
+    },
+    {
+      title: "Tennis dress",
+      color: "black",
+      styles: ["sporty", "comfy"]
+    },
+    {
+      title: "Tie dye dress",
+      color: "blue",
+      styles: ["party", "evening out"]
+    },
+  ],
+  Tops: [
+     {
+      title: "Crop top",
+      color: "black",
+      styles: ["sporty", "casual"]
+    },
+    {
+      title: "Crochet crop top",
+      color: "black & white",
+      styles: ["casual", "evening out"]
+    },
+    {
+      title: "Twill top",
+      color: "green",
+      styles: ["evening out", "party"]
+    },
+    {
+      title: "Long sleeve top",
+      color: "black",
+      styles: ["casual", "sporty"]
+    },
+    {
+      title: "Crochet top",
+      color: "blue",
+      styles: ["casual", "evening out"]
+    },
+    {
+      title: "Surfing tshirt",
+      color: "white",
+      styles: ["casual", "sporty"]
+    },
+ ],
+  Bottoms: [
+     {
+       title: "Tribal trousers",
+       color: "black & white",
+       styles: ["comfy", "evening out"]
+     },
+     {
+       title: "Sports leggings",
+       color: "camo",
+       styles: ["sporty", "comfy"]
+     },
+     {
+      title: "Pleated tennis skirt",
+      color: "black",
+      styles: ["sporty", "comfy"]
+    },
+    {
+      title: "Linen trousers",
+      color: "pink",
+      styles: ["comfy", "evening out"]
+    },
+    {
+      title: "Sequin skirt",
+      color: "green",
+      styles: ["party", "evening out"]
+    },
+    {
+      title: "Denim shorts",
+      color: "blue",
+      styles: ["comfy", "evening out"]
+    },
+   ],
+   Shoes: [
+     {
+     title: "Buckle sandals",
+     color: "black",
+     styles: ["casual", "evening out"]
+     },
+     {
+     title: "Colourblock trainers",
+     color: "black & white",
+     styles: ["sporty", "casual"]
+     },
+     {
+      title: "Heels",
+      color: "black",
+      styles: ["evening out", "party"]
+      },
+      {
+        title: "Tribal wedges",
+        color: "multi",
+        styles: ["evening out", "casual"]
+      },
+      {
+        title: "Heel sandals",
+        color: "pink",
+        styles: ["evening out", "party"]
+      },
+      {
+        title: "Crochet trainers",
+        color: "beige",
+        styles: ["casual", "evening out"]
+      },
+   ],
+}
+
+seeds.each do |key, value| # hash of the category and items
+  puts "Creating #{key}"
+  value.each do |item|
+    new_item = Item.new(
+      title: item[:title],
+      category: key,
       brand: brands.sample,
-      color: colors.sample,
+      color: item[:color],
       original_price: Faker::Commerce.price(range: 100.0..500.0),
-      user: bettina
+      user: shnai
     )
 
     # add category folder path /bottoms
-    file = File.open(Rails.root.join("app/assets/images/#{category.downcase}/#{category.downcase}#{num + 1}.jpeg"))
+    file = File.open(Rails.root.join("app/assets/images/#{key.downcase}/#{item[:title]}.png"))
     # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
-    item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
+    new_item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
 
-    item.save!
+    new_item.save!
 
-    ItemStyle.create(item: item, style: styles.sample)
+    item[:styles].each do |style|
+      ItemStyle.create(item: new_item, style: Style.find_by_title(style))
+    end
   end
 end
-
-# 6.times do |num|
-#   item = Item.new(
-#     title: tops_titles[num],
-#     category: "Tops",
-#     brand: brands.sample,
-#     color: colors.sample,
-#     original_price: Faker::Commerce.price(range: 100.0..500.0),
-#     user: bettina
-#   )
-
-#   # file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
-#   file = File.open(Rails.root.join("app/assets/images/tops  /hm_top.jpeg"))
-#   item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
-
-#   item.save
-
-#   ItemStyle.create(item: item, style: styles.sample)
-# end
-
-# 6.times do |num|
-#   item = Item.new(
-#     title: bottoms_titles[num],
-#     category: "Bottoms",
-#     brand: brands.sample,
-#     color: colors.sample,
-#     original_price: Faker::Commerce.price(range: 100.0..500.0),
-#     user: bettina
-#   )
-
-#   # file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
-#   file = File.open(Rails.root.join("app/assets/images/bottoms/hm_pants.jpeg"))
-#   item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
-
-#   item.save
-
-#   ItemStyle.create(item: item, style: styles.sample)
-# end
-
-# 6.times do |num|
-#   item = Item.new(
-#     title: shoes_titles[num],
-#     category: "Shoes",
-#     brand: brands.sample,
-#     color: colors.sample,
-#     original_price: Faker::Commerce.price(range: 100.0..500.0),
-#     user: bettina
-#   )
-
-#   file = File.open(Rails.root.join("app/assets/images/#{category}#{num + 1}.jpeg"))
-#   # file = File.open(Rails.root.join("app/assets/images/shoes/hm_shoes.jpeg"))
-#   item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
-
-#   item.save
-
-#   ItemStyle.create(item: item, style: styles.sample)
-# end
