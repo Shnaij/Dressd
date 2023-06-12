@@ -131,7 +131,7 @@ seeds = {
     },
     {
       title: "Crochet crop top",
-      color: "black & white",
+      color: "blue",
       styles: ["casual", "evening out"]
     },
     {
@@ -146,7 +146,7 @@ seeds = {
     },
     {
       title: "Crochet top",
-      color: "blue",
+      color: "black & white",
       styles: ["casual", "evening out"]
     },
     {
