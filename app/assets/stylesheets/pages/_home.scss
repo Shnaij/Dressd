@@ -43,6 +43,22 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
+  object-fit: cover;
+}
+
+.logout-container {
+  position: absolute;
+  top: 25px; /* Adjust the top value as needed */
+  right: 20px; /* Adjust the right value as needed */
+}
+
+.logout-link {
+  font-size: 14px; /* Adjust the font size as needed */
+  color: white;
+}
+
+.no-outfits-message {
+  padding: 70px;
 }
 
 

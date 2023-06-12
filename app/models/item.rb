@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many :item_styles
   has_many :styles, through: :item_styles
+  has_many :outfit_items, dependent: :destroy
+  has_many :outfits, through: :outfit_items, dependent: :destroy
   has_one_attached :photo
 
   CATEGORIES = ['Dresses', 'Tops', 'Bottoms', 'Shoes']
@@ -14,7 +16,7 @@ class Item < ApplicationRecord
   # pg_search_scope :search_two_models,
     # multisearchable against: [:title, :brand, :color, :category]
 
-  pg_search_scope :global_search,
+  pg_search_scope :items_search,
     against: [:title, :brand, :color, :category],
     associated_against: {
       styles: :title

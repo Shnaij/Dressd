@@ -1,36 +1,81 @@
 class OutfitsController < ApplicationController
   def index
-    @shoes = Item.where(category: "Shoes")
-    @dresses = Item.where(category: "Dresses")
-    @tops = Item.where(category: "Tops")
-    @bottoms = Item.where(category: "Bottoms")
+    @outfits = current_user.outfits    # Outfit.all
+
+    # Search results
+    if params[:query].present?
+      @outfits = Outfit.outfit_search(params[:query]) # filtering on current user needed?
+    end
+  end
+    # @shoes = Item.where(category: "Shoes")
+    # @dresses = Item.where(category: "Dresses")
+    # @tops = Item.where(category: "Tops")
+    # @bottoms = Item.where(category: "Bottoms")
+
+  def show
+    @outfit = Outfit.find(params[:id])
   end
 
   def new
-    @shoes = Item.where(category: "Shoes")
-    @dresses = Item.where(category: "Dresses")
-    @tops = Item.where(category: "Tops")
-    @bottoms = Item.where(category: "Bottoms")
-    @item = Item.new
+    @outfit = Outfit.new
+
+    @items = current_user.items
+    @tops = @items.where(category: "Tops")
+    @bottoms = @items.where(category: "Bottoms")
+    @shoes = @items.where(category: "Shoes")
+    @dresses = @items.where(category: "Dresses")
+
+    if params[:item_id]
+      item = Item.find(params[:item_id])
+      case item.category
+      when "Tops" then @tops = reindex_list(@tops, item)
+      when "Bottoms" then @bottoms = reindex_list(@bottoms, item)
+      when "Shoes" then @shoes = reindex_list(@shoes, item)
+      when "Dresses" then @dresses = reindex_list(@dresses, item)
+      end
+    end
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.user_id = current_user.id
-    if @item.save
-      redirect_to items_path(@item), notice: "Outfit was successfully uploaded, you can find it in your closet."
+    @outfit = Outfit.new(outfit_params)
+    @outfit.user_id = current_user.id
+    items = find_all_items
+    if @outfit.save
+      create_outfit_items(items, @outfit)
+      redirect_to outfits_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  private
-
-  def item_params
-    params.require(:item).permit(:title, :brand, :category, :color, :original_price, :photo)
+  def destroy
+    outfit = Outfit.find(params[:id])
+    outfit.destroy
+    redirect_to outfits_path, status: :see_other
   end
+
+  private
 
   def outfit_params
     params.require(:outfit).permit(:title)
+  end
+
+  def find_all_items
+    top = Item.find(params[:outfit][:top].to_i)
+    bottom = Item.find(params[:outfit][:bottom].to_i)
+    shoe = Item.find(params[:outfit][:shoe].to_i)
+    [top, bottom, shoe]
+  end
+
+  def create_outfit_items(items, outfit)
+    items.each do |item|
+      OutfitItem.create(item_id: item.id, outfit_id: outfit.id)
+    end
+  end
+
+  def reindex_list(items, item)
+    items = items.to_a
+    items.delete(item)
+    items.unshift(item)
   end
 end

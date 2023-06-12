@@ -9,3 +9,4 @@ application.register("hello", HelloController)
 
 import WeatherController from "./weather_controller"
 application.register("weather", WeatherController)
+

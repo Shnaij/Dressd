@@ -1,12 +1,13 @@
 class ItemsController < ApplicationController
+
   def index
-    @items = Item.all
+    @items = Item.where(user_id: current_user.id)
 
     # Search results
     if params[:query].present?
-      @items = Item.global_search(params[:query])
+      @items = @items.global_search(params[:query])
     else
-      @items = Item.all
+      @items
     end
 
     # Additional logic for filtering
@@ -47,6 +48,12 @@ class ItemsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to items_path, status: :see_other
   end
 
   private

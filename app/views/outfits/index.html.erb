@@ -2,29 +2,25 @@
   <%= link_to root_path do %>
     <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
   <% end %>
-  <h1>Your Outfits</h1>
+  <h1 class="text-center">Your Outfits</h1>
 </div>
-
-<div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-  <%= link_to "Go Back", new_outfit_path, class: "back-button" %>
-</div>
-
-<div class="search-container">
-  <%= form_with(url: items_path, method: :get, class: "search-form") do |f| %>
+<div class="container padding-bottom-more">
+  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+    <%= link_to "Go Back", new_outfit_path, class: "back-button" %>
+  </div>
+  <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
     <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
     <%= f.submit "Search", class: "search-button" %>
   <% end %>
-</div>
-
-<div class="outfits-container">
-  <div class="outfits">
-    <div class="outfits-content">
-      <p>Outfit title placeholder</p>
+  <% if @outfits.any? %>
+    <div class="outfits-container mt-4">
+      <% @outfits.each do |outfit| %>
+        <%= render 'shared/outfit', outfit: outfit %>
+      <% end %>
     </div>
-  </div>
-  <div class="outfits">
-    <div class="outfits-content">
-      <p>Outfit title placeholder</p>
-    </div>
-  </div>
+  <% elsif params[:query] %>
+    <em>You have no saved outfits matching your search</em>
+  <% else %>
+    <em>You have no saved outfits yet, create one from the Dress me on your profile!</em>
+  <% end %>
 </div>
