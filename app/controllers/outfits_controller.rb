@@ -1,5 +1,4 @@
 class OutfitsController < ApplicationController
-
   def index
     @outfits = current_user.outfits    # Outfit.all
 
