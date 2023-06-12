@@ -1,14 +1,15 @@
-<div class="banner">
-  <%= link_to root_path do %>
-    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
-  <% end %>
-  <h1>Outfit Planner</h1>
-</div>
-
-<div class="container">
-  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-    <%= link_to "Go Back", root_path, class: "back-button" %>
+<div class="page-container">
+  <div class="banner">
+    <%= link_to root_path do %>
+      <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+    <% end %>
+    <h1>Outfit Planner</h1>
   </div>
+
+  <div class="container">
+    <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+      <%= link_to "Go Back", root_path, class: "back-button" %>
+    </div>
 
   <div class="search-container">
     <%= form_tag(url: new_outfit_path, method: :get, class: "search-container my-2") do %>
@@ -29,14 +30,6 @@
                 </div>
               <% end %>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTops" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselTops" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
         </div>
       </div>
@@ -90,16 +83,17 @@
           </div>
         </div>
       </div>
-    </div>
-    <%= f.text_field :title, class: "search-field w-100 my-3" %>
-    <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
-    <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
-    <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
 
-    <div class="button-container padding-bottom-more">
-      <div class="left-button">
-        <%= f.submit "Dress Me", class: "beige-button" %>
+      <%= f.text_field :title, class: "search-field w-100 my-3" %>
+      <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
+      <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
+      <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
+
+      <div class="button-container padding-bottom-more">
+        <div class="left-button">
+          <%= f.submit "Dress Me", class: "beige-button" %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

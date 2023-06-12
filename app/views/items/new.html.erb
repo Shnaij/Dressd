@@ -1,25 +1,27 @@
-<div class="banner">
-  <%= link_to root_path do %>
-    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
-  <% end %>
-  <h1 class="text-center">New Items</h1>
-</div>
+<div class="page-container">
+  <div class="banner">
+    <%= link_to root_path do %>
+      <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+    <% end %>
+    <h1 class="text-center">New Items</h1>
+  </div>
 
-<div class="container padding-bottom-more">
-  <%= simple_form_for(@item) do |f| %>
-    <%= f.input :photo, as: :file, label: 'Upload one image of the item lying flat on a white background', input_html: { class: 'input-color' }%>
-    <%= f.input :title, label: 'What will you name this item?', input_html: { class: 'input-color' } %>
-    <%= f.input :brand, label: 'What is the brand name?', input_html: { class: 'input-color' } %>
-    <%= f.input :color, label: 'What is the color?', input_html: { class: 'input-color' } %>
-    <%= f.input :category, collection: Item::CATEGORIES, input_html: { class: 'input-color' } %>
-    <%= f.association :styles,
-                      as: :check_boxes,
-                      label: 'What are the styles for this item?',
-                      input_html: { class: 'tag-selector' },
-                      item_wrapper_class: 'tag-item' %>
-    <%= f.input :original_price, label: 'Original price in $', input_html: { class: 'input-color' } %>
-    <%= f.button :submit, label: 'Save', class: 'pink-button my-3' %>
-  <% end %>
-  <br>
-  <br>
+  <div class="container padding-bottom-more">
+    <%= simple_form_for(@item) do |f| %>
+      <%= f.input :photo, as: :file, label: 'Upload one image of the item lying flat on a white background', input_html: { class: 'input-color' }%>
+      <%= f.input :title, label: 'What will you name this item?', input_html: { class: 'input-color' } %>
+      <%= f.input :brand, label: 'What is the brand name?', input_html: { class: 'input-color' } %>
+      <%= f.input :color, label: 'What is the color?', input_html: { class: 'input-color' } %>
+      <%= f.input :category, collection: Item::CATEGORIES, input_html: { class: 'input-color' } %>
+      <%= f.association :styles,
+                        as: :check_boxes,
+                        label: 'What are the styles for this item?',
+                        input_html: { class: 'tag-selector' },
+                        item_wrapper_class: 'tag-item' %>
+      <%= f.input :original_price, label: 'Original price in $', input_html: { class: 'input-color' } %>
+      <%= f.button :submit, label: 'Save', class: 'pink-button my-3' %>
+    <% end %>
+    <br>
+    <br>
+  </div>
 </div>

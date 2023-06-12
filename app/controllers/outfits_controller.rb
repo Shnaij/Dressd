@@ -11,18 +11,14 @@ class OutfitsController < ApplicationController
       @outfits = Outfit.where(user_id: current_user.id)
     end
 
-  end
-
   def show
     @outfit = Outfit.find(params[:id])
   end
 
   def new
-
-    @items = current_user.items
-
-    @outfit = Outfit.new
+    @items = current_user.items 
     @items = Item.where(user_id: current_user.id)
+    @outfit = Outfit.new
     @shoes = @items.where(category: "Shoes")
     @dresses = @items.where(category: "Dresses")
     @tops = @items.where(category: "Tops")
