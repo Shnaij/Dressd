@@ -2,7 +2,7 @@
   <%= link_to items_path do %>
     <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
   <% end %>
-  <h1>Shnai's Profile</h1>
+  <h1><%= current_user.nickname %></h1>
   <div class="logout-container">
     <% if user_signed_in? %>
       <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "logout-link" %>
@@ -48,14 +48,8 @@
         <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
       </div>
       <div class="d-flex h230">
-        <% if @outfits.any? %>
-          <% @outfits.each do |outfit| %>
-            <% if outfit.photo.attached? %>
-              <%= cl_image_tag outfit.photo.key, height: 100, class: "card-image" %>
-            <% end %>
-          <% end %>
-        <% else %>
-        <em class="no-outfits-message">You have no saved outfits yet, create one from the Dress me on your profile!</em>
+        <% @outfits.each do |outfit| %>
+          <%= render 'shared/outfit', outfit: outfit %>
         <% end %>
       </div>
     </div>

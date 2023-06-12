@@ -15,16 +15,11 @@
   <% if @outfits.any? %>
     <div class="outfits-container mt-4">
       <% @outfits.each do |outfit| %>
-        <div class="outfits">
-          <div class="card-details-small">
-            <h2 class="card-title"><%= outfit.title %></h2>
-            <%= cl_image_tag outfit.items.first.photo.key, class: "outfit-image" %>
-            <%= cl_image_tag outfit.items.second.photo.key, class: "outfit-image" %>
-            <%= cl_image_tag outfit.items.third.photo.key, class: "outfit-image" %>
-          </div>
-        </div>
+        <%= render 'shared/outfit', outfit: outfit %>
       <% end %>
     </div>
+  <% elsif params[:query] %>
+    <em>You have no saved outfits matching your search</em>
   <% else %>
     <em>You have no saved outfits yet, create one from the Dress me on your profile!</em>
   <% end %>
