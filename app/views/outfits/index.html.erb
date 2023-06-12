@@ -22,6 +22,10 @@
               <%= cl_image_tag outfit.items.third.photo.key, class: "outfit-image" %>
             </div>
           </div>
+        <%= link_to "destroy outfit", outfit_path(outfit), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
+      <% end %>
+    </div>
         <% end %>
       </div>
 
