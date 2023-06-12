@@ -52,6 +52,9 @@
           <%= render 'shared/outfit', outfit: outfit %>
         <% end %>
       </div>
+      <% else %>
+        <em class="no-outfits-message">You have no saved outfits yet, create one from the Dress me on your profile!</em>
+      <% end %>
     </div>
   </div>
 </div>
