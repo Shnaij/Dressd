@@ -16,8 +16,8 @@
 
     <%= yield %>
 
-    <% unless current_page?('/users/sign_in') || current_page?('/landing') || current_page?('/users/sign_up')%>
-      <%= render "shared/navbar" %>
+    <% unless (current_page?('/users/sign_in') || current_page?('/landing') || current_page?('/users/sign_up')) %>
+      <%= render "shared/navbar" if current_user %>
     <% end %>
   </body>
 </html>
