@@ -8,13 +8,11 @@ class OutfitsController < ApplicationController
     else
       @outfits = Outfit.where(user_id: current_user.id)
     end
-
+  end
     # @shoes = Item.where(category: "Shoes")
     # @dresses = Item.where(category: "Dresses")
     # @tops = Item.where(category: "Tops")
     # @bottoms = Item.where(category: "Bottoms")
-
-  end
 
   def show
     @outfit = Outfit.find(params[:id])
