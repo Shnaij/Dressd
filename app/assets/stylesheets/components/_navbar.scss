@@ -23,3 +23,18 @@
 .icon:hover {
   transform: scale(1.4); /* Increase the scale value to make the icon larger */
 }
+
+.small-img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 8px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.transition-img {
+  transition: transform 0.3s ease; /* Smooth transition for scaling effect */
+}
+
+.transition-img:hover {
+  transform: scale(1.4); /* Increase the scale value to make the image larger */
+}
