@@ -24,80 +24,49 @@
     </div>
   </div>
 
-  </div>
   <%= form_with model: @outfit, data: {controller: "outfit", outfit_target: "form", action: "submit->outfit#insertForm"} do |f| %>
     <div class="outfit-card-container">
-      <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
-        <p class="no-style-message"><%= @tops_message %></p>
-        <div class="tops-selections">
-          <div id="carouselTops" class="carousel slide">
-            <div class="carousel-inner" style="margin-top: 5px;">
-              <% @tops.each_with_index do |top, index| %>
-                <div class="carousel-item <%= 'active' if index.zero? %> top-value" data-top-id="<%= top.id %>">
-                  <img src="<%= cl_image_path top.photo.key %>" class="d-block w-100 cropped-top" alt="tops">
-                </div>
-              <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTops" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselTops" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link <%= "active" if @selected_category_is_dresses %>"
+                  id="pills-dress-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-dress"
+                  type="button" role="tab"
+                  aria-controls="pills-dress"
+                  aria-selected=<%= @selected_category_is_dresses %>>
+            Dress and Shoes
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link <%= "active" if @selected_category_is_default %>"
+                  id="pills-default-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-default"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-default"
+                  aria-selected=<%= @selected_category_is_default %>>
+            Top Bottom and Shoes
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div  class="tab-pane fade <%= "show active" if @selected_category_is_dresses %>"
+              id="pills-dress"
+              role="tabpanel"
+              aria-labelledby="pills-dress-tab">
+          <%= render "items_carousel", items: @dresses, message: @dresses_message, category: @dresses.first.category %>
+        </div>
+        <div  class="tab-pane fade <%= "show active" if @selected_category_is_default %>"
+              id="pills-default"
+              role="tabpanel"
+              aria-labelledby="pills-default-tab">
+        <%= render "items_carousel", items: @tops, message: @tops_message, category: @tops.first.category %>
+        <%= render "items_carousel", items: @bottoms, message: @bottoms_message, category: @bottoms.first.category %>
         </div>
       </div>
-      <!-- Repeat the same pattern for other carousel sections -->
-      <div class="outfit-card-container">
-        <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
-          <p class="no-style-message"><%= @bottoms_message %></p>
-          <div class="bottoms-selections">
-            <div id="carouselBottoms" class="carousel slide">
-              <div class="carousel-inner" style="margin-top: 5px;">
-                <% @bottoms.each_with_index do |bottom, index| %>
-                  <div class="carousel-item <%= 'active' if index.zero? %> bottom-value" data-bottom-id="<%= bottom.id %>">
-                    <img src="<%= cl_image_path bottom.photo.key %>" class="d-block w-100 cropped-bottoms" alt="bottoms">
-                  </div>
-                <% end %>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselBottoms" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselBottoms" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="outfit-card-container">
-        <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
-          <p class="no-style-message"><%= @shoes_message %></p>
-          <div class="shoes-selections">
-            <div id="carouselShoes" class="carousel slide">
-              <div class="carousel-inner" style="margin-top: 5px;">
-                <% @shoes.each_with_index do |shoe, index| %>
-                  <div class="carousel-item <%= 'active' if index.zero? %> shoe-value" data-shoe-id="<%= shoe.id %>">
-                    <img src="<%= cl_image_path shoe.photo.key %>" class="d-block w-100 cropped-shoes" alt="shoes">
-                  </div>
-                <% end %>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselShoes" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselShoes" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render "items_carousel", items: @shoes, message: @shoes_message, category: @shoes.first.category %>
     </div>
     <%= f.text_field :title, class: "search-field w-100 my-3", placeholder: "Give this outfit a name" %>
     <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>

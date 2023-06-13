@@ -1,4 +1,4 @@
-.cropped-top {
+.cropped-tops {
   height: 120px;
   object-fit: scale-down;
   border-radius: 5px 5px 0 0;
@@ -11,6 +11,11 @@
 
 .cropped-shoes {
   height: 100px;
+  object-fit: scale-down;
+}
+
+.cropped-dresses {
+  height: 200px;
   object-fit: scale-down;
 }
 
@@ -28,4 +33,8 @@
   top: 0px;
   right: 0px;
   opacity: 0.6;
+}
+
+.outfit-type {
+  display: flex;
 }

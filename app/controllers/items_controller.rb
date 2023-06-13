@@ -2,10 +2,11 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.where(user_id: current_user.id)
+    @style_options = Style.all.pluck(:title)
 
     # Search results
     if params[:query].present?
-      @items = @items.global_search(params[:query])
+      @items = @items.items_search(params[:query])
     else
       @items
     end
@@ -15,8 +16,16 @@ class ItemsController < ApplicationController
       @items = @items.where(category: params[:category])
     end
 
+    if params[:style].present?
+      style = Style.find_by_title(params[:style])
+      if style
+        @items = current_user.items.joins(:item_styles).where(item_styles: { style_id: style.id })
+      end
+    end
+
     # Determine the filtered category
     @filtered_category = params[:category]
+    @filtered_category = params[:style]
 
     # Filtered category headers
     @dresses_header = 'Dresses'

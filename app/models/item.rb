@@ -17,7 +17,7 @@ class Item < ApplicationRecord
     # multisearchable against: [:title, :brand, :color, :category]
 
   pg_search_scope :items_search,
-    against: [:title, :brand, :color, :category],
+    against: [:title, :brand, :color, :category, :original_price],
     associated_against: {
       styles: :title
     },
