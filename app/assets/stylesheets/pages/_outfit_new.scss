@@ -1,11 +1,11 @@
 .cropped-top {
-  height: 150px;
+  height: 120px;
   object-fit: scale-down;
   border-radius: 5px 5px 0 0;
 }
 
 .cropped-bottoms {
-  height: 180px;
+  height: 150px;
   object-fit: scale-down;
 }
 
@@ -21,5 +21,11 @@
   width: 100%;
   border-radius: 10px;
   margin-top: -7px; /* Adjust the negative margin-top value to position the search bar higher */
+}
 
+.remove-outfit-link {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  opacity: 0.6;
 }

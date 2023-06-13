@@ -67,7 +67,9 @@ h3 {
   color: black;
   text-shadow: none;
   font-weight: normal; /* Remove the bold style */
-  font-size: 19px
+  font-size: 19px;
+  margin-top: 20px;
+
 }
 
 .card-grid-container {
@@ -137,7 +139,7 @@ h3 {
   cursor: pointer;
   text-decoration: none;
   box-shadow: none; /* Add this line to remove the shadow box */
-
+  position: relative;
 }
 
 

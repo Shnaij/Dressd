@@ -1,15 +1,12 @@
-<div class="page-container">
-  <div class="banner">
-    <%= link_to root_path do %>
-      <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
-    <% end %>
-    <h1>Outfit Planner</h1>
-  </div>
-
-  <div class="container">
-    <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
-      <%= link_to "Go Back", root_path, class: "back-button" %>
-    </div>
+<div class="banner">
+  <%= link_to root_path do %>
+    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+  <% end %>
+  <h1>Outfit Planner</h1>
+</div>
+<div class="container">
+  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+    <%= link_to "Go Back", root_path, class: "back-button" %>
   </div>
 
   <div class="container">
@@ -17,7 +14,7 @@
       <%= form_tag(new_outfit_path, method: :get) do %>
         <div class="filter-row">
           <div class="filter-item">
-            <%= select_tag(:style_id, options_for_select(@style_options), include_blank: 'Styles', class: 'beige-button') %>
+            <%= select_tag(:style, options_for_select(@style_options), include_blank: 'Styles', class: 'beige-button') %>
           </div>
           <div class="">
             <%= submit_tag 'Filter', class: 'search-button' %>
@@ -27,13 +24,14 @@
     </div>
   </div>
 
+  </div>
   <%= form_with model: @outfit, data: {controller: "outfit", outfit_target: "form", action: "submit->outfit#insertForm"} do |f| %>
     <div class="outfit-card-container">
       <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
         <div class="tops-selections">
           <div id="carouselTops" class="carousel slide">
             <div class="carousel-inner" style="margin-top: 5px;">
-            <% @tops.each_with_index do |top, index| %>
+              <% @tops.each_with_index do |top, index| %>
                 <div class="carousel-item <%= 'active' if index.zero? %> top-value" data-top-id="<%= top.id %>">
                   <img src="<%= cl_image_path top.photo.key %>" class="d-block w-100 cropped-top" alt="tops">
                 </div>
@@ -50,15 +48,13 @@
           </div>
         </div>
       </div>
-
       <!-- Repeat the same pattern for other carousel sections -->
-
       <div class="outfit-card-container">
         <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
           <div class="bottoms-selections">
             <div id="carouselBottoms" class="carousel slide">
               <div class="carousel-inner" style="margin-top: 5px;">
-               <% @bottoms.each_with_index do |bottom, index| %>
+                <% @bottoms.each_with_index do |bottom, index| %>
                   <div class="carousel-item <%= 'active' if index.zero? %> bottom-value" data-bottom-id="<%= bottom.id %>">
                     <img src="<%= cl_image_path bottom.photo.key %>" class="d-block w-100 cropped-bottoms" alt="bottoms">
                   </div>
@@ -76,14 +72,13 @@
           </div>
         </div>
       </div>
-
       <div class="outfit-card-container">
         <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
           <div class="shoes-selections">
             <div id="carouselShoes" class="carousel slide">
               <div class="carousel-inner" style="margin-top: 5px;">
-              <% @shoes.each_with_index do |shoe, index| %>
-                   <div class="carousel-item <%= 'active' if index.zero? %> shoe-value" data-shoe-id="<%= shoe.id %>">
+                <% @shoes.each_with_index do |shoe, index| %>
+                  <div class="carousel-item <%= 'active' if index.zero? %> shoe-value" data-shoe-id="<%= shoe.id %>">
                     <img src="<%= cl_image_path shoe.photo.key %>" class="d-block w-100 cropped-shoes" alt="shoes">
                   </div>
                 <% end %>
@@ -110,6 +105,7 @@
       <div class="left-button">
         <%= f.submit "Save this outfit", class: "beige-button" %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
+<%= console %>

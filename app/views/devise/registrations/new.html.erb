@@ -17,6 +17,11 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :avatar,
+              input_html: { autocomplete: "avatar" }, as: :file, label: "Avatar (strongly encouraged)" %>
+      <%= f.input :nickname,
+              required: true,
+              input_html: { autocomplete: "nickname" } %>
     </div>
 
     <div class="form-actions">

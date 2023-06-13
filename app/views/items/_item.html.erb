@@ -1,15 +1,20 @@
-<%= link_to new_outfit_path(item_id: item), class: "text-decoration-none" do %>
-  <div class="new-card">
-    <% if item.photo.attached? %>
-      <%= cl_image_tag item.photo.key, height: 200, class: "card-image" %>
-    <% end %>
-    <div class="card-details-small">
-      <h2 class="card-title py-1"><%= item.title %></h2>
-      <p class="card-p">Brand: <%= item.brand %></p>
-      <p class="card-p">Color: <%= item.color %></p>
-      <% item.styles.each do |style| %>
-        <p class="card-p">Style: <%= style.title %></p>
+<div class="new-card position-relative">
+  <%= link_to item_path(item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "remove-item" do %>
+    <i class="fa-solid fa-x" style="color: #D4B2A6;"></i>
+  <% end %>
+  <%= link_to new_outfit_path(item_id: item), class: "text-decoration-none" do %>
+    <div class="new-card">
+      <% if item.photo.attached? %>
+        <%= cl_image_tag item.photo.key, height: 200, class: "card-image" %>
       <% end %>
+      <div class="card-details-small">
+        <h2 class="card-title py-1"><%= item.title %></h2>
+        <p class="card-p">Brand: <%= item.brand %></p>
+        <p class="card-p">Color: <%= item.color %></p>
+        <% item.styles.each do |style| %>
+          <p class="card-p">Style: <%= style.title %></p>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

@@ -1,22 +1,6 @@
 class OutfitsController < ApplicationController
-
   def index
     @outfits = current_user.outfits
-
-    # Logic for filtering
-    # alt 1
-    if params[:style_id].present?
-      @items = Item.where(style_id: params[:style_id]) # will this work through association??
-    end
-
-    # alt 2
-    @style_options = ['sporty', 'casual', 'comfy', 'party', 'evening out'] # pick up from seed?
-    if params[:style].present?
-      @outfits = Outfit.joins(:style).where(styles: { title: params[:style] })
-    end
-
-    # Determine the filtered category
-    @filtered_style = params[:style_id] # what does this do?
   end
 
   def show
@@ -25,8 +9,9 @@ class OutfitsController < ApplicationController
 
   def new
     @outfit = Outfit.new
-
+    @style_options = Style.all.pluck(:title)
     @items = current_user.items
+
     @tops = @items.where(category: "Tops")
     @bottoms = @items.where(category: "Bottoms")
     @shoes = @items.where(category: "Shoes")
@@ -40,6 +25,21 @@ class OutfitsController < ApplicationController
       when "Bottoms" then @bottoms = reindex_list(@bottoms, item)
       when "Shoes" then @shoes = reindex_list(@shoes, item)
       when "Dresses" then @dresses = reindex_list(@dresses, item)
+      end
+    end
+
+    # filtering logic
+    
+    #   Style.find_by_title(params[:style])
+    #   if params[:style].present?
+    #    @items = current_user.items.joins(:item_styles).where(item_styles: { style_id: style.id})
+    #   end
+    # end
+
+    if params[:style].present?
+      style = Style.find_by_title(params[:style])
+      if style
+        @items = current_user.items.joins(:item_styles).where(item_styles: { style_id: style.id })
       end
     end
   end

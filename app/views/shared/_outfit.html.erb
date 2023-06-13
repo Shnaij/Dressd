@@ -4,6 +4,10 @@
     <%= cl_image_tag outfit.items.first.photo.key, class: "outfit-image" %>
     <%= cl_image_tag outfit.items.second.photo.key, class: "outfit-image" %>
     <%= cl_image_tag outfit.items.third.photo.key, class: "outfit-image" %>
-  <%= link_to "destroy outfit", outfit_path(outfit), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <div class="remove-outfit-link">
+      <%= link_to outfit_path(outfit), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+        <i class="fa-solid fa-x" style="color: #D4B2A6;"></i>
+      <% end %>
+    </div>
   </div>
 </div>
