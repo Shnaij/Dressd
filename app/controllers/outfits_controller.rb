@@ -6,7 +6,7 @@ class OutfitsController < ApplicationController
     # Logic for filtering
     # alt 1
     if params[:style_id].present?
-      @outfits = Outfit.where(style_id: params[:style_id]) # will this work through association??
+      @items = Item.where(style_id: params[:style_id]) # will this work through association??
     end
 
     # alt 2
