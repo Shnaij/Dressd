@@ -20,24 +20,31 @@ puts "Creating items..."
 
 elizabeth = User.new(
   email: "elizabeth@gmail.com",
+  nickname: "Matita",
   password: "123456"
 )
 elizabeth.save!
 
 shnai = User.new(
   email: "shnai@gmail.com",
+  nickname: "Shnaij",
   password: "123456"
 )
+file = File.open(Rails.root.join("app/assets/images/profile/shnai.png"))
+shnai.avatar.attach(io: file, filename: 'shnai.png', content_type: 'image/png')
+
 shnai.save!
 
 adinda = User.new(
   email: "adinda@gmail.com",
+  nickname: "Dindi",
   password: "123456"
 )
 adinda.save!
 
 bettina = User.new(
   email: "bettina@gmail.com",
+  nickname: "Bettina",
   password: "123456"
 )
 bettina.save!
@@ -63,28 +70,28 @@ styles = Style.all
 user = [bettina, adinda, shnai, elizabeth]
 
 # for each categories
-# categories.each do |category|
-#   puts "Creating #{category}"
-#   6.times do |num|
-#     item = Item.new(
-#       title: titles[category.to_sym][num], # |category|
-#       category: category, # |category|
-#       brand: brands.sample,
-#       color: colors.sample,
-#       original_price: Faker::Commerce.price(range: 100.0..500.0),
-#       user: shnai
-#     )
+categories.each do |category|
+  puts "Creating #{category}"
+  6.times do |num|
+    item = Item.new(
+      title: titles[category.to_sym][num], # |category|
+      category: category, # |category|
+      brand: brands.sample,
+      color: colors.sample,
+      original_price: Faker::Commerce.price(range: 100.0..500.0),
+      user: shnai
+    )
 
-#     # add category folder path /bottoms
-#     file = File.open(Rails.root.join("app/assets/images/#{category.downcase}/#{category.downcase}#{num + 1}.jpeg"))
-#     # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
-#     item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
+    # add category folder path /bottoms
+    file = File.open(Rails.root.join("app/assets/images/#{category.downcase}/#{category.downcase}#{num + 1}.jpeg"))
+    # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
+    item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
 
-#     item.save!
+    item.save!
 
-#     ItemStyle.create(item: item, style: styles.sample)
-#   end
-# end
+    ItemStyle.create(item: item, style: styles.sample)
+  end
+end
 
 
 # ADDING SEEDS

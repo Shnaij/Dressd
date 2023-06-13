@@ -21,13 +21,13 @@
   text-align: center;
   justify-content: space-between;
   align-items: center;
-  margin: 10px;
+  // margin: 10px;
 }
 
 .start-container {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Ensure the container takes up the full viewport height */
+  // height: 100vh; /* Ensure the container takes up the full viewport height */
   justify-content: space-between;
   align-items: center;
   padding-top: 120px;
@@ -36,6 +36,6 @@
   text-align: center;
 }
 
-.page-container {
-  height: 100%;
-  overflow: hidden;}
+// .page-container {
+//   height: 100%;
+//   overflow: hidden;}
