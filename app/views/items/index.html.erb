@@ -17,7 +17,6 @@
         <div class="filter-item">
           <%= select_tag(:category, options_for_select(Item.distinct.pluck(:category)), include_blank: 'Categories', class: 'beige-button') %>
         </div>
-
         <div class="">
           <%= submit_tag 'Filter', class: 'search-button' %>
         </div>
@@ -42,7 +41,7 @@
         <h1 class="black-heading">Tops</h1>
         <div class="card-grid-container">
           <% @tops.each_with_index do |top, i| %>
-            <%= render 'item', item: top %>
+            <%= render "item", item: top %>
           <% end %>
         </div>
       </div>
@@ -53,7 +52,7 @@
         <h1 class="black-heading">Bottoms</h1>
         <div class="card-grid-container">
           <% @bottoms.each_with_index do |bottom, i| %>
-            <%= render 'item', item: bottom %>
+            <%= render "item", item: bottom %>
           <% end %>
         </div>
       </div>
@@ -64,7 +63,7 @@
         <h1 class="black-heading">Shoes</h1>
         <div class="card-grid-container">
           <% @shoes.each_with_index do |pair, i| %>
-            <%= render 'item', item: pair %>
+            <%= render "item", item: pair %>
           <% end %>
         </div>
       </div>

@@ -1,12 +1,22 @@
 class OutfitsController < ApplicationController
 
   def index
-    @outfits = current_user.outfits    # Outfit.all
+    @outfits = current_user.outfits
 
-    # Search results
-    if params[:query].present?
-      @outfits = Outfit.outfit_search(params[:query]) # filtering on current user needed?
+    # Logic for filtering
+    # alt 1
+    if params[:style_id].present?
+      @outfits = Outfit.where(style_id: params[:style_id]) # will this work through association??
     end
+
+    # alt 2
+    @style_options = ['sporty', 'casual', 'comfy', 'party', 'evening out'] # pick up from seed?
+    if params[:style].present?
+      @outfits = Outfit.joins(:style).where(styles: { title: params[:style] })
+    end
+
+    # Determine the filtered category
+    @filtered_style = params[:style_id] # what does this do?
   end
 
   def show
@@ -22,6 +32,7 @@ class OutfitsController < ApplicationController
     @shoes = @items.where(category: "Shoes")
     @dresses = @items.where(category: "Dresses")
 
+    # picking up selected item and showing it in new outfit:
     if params[:item_id]
       item = Item.find(params[:item_id])
       case item.category
