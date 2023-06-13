@@ -39,6 +39,13 @@
             <%= cl_image_tag item.photo.key, class: "card-image" %>
           <% end %>
         <% end %>
+        <% if @items.empty? %>
+          <div>
+            <em class="no-outfits-message mt-2">You have no saved items yet, start adding items to your wardrobe!</em>
+            <%= link_to "Add Items", new_item_path, class: "create-button mt-3" %>
+          </div>
+          <%= image_tag("ttshirt.png", alt: "Your Image", class: "bottom-image mt-2") %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -53,7 +60,11 @@
           <%= render 'shared/outfit', outfit: outfit %>
         <% end %>
         <% if @outfits.empty? %>
-          <em class="no-outfits-message">You have no saved outfits yet, create one from the Dress me on your profile!</em>
+          <div>
+            <em class="no-outfits-message mt-2">You have no saved outfits yet, create one from "Dress me" on your profile!</em>
+            <%= link_to "Add Items", items_path, class: "create-button mt-3" %>
+          </div>
+          <%= image_tag("coat.png", alt: "Your Image", class: "bottom-image mt-2") %>
         <% end %>
       </div>
     </div>
