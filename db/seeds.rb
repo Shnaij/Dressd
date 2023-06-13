@@ -41,6 +41,20 @@ bettina = User.new(
   password: "123456"
 )
 bettina.save!
+
+
+# titles = {
+#   Dresses: ['Favorite dress', 'Party dress', 'Date night dress', 'Flattering dress', 'Summer dress', 'Casual dress'],
+#   Tops: ['Best basic top', 'Favorite top', 'Summer top', 'Sexy top', 'I look good top', 'Casual top'],
+#   Bottoms: ['Favorite pants', 'Comfy pants', 'Summer pants', 'Cool pants', 'My fun pants', 'Casual pants'],
+#   Shoes: ['Comfy shoes', 'Party shoes', 'Favorite shoes', 'Casual shoes', 'Summer shoes', 'Cool walk shoes']
+# }
+
+# categories = Item::CATEGORIES
+brands = ['Zara', 'Mango', 'Gucci', 'H&M', 'American Vintage', '& Other Stories', 'Urban Outfitters', 'TiMo', 'Brandz', 'Sister']
+# # colors = ['bright', 'flowery', 'multicolor']
+
+
 titles = {
   Dresses: ['Favorite dress', 'Party dress', 'Date night dress', 'Flattering dress', 'Summer dress', 'Casual dress'],
   Tops: ['Best basic top', 'Favorite top', 'Summer top', 'Sexy top', 'I look good top', 'Casual top'],
@@ -50,11 +64,37 @@ titles = {
 categories = Item::CATEGORIES
 brands = ['Zara', 'Mango', 'Gucci', 'H&M', 'American Vintage', '& Other Stories', 'Urban Outfitters', 'TiMo', 'Brandz', 'Sister']
 colors = ['bright', 'flowery', 'multicolor']
+
 styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
 styles_array.each do |style|
   Style.create(title: style)
 end
+
+
+# styles = Style.all
+
+users = [bettina, adinda, shnai, elizabeth]
+
+# # for each categories
+# categories.each do |category|
+#   puts "Creating #{category}"
+#   3.times do |num|
+#     item = Item.new(
+#       title: titles[category.to_sym][num], # |category|
+#       category: category, # |category|
+#       brand: brands.sample,
+#       color: colors.sample,
+#       original_price: Faker::Commerce.price(range: 100.0..500.0),
+#       user: shnai
+#     )
+
+#     # add category folder path /bottoms
+#     file = File.open(Rails.root.join("app/assets/images/#{category.downcase}/#{category.downcase}#{num + 1}.png"))
+#     # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.png"))
+#     item.photo.attach(io: file, filename: 'image.png', content_type: 'image/png')
+
 styles = Style.all
+
 user = [bettina, adinda, shnai, elizabeth]
 # for each categories
 categories.each do |category|
@@ -73,12 +113,11 @@ categories.each do |category|
     # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
     item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
 
-    item.save!
+#     item.save!
 
-    ItemStyle.create(item: item, style: styles.sample)
-  end
-end
-
+#     ItemStyle.create(item: item, style: styles.sample)
+#   end
+# end
 
 # ADDING SEEDS
 # styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
@@ -114,6 +153,26 @@ seeds = {
       color: "blue",
       styles: ["party", "evening out"]
     },
+    {
+      title: "Floral ruffle dress",
+      color: "multi",
+      styles: ["casual", "evening out"]
+    },
+    {
+      title: "Tropical maxi dress",
+      color: "multi",
+      styles: ["casual", "comfy"]
+    },
+    {
+      title: "Tie dye maxi dress",
+      color: "multi",
+      styles: ["evening out", "party"]
+    },
+    {
+      title: "Floral halter dress",
+      color: "multi",
+      styles: ["casual", "comfy"]
+    },
   ],
   Tops: [
      {
@@ -145,6 +204,16 @@ seeds = {
       title: "Surfing tshirt",
       color: "white",
       styles: ["casual", "sporty"]
+    },
+    {
+      title: "Tropical crop top",
+      color: "multi",
+      styles: ["casual", "evening out"]
+    },
+    {
+      title: "Stripe vest top",
+      color: "green",
+      styles: ["casual", "comfy"]
     },
  ],
   Bottoms: [
@@ -178,6 +247,36 @@ seeds = {
       color: "blue",
       styles: ["comfy", "evening out"]
     },
+    {
+      title: "Pleated trousers",
+      color: "green",
+      styles: ["comfy", "casual"]
+    },
+    {
+      title: "Linen pleated trousers",
+      color: "cream",
+      styles: ["comfy", "casual"]
+    },
+    {
+      title: "Tropical trousers",
+      color: "multi",
+      styles: ["comfy", "casual"]
+    },
+    {
+      title: "Wide leg trousers",
+      color: "pink",
+      styles: ["comfy", "casual"]
+    },
+    {
+      title: "Leggings",
+      color: "pink",
+      styles: ["sporty", "comfy"]
+    },
+    {
+      title: "Satin trousers",
+      color: "gold",
+      styles: ["evening out", "party"]
+    },
    ],
    Shoes: [
      {
@@ -209,6 +308,26 @@ seeds = {
         title: "Crochet trainers",
         color: "beige",
         styles: ["casual", "evening out"]
+      },
+      {
+        title: "Tropical sandals",
+        color: "multi",
+        styles: ["casual", "evening out"]
+      },
+      {
+        title: "Wedges",
+        color: "cream",
+        styles: ["casual", "comfy"]
+      },
+      {
+        title: "Trainers",
+        color: "cream",
+        styles: ["sporty", "casual"]
+      },
+      {
+        title: "Metallic sandals",
+        color: "gold",
+        styles: ["evening out", "party"]
       },
    ],
 }
