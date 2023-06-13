@@ -276,7 +276,7 @@ seeds = {
         styles: ["evening out", "casual"]
       },
       {
-        title: "Heel sandals",
+        title: "Sandal heels",
         color: "pink",
         styles: ["evening out", "party"]
       },
@@ -320,7 +320,7 @@ seeds.each do |key, value| # hash of the category and items
       user: shnai
     )
 
-    #  add category folder path /bottoms
+    # add category folder path /bottoms
     file = File.open(Rails.root.join("app/assets/images/#{key.downcase}/#{item[:title]}.png"))
     # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
     new_item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
