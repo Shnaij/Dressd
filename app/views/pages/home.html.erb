@@ -62,7 +62,7 @@
         <% if @outfits.empty? %>
           <div>
             <em class="no-outfits-message mt-2">You have no saved outfits yet, create one from "Dress me" on your profile!</em>
-            <%= link_to "Add Items", items_path, class: "create-button mt-3" %>
+            <%= link_to "Create outfits", items_path, class: "create-button mt-3" %>
           </div>
           <%= image_tag("coat.png", alt: "Your Image", class: "bottom-image mt-2") %>
         <% end %>
