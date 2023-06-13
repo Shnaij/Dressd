@@ -56,17 +56,17 @@
               id="pills-dress"
               role="tabpanel"
               aria-labelledby="pills-dress-tab">
-          <%= render "items_carousel", items: @dresses, message: @dresses_message, category: @dresses.first.category %>
+          <%= render "items_carousel", items: @dresses, message: @dresses_message, category: "Dresses" %>
         </div>
         <div  class="tab-pane fade <%= "show active" if @selected_category_is_default %>"
               id="pills-default"
               role="tabpanel"
               aria-labelledby="pills-default-tab">
-        <%= render "items_carousel", items: @tops, message: @tops_message, category: @tops.first.category %>
-        <%= render "items_carousel", items: @bottoms, message: @bottoms_message, category: @bottoms.first.category %>
+        <%= render "items_carousel", items: @tops, message: @tops_message, category: "Tops" %>
+        <%= render "items_carousel", items: @bottoms, message: @bottoms_message, category: "Bottoms" %>
         </div>
       </div>
-      <%= render "items_carousel", items: @shoes, message: @shoes_message, category: @shoes.first.category %>
+      <%= render "items_carousel", items: @shoes, message: @shoes_message, category: "Shoes" %>
     </div>
     <%= f.text_field :title, class: "search-field w-100 my-3", placeholder: "Give this outfit a name" %>
     <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
