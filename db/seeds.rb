@@ -72,10 +72,14 @@ categories.each do |category|
     file = File.open(Rails.root.join("app/assets/images/#{category.downcase}/#{category.downcase}#{num + 1}.jpeg"))
     # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
     item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
+
     item.save!
+
     ItemStyle.create(item: item, style: styles.sample)
   end
 end
+
+
 # ADDING SEEDS
 # styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
 seeds = {
