@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
-
 puts "Cleaning database.."
 OutfitItem.destroy_all
 Outfit.destroy_all
@@ -14,82 +13,71 @@ ItemStyle.destroy_all
 Style.destroy_all
 Item.destroy_all
 User.destroy_all
-
 puts "Creating items..."
 # Create 10 items with a Faker-generated user
-
 elizabeth = User.new(
   email: "elizabeth@gmail.com",
+  nickname: "Matita",
   password: "123456"
 )
 elizabeth.save!
-
 shnai = User.new(
   email: "shnai@gmail.com",
+  nickname: "Shnaij",
   password: "123456"
 )
+file = File.open(Rails.root.join("app/assets/images/profile/shnai.png"))
+shnai.avatar.attach(io: file, filename: 'shnai.png', content_type: 'image/png')
 shnai.save!
-
 adinda = User.new(
   email: "adinda@gmail.com",
+  nickname: "Dindi",
   password: "123456"
 )
 adinda.save!
-
 bettina = User.new(
   email: "bettina@gmail.com",
+  nickname: "Bettina",
   password: "123456"
 )
 bettina.save!
-
 titles = {
   Dresses: ['Favorite dress', 'Party dress', 'Date night dress', 'Flattering dress', 'Summer dress', 'Casual dress'],
   Tops: ['Best basic top', 'Favorite top', 'Summer top', 'Sexy top', 'I look good top', 'Casual top'],
   Bottoms: ['Favorite pants', 'Comfy pants', 'Summer pants', 'Cool pants', 'My fun pants', 'Casual pants'],
   Shoes: ['Comfy shoes', 'Party shoes', 'Favorite shoes', 'Casual shoes', 'Summer shoes', 'Cool walk shoes']
 }
-
 categories = Item::CATEGORIES
 brands = ['Zara', 'Mango', 'Gucci', 'H&M', 'American Vintage', '& Other Stories', 'Urban Outfitters', 'TiMo', 'Brandz', 'Sister']
 colors = ['bright', 'flowery', 'multicolor']
-
 styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
 styles_array.each do |style|
   Style.create(title: style)
 end
-
 styles = Style.all
-
 user = [bettina, adinda, shnai, elizabeth]
-
 # for each categories
-# categories.each do |category|
-#   puts "Creating #{category}"
-#   6.times do |num|
-#     item = Item.new(
-#       title: titles[category.to_sym][num], # |category|
-#       category: category, # |category|
-#       brand: brands.sample,
-#       color: colors.sample,
-#       original_price: Faker::Commerce.price(range: 100.0..500.0),
-#       user: shnai
-#     )
-
-#     # add category folder path /bottoms
-#     file = File.open(Rails.root.join("app/assets/images/#{category.downcase}/#{category.downcase}#{num + 1}.jpeg"))
-#     # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
-#     item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
-
-#     item.save!
-
-#     ItemStyle.create(item: item, style: styles.sample)
-#   end
-# end
-
-
+categories.each do |category|
+  puts "Creating #{category}"
+  6.times do |num|
+    item = Item.new(
+      title: titles[category.to_sym][num], # |category|
+      category: category, # |category|
+      brand: brands.sample,
+      color: colors.sample,
+      original_price: Faker::Commerce.price(range: 100.0..500.0),
+      user: shnai
+    )
+    # add category folder path /bottoms
+    file = File.open(Rails.root.join("app/assets/images/#{category.downcase}/#{category.downcase}#{num + 1}.jpeg"))
+    # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
+    item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
+    item.save!
+    ItemStyle.create(item: item, style: styles.sample)
+  end
+end
 # ADDING SEEDS
 # styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
-
 seeds = {
   Dresses: [
     {
@@ -220,7 +208,6 @@ seeds = {
       },
    ],
 }
-
 seeds.each do |key, value| # hash of the category and items
   puts "Creating #{key}"
   value.each do |item|
@@ -232,14 +219,11 @@ seeds.each do |key, value| # hash of the category and items
       original_price: Faker::Commerce.price(range: 100.0..500.0),
       user: shnai
     )
-
     # add category folder path /bottoms
     file = File.open(Rails.root.join("app/assets/images/#{key.downcase}/#{item[:title]}.png"))
     # file = File.open(Rails.root.join("app/assets/images/dresses/hm_dress.jpeg"))
     new_item.photo.attach(io: file, filename: 'image.jpeg', content_type: 'image/jpeg')
-
     new_item.save!
-
     item[:styles].each do |style|
       ItemStyle.create(item: new_item, style: Style.find_by_title(style))
     end

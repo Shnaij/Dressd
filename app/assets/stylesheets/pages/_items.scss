@@ -50,7 +50,6 @@ h3 {
 .filter-item {
   flex-grow: 1;
   margin-right: 5px;
-  // padding: 5px 10px;
   font-size: 12px;
 }
 
@@ -113,10 +112,10 @@ h3 {
   margin-bottom: 5px;
 }
 
-.card-details .card-title:hover {
-  color: $secondary-color-hover;
-  transition: color 0.5s;
-}
+//.card-details .card-title:hover {
+ // color: $secondary-color-hover;
+  //transition: color 0.5s;
+//}
 
 .card-p {
   font-size: 12px;
@@ -138,12 +137,11 @@ h3 {
   border: none;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: none; /* Add this line to remove the shadow box */
   position: relative;
 }
 
 
-.card-details-small .card-title:hover {
-  color: $secondary-color-hover;
-  transition: color 0.5s;
-}
+//.card-details-small .card-title:hover {
+  //color: $secondary-color-hover;
+  //transition: color 0.5s;
+//}
