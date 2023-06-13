@@ -38,7 +38,7 @@
 }
 
 .beige-button {
-  padding: 8px 0;
+  padding: 8px 5px;
   width: 100%;
   font-size: 16px;
   background-color: $beige-color;
@@ -125,7 +125,7 @@
 }
 
 .search-container {
-  display: flex;
+  // display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -140,6 +140,7 @@
   font-size: 16px; /* Adjust the font size */
   padding: 4px; /* Add padding to create space */
   margin-right: 5px;
+  width: 100%;
 }
 
 .search-field::placeholder {
