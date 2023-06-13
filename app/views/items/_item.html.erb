@@ -3,7 +3,7 @@
     <i class="fa-solid fa-x" style="color: #D4B2A6;"></i>
   <% end %>
   <%= link_to new_outfit_path(item_id: item), class: "text-decoration-none" do %>
-    <div class="new-card">
+    <div>
       <% if item.photo.attached? %>
         <%= cl_image_tag item.photo.key, height: 200, class: "card-image" %>
       <% end %>

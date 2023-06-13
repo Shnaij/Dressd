@@ -51,8 +51,8 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
    height: 170px;
  }
 
-.h230 {
-  height: 230px;
+.h200 {
+  height: 200px;
 }
 
 .mb40 {
@@ -67,21 +67,13 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
-// .page-container {
-//   /* Responsive styles */
-//   @media (max-width: 767px) {
-//     /* Styles for mobile devices */
-//   }
+.outfit-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  height: 200px;
 
-//   @media (min-width: 768px) and (max-width: 991px) {
-//     /* Styles for tablets */
-//   }
-
-//   @media (min-width: 992px) and (max-width: 1199px) {
-//     /* Styles for medium-sized screens */
-//   }
-
-//   @media (min-width: 1200px) {
-//     /* Styles for large screens */
-//   }
-// }
+  // .outfits {
+  //   box-shadow: none;
+  // }
+}
