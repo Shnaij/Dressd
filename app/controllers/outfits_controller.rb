@@ -12,10 +12,38 @@ class OutfitsController < ApplicationController
     @style_options = Style.all.pluck(:title)
     @items = current_user.items
 
-    @tops = @items.where(category: "Tops")
-    @bottoms = @items.where(category: "Bottoms")
-    @shoes = @items.where(category: "Shoes")
-    @dresses = @items.where(category: "Dresses")
+    if params[:style].present?
+      style = Style.find_by_title(params[:style])
+      if style
+        @items = current_user.items.joins(:item_styles).where(item_styles: { style_id: style.id })
+        @tops = @items.where(category: "Tops")
+        if @tops.empty?
+          @tops = current_user.items.where(category: "Tops")
+          @tops_message = "You have no tops in this style!"
+        end
+        @bottoms = @items.where(category: "Bottoms")
+        if @bottoms.empty?
+          @bottoms_message = "You have no bottoms in this style!"
+          @bottoms = current_user.items.where(category: "Bottoms")
+        end
+        @shoes = @items.where(category: "Shoes")
+        if @shoes.empty?
+          @shoes_message = "You have no shoes in this style!"
+          @shoes = current_user.items.where(category: "Shoes")
+        end
+        @dresses = @items.where(category: "Dresses")
+        if @dresses.empty?
+          @dresses_message = "You have no dresses in this style!"
+          @dresses = current_user.items.where(category: "Dresses")
+        end
+      end
+    else
+      @tops = @items.where(category: "Tops")
+      @bottoms = @items.where(category: "Bottoms")
+      @shoes = @items.where(category: "Shoes")
+      @dresses = @items.where(category: "Dresses")
+    end
+
 
     # picking up selected item and showing it in new outfit:
     if params[:item_id]
@@ -29,19 +57,12 @@ class OutfitsController < ApplicationController
     end
 
     # filtering logic
-    
+
     #   Style.find_by_title(params[:style])
     #   if params[:style].present?
     #    @items = current_user.items.joins(:item_styles).where(item_styles: { style_id: style.id})
     #   end
     # end
-
-    if params[:style].present?
-      style = Style.find_by_title(params[:style])
-      if style
-        @items = current_user.items.joins(:item_styles).where(item_styles: { style_id: style.id })
-      end
-    end
   end
 
   def create
