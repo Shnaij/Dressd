@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
+    Outfit.joins(:outfit_items).where(outfit_items: {item_id: item.id}).destroy_all
     item.destroy
     redirect_to items_path, status: :see_other
   end
