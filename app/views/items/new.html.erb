@@ -12,6 +12,7 @@
     <%= f.input :brand, label: 'What is the brand name?', input_html: { class: 'input-color' } %>
     <%= f.input :color, label: 'What is the color?', input_html: { class: 'input-color' } %>
     <%= f.input :category, collection: Item::CATEGORIES, input_html: { class: 'input-color' } %>
+    <%= f.input :items_weathers, collection: ItemsWeather::NAMES, as: :select, input_html: { class: 'input-color', multiple: true } %>
     <%= f.association :styles,
                       as: :check_boxes,
                       label: 'What are the styles for this item?',
