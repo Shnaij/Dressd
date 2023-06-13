@@ -48,7 +48,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save
-      redirect_to items_path, notice: "Item was successfully created and placed in your closet."
+      create_items_weathers(@item)
+      redirect_to items_path(@item), notice: "Item was successfully created, you can find it in your closet."
     else
       render :new, status: :unprocessable_entity
     end
@@ -62,6 +63,12 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def create_items_weathers(item)
+    params[:item][:items_weathers][1..-1].each do |name|
+      ItemsWeather.create(name: name, item_id: item.id)
+    end
+  end
 
   def item_params
     params.require(:item).permit(:title, :brand, :category, :color, :original_price, :photo)

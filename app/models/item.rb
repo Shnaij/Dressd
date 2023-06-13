@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_many :items_weathers
   has_many :item_styles, dependent: :destroy
   has_many :styles, through: :item_styles, dependent: :destroy
   has_many :outfit_items, dependent: :destroy

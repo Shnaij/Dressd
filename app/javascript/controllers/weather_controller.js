@@ -13,8 +13,19 @@ export default class extends Controller {
         .then(response => response.json())
         .then((data) => {
           console.log(data);
-          const icon = data.weather[0].icon
-          this.iconTarget.src = `https://openweathermap.org/img/w/${icon}.png`
+          if (data.weather[0].main == "Clear") {
+            this.iconTarget.innerHTML = '<i class="fa-solid fa-sun"></i>'
+          } else if (data.weather[0].main == "Clouds") {
+            this.iconTarget.innerHTML = '<i class="fa-solid fa-cloud-sun"></i>'
+          } else if (data.weather[0].main == "Thunderstorm") {
+            this.iconTarget.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>'
+          } else if (data.weather[0].main == "Snow") {
+            this.iconTarget.innerHTML = '<i class="fa-solid fa-snowflake"></i>'
+          } else if (data.weather[0].main == "Rain") {
+            this.iconTarget.innerHTML = '<i class="fa-solid fa-cloud-showers-heavy"></i>'
+          } else if (data.weather[0].main == "Drizzle") {
+            this.iconTarget.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>'
+          }
           this.descriptionTarget.innerText = data.weather[0].main;
         })
     })
