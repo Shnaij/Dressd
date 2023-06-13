@@ -1,5 +1,5 @@
 <div class="banner">
-  <%= link_to items_path do %>
+  <%= link_to root_path do %>
     <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
   <% end %>
   <% if current_user && current_user.nickname %>
@@ -17,7 +17,7 @@
     <div class="logo">
       <%= image_tag("weather.png", alt: "Logo", class: "logo-image", data: { weather_target: "icon"}) %>
     </div>
-    <p class="pink-button" data-weather-target="description">Cloudy with a chance of rain</p>
+    <p class="weather-button" data-weather-target="description">Cloudy with a chance of rain</p>
   </div>
   <div class="button-container">
     <div class="left-button">
@@ -33,7 +33,7 @@
         <h2>My Items</h2>
         <%= link_to "See All", items_path, class: "back-button mt-0" %>
       </div>
-      <div class="outfit-card-grid h-200">
+      <div class="outfit-card-grid h200">
         <% @items.each do |item| %>
           <% if item.photo.attached? %>
             <%= cl_image_tag item.photo.key, class: "card-image" %>
@@ -48,7 +48,7 @@
         <h2>My Outfits</h2>
         <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
       </div>
-      <div class="outfit-card-grid h-200">
+      <div class="outfit-card-grid">
         <% @outfits.each do |outfit| %>
           <%= render 'shared/outfit', outfit: outfit %>
         <% end %>
