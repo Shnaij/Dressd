@@ -276,7 +276,7 @@ seeds = {
         styles: ["evening out", "casual"]
       },
       {
-        title: "Heel sandals",
+        title: "Sandal heels",
         color: "pink",
         styles: ["evening out", "party"]
       },

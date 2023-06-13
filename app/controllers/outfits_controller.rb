@@ -48,6 +48,8 @@ class OutfitsController < ApplicationController
     # picking up selected item and showing it in new outfit:
     if params[:item_id]
       item = Item.find(params[:item_id])
+      @selected_category_is_dresses = item.category == "Dresses"
+      @selected_category_is_default = item.category != "Dresses"
       case item.category
       when "Tops" then @tops = reindex_list(@tops, item)
       when "Bottoms" then @bottoms = reindex_list(@bottoms, item)
