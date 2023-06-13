@@ -16,15 +16,14 @@
 //.card-details:hover {
  // transform: scale(1.05);
   //padding: 10px;
-  //border-radius: 10px;
+  //border-radius: 10px
   //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 //}
 
 .new-card {
-
-height: fit-content;
-border-radius: 10px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .items-list {
     height: 170px;
@@ -71,13 +70,16 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  // height: 200px;
-
-  // .outfits {
-  //   box-shadow: none;
-  // }
 }
 
 .card-home-details {
   height: fit-content;
+}
+
+.outfits {
+  background-color: $light-gray;
+  height: 510px;
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 6px;
 }
