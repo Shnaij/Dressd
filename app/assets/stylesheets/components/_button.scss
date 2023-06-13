@@ -183,3 +183,25 @@
     justify-content: center;
     align-items: center;
   }
+
+  .create-button {
+    padding: 4px 0;
+    width: 100%;
+    font-size: 12px;
+    background-color: $beige-color;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 1s; /* Transition duration of 1 second */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .create-button:hover {
+    background-color: $beige-hover-color;
+    color: black;
+  }
