@@ -15,13 +15,8 @@ class ItemsController < ApplicationController
       @items = @items.where(category: params[:category])
     end
 
-    if params[:color].present?
-      @items = @items.where(color: params[:color])
-    end
-
     # Determine the filtered category
     @filtered_category = params[:category]
-    @filtered_color = params[:color]
 
     # Filtered category headers
     @dresses_header = 'Dresses'
