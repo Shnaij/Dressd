@@ -1,5 +1,5 @@
 <div class="banner">
-  <%= link_to items_path do %>
+  <%= link_to root_path do %>
     <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
   <% end %>
   <% if current_user && current_user.nickname %>
@@ -33,7 +33,7 @@
         <h2>My Items</h2>
         <%= link_to "See All", items_path, class: "back-button mt-0" %>
       </div>
-      <div class="outfit-card-grid h-200">
+      <div class="outfit-card-grid h200">
         <% @items.each do |item| %>
           <% if item.photo.attached? %>
             <%= cl_image_tag item.photo.key, class: "card-image" %>
@@ -48,7 +48,7 @@
         <h2>My Outfits</h2>
         <%= link_to "See All", outfits_path, class: "back-button mt-0" %>
       </div>
-      <div class="outfit-card-grid h-200">
+      <div class="outfit-card-grid">
         <% @outfits.each do |outfit| %>
           <%= render 'shared/outfit', outfit: outfit %>
         <% end %>

@@ -52,7 +52,7 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
  }
 
 .h200 {
-  height: 200px;
+  height: 200px !important;
 }
 
 .mb40 {
@@ -71,9 +71,13 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  height: 200px;
+  // height: 200px;
 
   // .outfits {
   //   box-shadow: none;
   // }
+}
+
+.card-home-details {
+  height: fit-content;
 }
