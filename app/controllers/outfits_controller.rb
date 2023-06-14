@@ -80,10 +80,12 @@ class OutfitsController < ApplicationController
   end
 
   def find_all_items
-    top = Item.find(params[:outfit][:top].to_i)
-    bottom = Item.find(params[:outfit][:bottom].to_i)
-    shoe = Item.find(params[:outfit][:shoe].to_i)
-    [top, bottom, shoe]
+    items = []
+    items << Item.find(params[:outfit][:top].to_i) unless params[:outfit][:top] == ""
+    items << Item.find(params[:outfit][:bottom].to_i) unless params[:outfit][:bottom] == ""
+    items << Item.find(params[:outfit][:dress].to_i) unless params[:outfit][:dress] == ""
+    items << Item.find(params[:outfit][:shoe].to_i)
+    items
   end
 
   def create_outfit_items(items, outfit)

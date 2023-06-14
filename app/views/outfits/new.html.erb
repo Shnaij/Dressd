@@ -8,7 +8,6 @@
   <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
     <%= link_to "Go Back", root_path, class: "back-button" %>
   </div>
-
   <div class="container">
     <div class="filter-sort my-2">
       <%= form_tag(new_outfit_path, method: :get) do %>
@@ -16,28 +15,15 @@
           <div class="filter-item">
             <%= select_tag(:style, options_for_select(@style_options, params[:style]), include_blank: 'All styles', class: 'beige-button') %>
           </div>
-          <div class="">
             <%= submit_tag 'Filter', class: 'search-button' %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-
   <%= form_with model: @outfit, data: {controller: "outfit", outfit_target: "form", action: "submit->outfit#insertForm"} do |f| %>
     <div class="outfit-card-container">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link <%= "active" if @selected_category_is_dresses %>"
-                  id="pills-dress-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-dress"
-                  type="button" role="tab"
-                  aria-controls="pills-dress"
-                  aria-selected=<%= @selected_category_is_dresses %>>
-            Dress and Shoes
-          </button>
-        </li>
         <li class="nav-item" role="presentation">
           <button class="nav-link <%= "active" if @selected_category_is_default %>"
                   id="pills-default-tab"
@@ -48,6 +34,17 @@
                   aria-controls="pills-default"
                   aria-selected=<%= @selected_category_is_default %>>
             Top Bottom and Shoes
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link <%= "active" if @selected_category_is_dresses %>"
+                  id="pills-dress-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-dress"
+                  type="button" role="tab"
+                  aria-controls="pills-dress"
+                  aria-selected=<%= @selected_category_is_dresses %>>
+            Dress and Shoes
           </button>
         </li>
       </ul>
@@ -69,10 +66,10 @@
       <%= render "items_carousel", items: @shoes, message: @shoes_message, category: "Shoes" %>
     </div>
     <%= f.text_field :title, class: "search-field w-100 my-3", placeholder: "Give this outfit a name" %>
+    <%= f.text_field :dress, data: {outfit_target: "dressField"}, class: "d-none" %>
     <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
     <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
     <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
-
     <div class="button-container padding-bottom-more">
       <div class="left-button">
         <%= f.submit "Save this outfit", class: "beige-button" %>

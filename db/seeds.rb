@@ -96,6 +96,7 @@ users = [bettina, adinda, shnai, elizabeth]
 
 # ADDING SEEDS
 # styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
+# NAMES = ["dry and hot", "dry and medium warm", "dry and cold", "rainy and hot", "rainy and medium warm", "rainy and cold"]
 
 seeds = {
   Dresses: [
@@ -103,41 +104,49 @@ seeds = {
       title: "Crochet lace dress", # the same as the image name (image -> lowercased and underscore)
       color: "cream",
       styles: ["casual", "evening out"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot",]
     },
     {
       title: "Embellished dress",
       color: "purple",
       styles: ["party", "evening out"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and medium warm",]
     },
     {
       title: "Floral dress",
       color: "multi",
       styles: ["casual", "comfy"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot",]
     },
     {
       title: "Stripe dress",
       color: "black & white",
       styles: ["casual", "comfy"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and medium warm",]
     },
     {
       title: "Tennis dress",
       color: "black",
       styles: ["sporty", "comfy"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm",]
     },
     {
       title: "Tie dye dress",
       color: "blue",
       styles: ["party", "evening out"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot",]
     },
     {
       title: "Floral ruffle dress",
       color: "multi",
       styles: ["casual", "evening out"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot",]
     },
     {
       title: "Tropical maxi dress",
       color: "multi",
       styles: ["casual", "comfy"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot",]
     },
     {
       title: "Tie dye maxi dress",
