@@ -12,7 +12,12 @@
     <%= f.input :brand, label: 'What is the brand name?', input_html: { class: 'input-color' } %>
     <%= f.input :color, label: 'What is the color?', input_html: { class: 'input-color' } %>
     <%= f.input :category, collection: Item::CATEGORIES, input_html: { class: 'input-color' } %>
-    <%= f.input :items_weathers, collection: ItemsWeather::NAMES, as: :select, input_html: { class: 'input-color', multiple: true } %>
+    <%= f.association :items_weathers,
+                      as: :check_boxes,
+                      label: 'In what weather would you wear this item?',
+                      collection: ItemsWeather::NAMES,
+                      input_html: { class: 'tag-selector' },
+                      item_wrapper_class: 'tag-item' %>
     <%= f.association :styles,
                       as: :check_boxes,
                       label: 'What are the styles for this item?',

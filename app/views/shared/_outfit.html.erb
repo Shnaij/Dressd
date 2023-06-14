@@ -1,9 +1,16 @@
 <div class="outfits">
   <div class="card-details-small">
     <h2 class="card-title"><%= outfit.title %></h2>
-    <%= cl_image_tag outfit.items.find_by_category("Tops").photo.key, class: "outfit-image" %>
-    <%= cl_image_tag outfit.items.find_by_category("Bottoms").photo.key, class: "outfit-image" %>
-    <%= cl_image_tag outfit.items.find_by_category("Shoes").photo.key, class: "outfit-image" %>
+    <% if outfit.items.find_by_category("Tops") && outfit.items.find_by_category("Bottoms") && outfit.items.find_by_category("Shoes") %>
+      <%= cl_image_tag outfit.items.find_by_category("Tops").photo.key, class: "outfit-image" %>
+      <%= cl_image_tag outfit.items.find_by_category("Bottoms").photo.key, class: "outfit-image" %>
+      <%= cl_image_tag outfit.items.find_by_category("Shoes").photo.key, class: "outfit-image" %>
+    <% else %>
+      <% if outfit.items.find_by_category("Dresses") && outfit.items.find_by_category("Shoes") %>
+        <%= cl_image_tag outfit.items.find_by_category("Dresses").photo.key, class: "outfit-image outfit-image-dress" %>
+        <%= cl_image_tag outfit.items.find_by_category("Shoes").photo.key, class: "outfit-image" %>
+      <% end %>
+    <% end %>
     <div class="remove-outfit-link">
       <%= link_to outfit_path(outfit), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
         <i class="fa-solid fa-x" style="color: #D4B2A6;"></i>

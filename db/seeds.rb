@@ -96,214 +96,255 @@ users = [bettina, adinda, shnai, elizabeth]
 
 # ADDING SEEDS
 # styles_array = ['sporty', 'casual', 'comfy', 'party', 'evening out']
-
+# NAMES = ["dry and hot", "dry and medium warm", "dry and cold", "rainy and hot", "rainy and medium warm", "rainy and cold"]
 seeds = {
   Dresses: [
     {
       title: "Crochet lace dress", # the same as the image name (image -> lowercased and underscore)
       color: "cream",
       styles: ["casual", "evening out"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot",]
     },
     {
       title: "Embellished dress",
       color: "purple",
       styles: ["party", "evening out"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and medium warm",]
     },
     {
       title: "Floral dress",
       color: "multi",
-      styles: ["casual", "comfy"]
+      styles: ["casual", "comfy"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot"]
     },
     {
       title: "Stripe dress",
       color: "black & white",
-      styles: ["casual", "comfy"]
+      styles: ["casual", "comfy"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot"]
     },
     {
       title: "Tennis dress",
       color: "black",
       styles: ["sporty", "comfy"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm",]
     },
     {
       title: "Tie dye dress",
       color: "blue",
       styles: ["party", "evening out"]
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot",]
     },
     {
       title: "Floral ruffle dress",
       color: "multi",
-      styles: ["casual", "evening out"]
+      styles: ["casual", "evening out"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Tropical maxi dress",
       color: "multi",
-      styles: ["casual", "comfy"]
+      styles: ["casual", "comfy"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Tie dye maxi dress",
       color: "multi",
-      styles: ["evening out", "party"]
+      styles: ["evening out", "party"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Floral halter dress",
       color: "multi",
-      styles: ["casual", "comfy"]
+      styles: ["casual", "comfy"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot"]
     },
   ],
   Tops: [
      {
       title: "Crop top",
       color: "black",
-      styles: ["sporty", "casual"]
+      styles: ["sporty", "casual"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Crochet crop top",
       color: "blue",
-      styles: ["casual", "evening out"]
+      styles: ["casual", "evening out"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and medium warm", "dry and cold", "rainy and cold"]
     },
     {
       title: "Twill top",
       color: "green",
-      styles: ["evening out", "party"]
+      styles: ["evening out", "party"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Long sleeve top",
       color: "black",
-      styles: ["casual", "sporty"]
+      styles: ["casual", "sporty"],
+      weather: ["dry and medium warm", "rainy and medium warm", "dry and cold", "rainy and cold"]
     },
     {
       title: "Crochet top",
       color: "black & white",
-      styles: ["casual", "evening out"]
+      styles: ["casual", "evening out"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Surfing tshirt",
       color: "white",
-      styles: ["casual", "sporty"]
+      styles: ["casual", "sporty"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Tropical crop top",
       color: "multi",
-      styles: ["casual", "evening out"]
+      styles: ["casual", "evening out"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Stripe vest top",
       color: "green",
-      styles: ["casual", "comfy"]
+      styles: ["casual", "comfy"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
  ],
   Bottoms: [
      {
        title: "Tribal trousers",
        color: "black & white",
-       styles: ["comfy", "evening out"]
+       styles: ["comfy", "evening out"],
+       weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
      },
      {
        title: "Sports leggings",
        color: "camo",
-       styles: ["sporty", "comfy"]
+       styles: ["sporty", "comfy"],
+       weather: ["dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
      },
      {
       title: "Pleated tennis skirt",
       color: "black",
-      styles: ["sporty", "comfy"]
+      styles: ["sporty", "comfy"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Linen trousers",
       color: "pink",
-      styles: ["comfy", "evening out"]
+      styles: ["comfy", "evening out"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
     },
     {
       title: "Sequin skirt",
       color: "green",
-      styles: ["party", "evening out"]
+      styles: ["party", "evening out"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Denim shorts",
       color: "blue",
-      styles: ["comfy", "evening out"]
+      styles: ["comfy", "evening out"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Pleated trousers",
       color: "green",
-      styles: ["comfy", "casual"]
+      styles: ["comfy", "casual"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
     },
     {
       title: "Linen pleated trousers",
       color: "cream",
-      styles: ["comfy", "casual"]
+      styles: ["comfy", "casual"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
     },
     {
       title: "Tropical trousers",
       color: "multi",
-      styles: ["comfy", "casual"]
+      styles: ["comfy", "casual"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Wide leg trousers",
       color: "pink",
-      styles: ["comfy", "casual"]
+      styles: ["comfy", "casual"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Leggings",
       color: "pink",
-      styles: ["sporty", "comfy"]
+      styles: ["sporty", "comfy"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
     },
     {
       title: "Satin trousers",
       color: "gold",
-      styles: ["evening out", "party"]
+      styles: ["evening out", "party"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
     },
    ],
    Shoes: [
      {
      title: "Buckle sandals",
      color: "black",
-     styles: ["casual", "evening out"]
+     styles: ["casual", "evening out"],
+     weather: ["dry and hot", "dry and medium warm", "rainy and hot"]
      },
      {
      title: "Colourblock trainers",
      color: "black & white",
-     styles: ["sporty", "casual"]
+     styles: ["sporty", "casual"],
+     weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
      },
      {
       title: "Heels",
       color: "black",
-      styles: ["evening out", "party"]
+      styles: ["evening out", "party"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
       },
       {
         title: "Tribal wedges",
         color: "multi",
-        styles: ["evening out", "casual"]
+        styles: ["evening out", "casual"],
+        weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
       },
       {
         title: "Sandal heels",
         color: "pink",
-        styles: ["evening out", "party"]
+        styles: ["evening out", "party"],
+        weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
       },
       {
         title: "Crochet trainers",
         color: "beige",
-        styles: ["casual", "evening out"]
+        styles: ["casual", "evening out"],
+        weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
       },
       {
         title: "Tropical sandals",
         color: "multi",
-        styles: ["casual", "evening out"]
+        styles: ["casual", "evening out"],
+        weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
       },
       {
         title: "Wedges",
         color: "cream",
-        styles: ["casual", "comfy"]
+        styles: ["casual", "comfy"],
+        weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
       },
       {
         title: "Trainers",
         color: "cream",
-        styles: ["sporty", "casual"]
+        styles: ["sporty", "casual"],
+        weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm", "dry and cold", "rainy and cold"]
+
       },
       {
         title: "Metallic sandals",
         color: "gold",
-        styles: ["evening out", "party"]
+        styles: ["evening out", "party"],
+        weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
       },
    ],
 }
@@ -329,6 +370,10 @@ seeds.each do |key, value| # hash of the category and items
 
     item[:styles].each do |style|
       ItemStyle.create(item: new_item, style: Style.find_by_title(style))
+    end
+
+    item[:weather].each do |weather|
+      ItemsWeather.create(item: new_item, name: weather)
     end
   end
 end
