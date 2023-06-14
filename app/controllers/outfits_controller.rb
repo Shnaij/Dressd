@@ -19,17 +19,33 @@ class OutfitsController < ApplicationController
       end
     end
 
+    if params[:items_weathers].present?
+      @items = current_user.items.joins(:items_weathers).where(items_weathers: { name: params[:items_weathers] })
+    end
+
     @tops = @items.where(category: "Tops")
-    @tops_message = "You have no tops in this style!" if @tops.empty?
+    if @tops.empty?
+      @tops_message = "You have no tops in this search!"
+      @tops = Item.where(category: "Tops")
+    end
 
     @bottoms = @items.where(category: "Bottoms")
-    @bottoms_message = "You have no bottoms in this style!" if @bottoms.empty?
+    if @bottoms.empty?
+      @bottoms_message = "You have no bottoms in this search!"
+      @bottoms = Item.where(category: "Bottoms")
+    end
 
     @shoes = @items.where(category: "Shoes")
-    @shoes_message = "You have no shoes in this style!" if @shoes.empty?
+    if @shoes.empty?
+      @shoes_message = "You have no shoes in this search!"
+      @shoes = Item.where(category: "Shoes")
+    end
 
     @dresses = @items.where(category: "Dresses")
-    @dresses_message = "You have no dresses in this style!" if @dresses.empty?
+    if @dresses.empty?
+      @dresses_message = "You have no dresses in this search!"
+      @dresses = Item.where(category: "Dresses")
+    end
 
     @selected_category_is_default = true
 
