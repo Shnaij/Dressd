@@ -4,20 +4,27 @@
   <% end %>
   <h1>Outfit Planner</h1>
 </div>
-<div class="container mt-3">
-  <div class="filter-sort my-2">
-    <%= form_tag(new_outfit_path, method: :get) do %>
-      <div class="filter-row">
-        <div class="filter-item">
-          <%= select_tag(:style, options_for_select(@style_options, params[:style]), include_blank: 'All styles', class: 'beige-button') %>
-          <%= select_tag(:items_weathers, options_for_select(ItemsWeather::NAMES, params[:items_weathers]), include_blank: 'Weather', class: 'beige-button') %>
-        </div>
-        <div class="">
-          <%= submit_tag 'Filter', class: 'search-button' %>
+
+<div class="container">
+  <div class="back-button" style="margin-top: -20px; margin-bottom: -20px;">
+    <%= link_to "Go Back", items_path, class: "back-button" %>
+  </div>
+
+  <div class="container">
+    <div class="filter-sort my-2">
+      <%= form_tag(new_outfit_path, method: :get) do %>
+        <div class="filter-row">
+          <div class="filter-item">
+            <%= select_tag(:style, options_for_select(@style_options, params[:style]), include_blank: 'All styles', class: 'beige-button') %>
+            <%= select_tag(:items_weathers, options_for_select(ItemsWeather::NAMES, params[:items_weathers]), include_blank: 'Weather', class: 'beige-button') %>
+          </div>
+            <%= submit_tag 'Filter', class: 'search-button' %>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
+
   <%= form_with model: @outfit, data: {controller: "outfit", outfit_target: "form", action: "submit->outfit#insertForm"} do |f| %>
     <div class="outfit-card-container">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
