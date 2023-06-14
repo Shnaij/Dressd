@@ -7,7 +7,7 @@
 
 <div class="container">
   <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
-    <%= f.search_field :query, class: "search-field", placeholder: "Search items..." %>
+    <%= f.search_field :query, value: params[:query], class: "search-field", placeholder: "Search items..." %>
 
     <div class="filter-sort my-2">
 
