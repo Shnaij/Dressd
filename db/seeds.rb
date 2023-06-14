@@ -102,14 +102,14 @@ seeds = {
     {
       title: "Crochet lace dress", # the same as the image name (image -> lowercased and underscore)
       color: "cream",
-      styles: ["casual", "evening out"]
-      weather: ["dry and hot", "dry and medium warm", "rainy and hot",]
+      styles: ["casual", "evening out"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot"]
     },
     {
       title: "Embellished dress",
       color: "purple",
-      styles: ["party", "evening out"]
-      weather: ["dry and hot", "dry and medium warm", "rainy and medium warm",]
+      styles: ["party", "evening out"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and medium warm"]
     },
     {
       title: "Floral dress",
@@ -126,13 +126,13 @@ seeds = {
     {
       title: "Tennis dress",
       color: "black",
-      styles: ["sporty", "comfy"]
-      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm",]
+      styles: ["sporty", "comfy"],
+      weather: ["dry and hot", "dry and medium warm", "rainy and hot", "rainy and medium warm"]
     },
     {
       title: "Tie dye dress",
       color: "blue",
-      styles: ["party", "evening out"]
+      styles: ["party", "evening out"],
       weather: ["dry and hot", "dry and medium warm", "rainy and hot",]
     },
     {
