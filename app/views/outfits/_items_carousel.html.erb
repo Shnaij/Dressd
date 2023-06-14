@@ -1,25 +1,24 @@
 <div class="outfit-card" style="margin-top: 1px; margin-bottom: 1px;">
-  <% if items.empty? %>
+  <% if message %>
     <p class="no-style-message"><%= message %></p>
-  <% else %>
-    <div class="items-selections">
-      <div id="carousel<%= category %>" class="carousel slide">
-        <div class="carousel-inner" style="margin-top: 5px;">
-          <% items.each_with_index do |item, index| %>
-            <div class="carousel-item <%= 'active' if index.zero? %> <%= category.downcase.singularize %>-value" data-<%= category.downcase.singularize %>-id="<%= item.id %>">
-              <img src="<%= cl_image_path item.photo.key %>" class="d-block w-100 cropped-<%= category.downcase %>" alt=<%= category.downcase %>>
-            </div>
-          <% end %>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= category %>" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= category %>" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
   <% end %>
+  <div class="items-selections">
+    <div id="carousel<%= category %>" class="carousel slide">
+      <div class="carousel-inner" style="margin-top: 5px;">
+        <% items.each_with_index do |item, index| %>
+          <div class="carousel-item <%= 'active' if index.zero? %> <%= category.downcase.singularize %>-value" data-<%= category.downcase.singularize %>-id="<%= item.id %>">
+            <img src="<%= cl_image_path item.photo.key %>" class="d-block w-100 cropped-<%= category.downcase %>" alt=<%= category.downcase %>>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= category %>" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= category %>" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
 </div>
