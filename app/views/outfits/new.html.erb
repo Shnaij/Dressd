@@ -14,6 +14,7 @@
         <div class="filter-row">
           <div class="filter-item">
             <%= select_tag(:style, options_for_select(@style_options, params[:style]), include_blank: 'All styles', class: 'beige-button') %>
+            <%= select_tag(:items_weathers, options_for_select(ItemsWeather::NAMES, params[:items_weathers]), include_blank: 'Weather', class: 'beige-button') %>
           </div>
             <%= submit_tag 'Filter', class: 'search-button' %>
           </div>
