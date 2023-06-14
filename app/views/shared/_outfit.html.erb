@@ -7,7 +7,7 @@
       <%= cl_image_tag outfit.items.find_by_category("Shoes").photo.key, class: "outfit-image" %>
     <% else %>
       <% if outfit.items.find_by_category("Dresses") && outfit.items.find_by_category("Shoes") %>
-        <%= cl_image_tag outfit.items.find_by_category("Dresses").photo.key, class: "outfit-image" %>
+        <%= cl_image_tag outfit.items.find_by_category("Dresses").photo.key, class: "outfit-image outfit-image-dress" %>
         <%= cl_image_tag outfit.items.find_by_category("Shoes").photo.key, class: "outfit-image" %>
       <% end %>
     <% end %>
