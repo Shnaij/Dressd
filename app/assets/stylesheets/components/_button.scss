@@ -206,3 +206,26 @@
     background-color: $beige-hover-color;
     color: black;
   }
+
+  .beige2-button {
+    padding: 8px 5px;
+    width: 100%;
+    font-size: 13px;
+    background-color: $beige-color;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: $body-font;
+    text-decoration: none;
+    transition: background-color 1s; /* Transition duration of 1 second */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .beige-button:hover {
+    background-color: $beige-hover-color;
+    color: black;
+  }
