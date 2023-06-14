@@ -1,12 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="weather"
 export default class extends Controller {
-  static targets = ["icon", "description"]
+  static targets = ["icon", "description", "header"]
+
   connect() {
     console.log("Hello from stimulus");
     this.apiKey = "654e3ecd3aaf11243bcaefa602f39f2a";
     this.fetchWeatherByCoordinates();
   }
+
   fetchWeatherByCoordinates() {
     navigator.geolocation.getCurrentPosition((data) => {
       fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${this.apiKey}&units=metric`)
@@ -27,6 +29,10 @@ export default class extends Controller {
             this.iconTarget.innerHTML = '<i class="fa-solid fa-cloud-rain"></i>'
           }
           this.descriptionTarget.innerText = data.weather[0].main;
+
+          if (data.weather[0].main) {
+            this.headerTarget.classList.remove("d-none")
+          }
         })
     })
   }
