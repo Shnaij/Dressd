@@ -11,7 +11,7 @@ export default class extends Controller {
 
   fetchWeatherByCoordinates() {
     navigator.geolocation.getCurrentPosition((data) => {
-      fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${this.apiKey}&units=metric`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${this.apiKey}&units=metric`)
         .then(response => response.json())
         .then((data) => {
           console.log(data);
