@@ -65,7 +65,7 @@ class ItemsController < ApplicationController
   private
 
   def create_items_weathers(item)
-    params[:item][:items_weathers][1..-1].each do |name|
+    params[:item][:items_weather_ids][1..-1].each do |name|
       ItemsWeather.create(name: name, item_id: item.id)
     end
   end
