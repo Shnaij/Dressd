@@ -1,6 +1,6 @@
 <div class="banner">
   <%= link_to root_path do %>
-    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+    <%= image_tag("dressd-logo2.png", alt: "Logo", class: "banner-logo") %>
   <% end %>
   <% if current_user && current_user.nickname %>
     <h1><%= current_user.nickname.capitalize %></h1>
@@ -21,10 +21,10 @@
   </div>
   <div class="button-container mt-3">
     <div class="left-button">
-      <%= link_to "Dress Me", new_outfit_path, class: "pink-button" %>
+      <%= link_to "Dress Me", new_outfit_path, class: "beige-button" %>
     </div>
     <div class="right-button">
-      <button class="pink-button">Friends</button>
+      <button class="beige-button">Friends</button>
     </div>
   </div>
   <div class="card-home-details">
