@@ -5,7 +5,7 @@
   <h1 class="text-center">Your Wardrobe</h1>
 </div>
 
-<div class="container">
+<div class="container z-index-1">
   <%= form_with(url: items_path, method: :get, class: "search-container my-2") do |f| %>
     <%= f.search_field :query, value: params[:query], class: "search-field", placeholder: "Search items..." %>
 
