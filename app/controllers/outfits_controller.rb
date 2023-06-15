@@ -26,25 +26,25 @@ class OutfitsController < ApplicationController
     @tops = @items.where(category: "Tops")
     if @tops.empty?
       @tops_message = "You have no tops in this search!"
-      @tops = Item.where(category: "Tops")
+      @tops = current_user.items.where(category: "Tops")
     end
 
     @bottoms = @items.where(category: "Bottoms")
     if @bottoms.empty?
       @bottoms_message = "You have no bottoms in this search!"
-      @bottoms = Item.where(category: "Bottoms")
+      @bottoms = current_user.items.where(category: "Bottoms")
     end
 
     @shoes = @items.where(category: "Shoes")
     if @shoes.empty?
       @shoes_message = "You have no shoes in this search!"
-      @shoes = Item.where(category: "Shoes")
+      @shoes = current_user.items.where(category: "Shoes")
     end
 
     @dresses = @items.where(category: "Dresses")
     if @dresses.empty?
       @dresses_message = "You have no dresses in this search!"
-      @dresses = Item.where(category: "Dresses")
+      @dresses = current_user.items.where(category: "Dresses")
     end
 
     @selected_category_is_default = true
@@ -62,13 +62,11 @@ class OutfitsController < ApplicationController
       end
     end
 
-    # filtering logic
-
-    #   Style.find_by_title(params[:style])
-    #   if params[:style].present?
-    #    @items = current_user.items.joins(:item_styles).where(item_styles: { style_id: style.id})
-    #   end
-    # end
+    # filtering logic automatic Stimulus
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create

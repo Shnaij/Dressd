@@ -4,18 +4,15 @@
   <% end %>
   <h1>Outfit Planner</h1>
 </div>
-<div class="container mt-3">
+<div class="container mt-3" data-controller="filtering">
   <div class="filter-sort my-2">
-    <%= form_tag(new_outfit_path, method: :get) do %>
+    <%= form_tag(new_outfit_path, method: :get, data: { filtering_target: "form" }) do %>
       <div class="filter-row">
         <div class="filter-item">
-          <%= select_tag(:style, options_for_select(@style_options, params[:style]), include_blank: 'All styles', class: 'beige2-button') %>
+          <%= select_tag(:style, options_for_select(@style_options, params[:style]), include_blank: 'All styles', class: 'beige2-button', data: { action: "change->filtering#update", filtering_target: "style" }) %>
         </div>
         <div class="filter-item">
-          <%= select_tag(:items_weathers, options_for_select(ItemsWeather::NAMES, params[:items_weathers]), include_blank: 'Weather', class: 'beige2-button') %>
-        </div>
-        <div class="">
-          <%= submit_tag 'Filter', class: 'search-button' %>
+          <%= select_tag(:items_weathers, options_for_select(ItemsWeather::NAMES, params[:items_weathers]), include_blank: 'Weather', class: 'beige2-button', data: { action: "change->filtering#update", filtering_target: "weather" }) %>
         </div>
       </div>
     <% end %>
