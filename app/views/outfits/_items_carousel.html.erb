@@ -3,7 +3,9 @@
     <p class="no-style-message"><%= message %></p>
   <% end %>
   <div class="items-selections">
-    <p data-action="click->lock-carousel#lock"><i class="fa-solid fa-unlock"></i></p>
+    <div class="lock">
+      <p data-action="click->lock-carousel#lock"><i class="fa-solid fa-unlock"></i></p>
+    </div>
     <div id="carousel<%= category %>" class="carousel slide">
       <div class="carousel-inner" style="margin-top: 5px;">
         <% items.each_with_index do |item, index| %>
