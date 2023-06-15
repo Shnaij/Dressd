@@ -5,6 +5,7 @@
 .header-weather {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 5px 0;
   align-items: center;
   margin: 8px 0;
@@ -43,6 +44,7 @@
   width: 50px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: top;
 }
 
 .logout-container {
@@ -54,10 +56,15 @@
 .logout-link {
   font-size: 14px; /* Adjust the font size as needed */
   color: white;
-  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-
-
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: "Montserrat Alternates", "sans-serif";
 }
+
+//.logout-link:hover {
+ // color: $secondary-color;
+ // transition: color .5s;
+//}
+
 
 .no-outfits-message {
   // padding-top: 50px; /* Adjust the value as needed */

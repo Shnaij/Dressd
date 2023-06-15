@@ -20,9 +20,13 @@
   border: 1px solid $secondary-color;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
+  font-size: 14px;
+
 }
 
 .tag-selector:checked + label {
   background-color: $secondary-color;
   color: $card-color;
+  color: black;
+
 }

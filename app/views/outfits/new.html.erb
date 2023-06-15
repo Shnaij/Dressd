@@ -1,8 +1,8 @@
 <div class="banner">
   <%= link_to root_path do %>
-    <%= image_tag("dressd-logo.png", alt: "Logo", class: "banner-logo") %>
+    <%= image_tag("dressd-logo2.png", alt: "Logo", class: "banner-logo") %>
   <% end %>
-  <h1>Outfit Planner</h1>
+  <h1>Dress Me</h1>
 </div>
 <div class="container mt-3" data-controller="filtering">
   <div class="filter-sort my-2">
@@ -60,15 +60,14 @@
         </div>
       </div>
       <%= render "items_carousel", items: @shoes, message: @shoes_message, category: "Shoes" %>
-    </div>
-    <%= f.text_field :title, class: "search-field w-100 my-3", placeholder: "Give this outfit a name" %>
-    <%= f.text_field :dress, data: {outfit_target: "dressField"}, class: "d-none" %>
-    <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
-    <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
-    <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
+    </div style="display: flex;">
+      <%= f.text_field :title, class: "search-field w-100 my-2", placeholder: "Give this outfit a name" %>
+     <%= f.submit "Save this outfit", class: "beige-button" %>
+     <%= f.text_field :dress, data: {outfit_target: "dressField"}, class: "d-none" %>
+     <%= f.text_field :top, data: {outfit_target: "topField"}, class: "d-none" %>
+     <%= f.text_field :bottom, data: {outfit_target: "bottomField"}, class: "d-none" %>
+     <%= f.text_field :shoe, data: {outfit_target: "shoeField"}, class: "d-none" %>
     <div class="button-container padding-bottom-more">
-      <div class="left-button">
-        <%= f.submit "Save this outfit", class: "beige-button" %>
       </div>
     </div>
   <% end %>
