@@ -11,12 +11,18 @@
     height: 80px;
     border-radius: 0 0 0 0;
     position: relative;
+
+    h1 {
+      font-weight: 600;
+      font-family: "Montserrat Alternates", "sans-serif";
+    }
 }
 
 .banner-logo {
-  max-width: 100px;
+  max-width: 200px;
   height: auto;
   position: absolute;
-  top: -10px;
-  left: -5px;
+  top: -45px;
+  left: -40px;
+
 }
