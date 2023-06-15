@@ -38,3 +38,12 @@
 .outfit-type {
   display: flex;
 }
+
+.lock {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  position: absolute;
+  z-index: 1;
+  left: 60%;
+  top: 50;
+}
