@@ -11,9 +11,8 @@
         <h2 class="card-title py-1"><%= item.title %></h2>
         <p class="card-p">Brand: <%= item.brand %></p>
         <p class="card-p">Color: <%= item.color %></p>
-        <% item.styles.each do |style| %>
-          <p class="card-p">Style: <%= style.title %></p>
-        <% end %>
+        <p class="card-p">Style: <%= item.styles.pluck(:title).join(", ") %></p>
+        <p class="card-p">Weather: <%= item.items_weathers.pluck(:name).join(", ") %></p>
       </div>
     </div>
   <% end %>
