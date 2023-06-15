@@ -14,8 +14,7 @@
 
 <div class="container padding-bottom-more" data-controller="weather">
   <div class="header-weather d-none" data-weather-target="header">
-    <div class="logo">
-      <%= image_tag("weather.png", alt: "Logo", class: "logo-image", data: { weather_target: "icon"}) %>
+    <div class="weather-logo" data-weather-target="icon">
     </div>
     <p>Today's weather is... <span data-weather-target="description"></span></p>
   </div>
@@ -23,9 +22,9 @@
     <div class="left-button">
       <%= link_to "Dress Me", new_outfit_path, class: "beige-button" %>
     </div>
-    <div class="right-button">
-      <button class="beige-button">Friends</button>
-    </div>
+    <%# <div class="right-button">
+      <button class="pink-button">Friends</button>
+    </div> %>
   </div>
   <div class="card-home-details">
     <div class="outfit-card">
@@ -36,7 +35,9 @@
       <div class="outfit-card-grid h200">
         <% @items.each do |item| %>
           <% if item.photo.attached? %>
-            <%= cl_image_tag item.photo.key, class: "card-image" %>
+            <%= link_to items_path(item_id: item), class: "text-decoration-none h200" do %>
+              <%= cl_image_tag item.photo.key, class: "card-image" %>
+            <% end %>
           <% end %>
         <% end %>
         <% if @items.empty? %>
