@@ -14,11 +14,14 @@ export default class extends Controller {
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${this.apiKey}&units=metric`)
         .then(response => response.json())
         .then((data) => {
-          console.log(data);
+          // MANUPULATING THE DATA ( WILL BE DELETED )
+          // data.weather[0].main = "Clear";
+
+
           if (data.weather[0].main == "Clear") {
             this.iconTarget.innerHTML = '<i class="fa-solid fa-sun"></i>'
           } else if (data.weather[0].main == "Clouds") {
-            this.iconTarget.innerHTML = '<i class="fa-solid fa-cloud-sun"></i>'
+            this.iconTarget.innerHTML = '<i class="fa-solid fa-cloud"></i>'
           } else if (data.weather[0].main == "Thunderstorm") {
             this.iconTarget.innerHTML = '<i class="fa-solid fa-cloud-bolt"></i>'
           } else if (data.weather[0].main == "Snow") {
