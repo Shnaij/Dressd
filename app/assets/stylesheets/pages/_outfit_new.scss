@@ -33,8 +33,28 @@
   top: 0px;
   right: 0px;
   opacity: 0.6;
+
+  height: 40px;
+  width: 40px;
+  text-align: end;
 }
 
 .outfit-type {
   display: flex;
+}
+
+.lock {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  position: absolute;
+  z-index: 1;
+  left: 60%;
+  top: 50;
+  
+    i.fa-unlock {
+      color: $primary-color
+    }
+    i.fa-lock {
+      color: $secondary-color-hover
+    }
 }

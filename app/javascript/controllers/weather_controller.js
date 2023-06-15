@@ -15,7 +15,7 @@ export default class extends Controller {
         .then(response => response.json())
         .then((data) => {
           // MANUPULATING THE DATA ( WILL BE DELETED )
-          // data.weather[0].main = "Clear";
+          //data.weather[0].main = "Clear";
 
 
           if (data.weather[0].main == "Clear") {
