@@ -4,7 +4,7 @@
   <% end %>
   <h1>Dress Me</h1>
 </div>
-<div class="container mt-3 z-index-1" data-controller="filtering">
+<div class="container mt-3" data-controller="filtering">
   <div class="filter-sort my-2">
     <%= form_tag(new_outfit_path, method: :get, data: { filtering_target: "form" }) do %>
       <div class="filter-row">
