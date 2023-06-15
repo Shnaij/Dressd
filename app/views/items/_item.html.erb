@@ -12,7 +12,14 @@
         <p class="card-p">Brand: <%= item.brand %></p>
         <p class="card-p">Color: <%= item.color %></p>
         <p class="card-p">Style: <%= item.styles.pluck(:title).join(", ") %></p>
-        <p class="card-p">Weather: <%= item.items_weathers.pluck(:name).join(", ") %></p>
+        <div class="item-weather-icons">
+          <% item.items_weathers.pluck(:name)[0..2].each do |weather| %>
+           <% index = ItemsWeather::NAMES.find_index(weather) %>
+           <% icon = ItemsWeather::ICONS[index] %>
+           <%= sanitize icon %>
+          <% end %>
+        </div>
+        <p class="card-p"> </p>
       </div>
     </div>
   <% end %>
